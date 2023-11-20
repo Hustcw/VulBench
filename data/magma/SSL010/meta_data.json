@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow",
+    "vulnerable_function": [
+        "bn_expand"
+    ],
+    "root_cause": "There may be an integer overflow vulnerability with the expression \"bits + BN_BITS2 - 1\"."
+}

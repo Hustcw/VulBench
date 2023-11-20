@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Divide-by-Zero, Math Error",
+    "vulnerable_function": [
+        "SplashOutputDev::tilingPatternFill"
+    ],
+    "root_cause": "There is a divide-by-zero vulnerability when calculating `repeatX = result_width / surface_width` and `repeatY = result_height / surface_height`, as there is no check for whether `surface_width` and `surface_height` are non-zero values.\n\nThis means that if `surface_width` or `surface_height` are zero, the program will try to divide by zero, which can cause unexpected behavior or crashes."
+}

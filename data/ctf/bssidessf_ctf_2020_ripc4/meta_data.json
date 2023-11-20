@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Type Confusion",
+    "vulnerable_function": "set_key,print_state",
+    "root_cause": "There is a type confusion vulnerability in the ws->_anon_0 variable. In the set_key function, ws->_anon_0.enc_state is set to the user-provided input. In the set_encoding function, ws->_anon_0.print_encoded is set to a function pointer. However, in the print_state function, ws->_anon_0 is directly used as a function pointer without checking the type, which may result in the execution of user-provided input. This issue causes a type confusion problem.",
+    "global_variables_ida": "FILE * stdout@@GLIBC_2.2.5;\nFILE * stdin@@GLIBC_2.2.5;\nchar buf.3753[4096];\nconst char byte_3118;\nconst unsigned __int8 base64_table[65];",
+    "global_variables_manual": "char buf_3753[4096];\n\nunion pointer\n{\n  void (*print_encoded)(const char *, size_t);\n  char *enc_state;\n};\n\nstruct workspace_t\n{\n  int type;\n  char *input_buf;\n  size_t buf_len;\n  pointer _anon_0;\n};"
+}

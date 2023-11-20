@@ -1,0 +1,4 @@
+{
+    "vulnerability_type": "Resource management error, like Excessive Iteration",
+    "vulnerable": true
+}

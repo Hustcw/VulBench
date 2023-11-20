@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow",
+    "vulnerable_function": [
+        "tls_decrypt_ticket"
+    ],
+    "root_cause": "The vulnerability occurs when calling OPENSSL_malloc(eticklen) because, before the call, eticklen is decremented by mlen and then by TLSEXT_KEYNAME_LENGTH + EVP_CIPHER_CTX_get_iv_length(ctx). The issue is that no check is performed to ensure that eticklen is greater than zero when calling malloc. This is because the function does not verify that the initial value of eticklen is greater than TLSEXT_KEYNAME_LENGTH + EVP_CIPHER_CTX_get_iv_length(ctx) + mlen."
+}

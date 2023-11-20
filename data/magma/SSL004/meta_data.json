@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Stack Out-of-bound Read",
+    "vulnerable_function": [
+        "X509_NAME_oneline"
+    ],
+    "root_cause": "In the for loop `for (j = 0; j < num; j++)`, there is an access to `q[j]`, but the relationship between `num` and the size of `q = ebcdic_buf` is not checked. This can lead to a vulnerability of out-of-bounds read."
+}

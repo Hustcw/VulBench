@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerable_function": "sub_400B41",
+    "root_cause": "In the sub_400B41 function, after freeing the memory pointed by a1[v0], there is no zeroing or other marking performed. This can result in Double Free or Use After Free vulnerabilities.",
+    "global_variables_ida": "FILE * stderr;\nvoid * ptr;\n_DWORD dword_602098;",
+    "global_variables_manual": "char *a1[7];"
+}

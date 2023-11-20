@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Write",
+    "vulnerable_function": [
+        "xmlSnprintfElementContent"
+    ],
+    "root_cause": "The root cause of the vulnerability lies in not checking if there is enough remaining space in the buffer 'buf' to accommodate two additional characters before performing the strcat(buf, \")\"); and strcat(buf, \"\"); operations at the end of the function. Specifically, it fails to ensure that the size of the buffer is greater than the length of the current buffer contents ('strlen(buf)') plus 2."
+}

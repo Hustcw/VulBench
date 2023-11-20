@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": [
+        "png_handle_PLTE"
+    ],
+    "root_cause": "In the function png_crc_read(png_ptr, buf, 3), data is being read from png_ptr, but the loop count is not limited based on the information provided by the file. The loop count, num, should also be restricted by max_palette_length."
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Write",
+    "vulnerable_function": "Profile::update_msg",
+    "root_cause": "In the Profile::update_msg function, the size of heap memory is obtained using v4 = malloc_usable_size(ptr); however, the source of the ptr pointer is not checked to see if it comes from a heap allocation. This may lead to undefined behavior and cause a memory overflow.",
+    "global_variables_ida": "char a1UpdateMessage[0x13];\nchar a2ShowProfile[0x11];\nchar a0Exit[0x9];\n_DWORD asc_4017E2;",
+    "global_variables_manual": ""
+}

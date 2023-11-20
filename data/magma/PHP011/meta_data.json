@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow, Lack of Check, Out of Bound",
+    "vulnerable_function": [
+        "exif_offset_info_try_get"
+    ],
+    "root_cause": "In the exif_offset_info_try_get function, there is no check to ensure that info->offset_base + offset is within the valid range. It should be confirmed that info->offset_base + offset is greater than info->valid_start and info->offset_base + offset + length is less than info->valid_end. This can lead to a buffer overflow vulnerability."
+}

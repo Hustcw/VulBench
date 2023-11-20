@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read, Out-of-bound Write",
+    "vulnerable_function": [
+        "fpDiff"
+    ],
+    "root_cause": "In the fpDiff function, there is no check to ensure that wc is divisible by stride or that cc can be divided by bps * stride, which could lead to a vulnerability resulting in out-of-bounds read/write operations during the loop."
+}

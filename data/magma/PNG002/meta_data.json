@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Double Free",
+    "vulnerable_function": [
+        "png_safe_execute"
+    ],
+    "root_cause": "After calling png_image_free, if png_safe_execute is used, it will execute png_image_free(image) again, causing an infinite loop or a double free vulnerability."
+}

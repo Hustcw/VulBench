@@ -1,0 +1,10 @@
+{
+    "vulnerability_type": "Integer Overflow",
+    "vulnerable_function": [
+        "xmlMallocLoc",
+        "xmlMallocAtomicLoc",
+        "xmlReallocLoc",
+        "xmlMemStrdupLoc"
+    ],
+    "root_cause": "In the lines `tmp = (MEMHDR *)realloc(p, RESERVE_SIZE + size);` and `p = (MEMHDR *)malloc(RESERVE_SIZE + size);`, there is a potential integer overflow vulnerability when calculating `RESERVE_SIZE + size`."
+}

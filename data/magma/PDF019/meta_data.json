@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read, Out-of-bound Write",
+    "vulnerable_function": [
+        "JBIG2Bitmap::combine"
+    ],
+    "root_cause": "There is no check for the range of y + yy within the loop for (yy = y0; yy < y1; ++yy), which might result in an integer overflow vulnerability. This can cause destPtr to access memory outside of its intended bounds, leading to out-of-bounds read or write issues."
+}

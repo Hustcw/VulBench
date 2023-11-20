@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Lack of Check, Out-of-bound Read",
+    "vulnerable_function": [
+        "exif_process_IFD_in_MAKERNOTE"
+    ],
+    "root_cause": "In the exif_process_IFD_in_MAKERNOTE function, there is a potential out-of-bounds read vulnerability when using php_ifd_get16u(dir_start, ImageInfo->motorola_intel) to read data. The issue arises from the possibility that dir_start to dir_start + 2 may fall outside the range of value_ptr to value_ptr + value_len."
+}

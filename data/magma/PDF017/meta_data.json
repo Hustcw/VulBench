@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": [
+        "FoFiTrueType::cvtSfnts"
+    ],
+    "root_cause": "In the FoFiTrueType::cvtSfnts function, the size of the 'length' parameter is not checked. If the length is greater than the size of vheaTab, it will cause a buffer overflow vulnerability when calling dumpString(vheaTab, length, outputFunc, outputStream); as it attempts to read data beyond the vheaTab size. Similarly, if the length is greater than vmtxTabLength, it will cause a buffer overflow vulnerability when calling dumpString(vmtxTab, length, outputFunc, outputStream); as it attempts to read data beyond the vmtxTab size."
+}

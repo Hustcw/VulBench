@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Lack of Check, Out-of-bound Write",
+    "vulnerable_function": [
+        "ImageStream::getLine"
+    ],
+    "root_cause": "In the ImageStream::getLine function, when calling str->doGetChars(inputLineSize, inputLine), there is a possibility that it might return EOF, which would make the readChars variable negative. This could lead to an out-of-bounds write vulnerability when executing the for loop: for (; readChars < inputLineSize; readChars++) inputLine[readChars] = EOF;."
+}

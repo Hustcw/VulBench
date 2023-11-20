@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow",
+    "vulnerable_function": [
+        "TIFFReadEncodedStripGetStripSize"
+    ],
+    "root_cause": "There is a potential integer overflow vulnerability in the calculation of `td->td_imagelength + rowsperstrip`. If this occurs, it may result in incorrect calculations later on."
+}

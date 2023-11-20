@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read, Out-of-bound Write",
+    "vulnerable_function": [
+        "horDiff8"
+    ],
+    "root_cause": "In the horDiff8 function, there is no check to ensure that cc is divisible by stride, which may result in a vulnerability causing out-of-bounds reads or writes during the loop iteration."
+}

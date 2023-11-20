@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read, Out-of-bound Write",
+    "vulnerable_function": [
+        "wav_write_header"
+    ],
+    "root_cause": "In the wav_write_header function, within the loop \"for (tmp = 0; tmp < psf->instrument->loop_count; tmp++)\", there is no check to ensure that the value of psf->instrument->loop_count read from the file does not exceed the size of psf->instrument->loops. This leads to a potential out-of-bounds access vulnerability."
+}

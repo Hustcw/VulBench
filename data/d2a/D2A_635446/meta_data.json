@@ -1,0 +1,4 @@
+{
+    "vulnerability_type": "malloc called with a large value",
+    "vulnerable": true
+}

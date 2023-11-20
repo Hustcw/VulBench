@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": "sub_CAA",
+    "root_cause": "In the sub_CAA function, the loop for (i = 0; i <= 31 && destination[i]; ++i) may end with i being 32. Both destination and people_count have a size of 32. Using i to index destination and people_count can cause out-of-bounds access vulnerability.",
+    "global_variables_ida": "FILE * stderr;\n_QWORD qword_202060;\n_QWORD qword_202068;",
+    "global_variables_manual": "__int64 dest_cnt;\n__int64 idx;\nchar *destination[32];\n_QWORD people_count[32];"
+}

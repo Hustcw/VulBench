@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": "play",
+    "root_cause": "In the play function, the size of the buffer 's' is 208, but when calling the 'read(0, s, 400u)' function, it attempts to read 400 bytes which exceeds the size of 's'. This results in a buffer overflow.",
+    "global_variables_ida": "FILE * __bss_start;\nFILE * stdout@@GLIBC_2.0;",
+    "global_variables_manual": ""
+}

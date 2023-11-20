@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerable_function": "deleteNote",
+    "root_cause": "In the deleteNote function, after freeing the memory for notes[i] using free(notes[i]); the code does not nullify notes[i] and set states[i] to 0. This omission can lead to potential Double Free or Use After Free vulnerabilities, as it does not prevent notes[i] from being freed multiple times.",
+    "global_variables_ida": "FILE * stdout@@GLIBC_2.2.5;\nFILE * stdin@@GLIBC_2.2.5;\nchar * notes[15];\nint fd;\nchar * key;\nint re_entry;\nint states[15];\nchar name[144];\nchar a90s[0x5];",
+    "global_variables_manual": "char *notes[15]; // idb\nint fd; // idb\nchar *key; // idb\nint re_entry; // idb\nint states[15]; // idb\nchar name[144]; // idb"
+}

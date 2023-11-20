@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Lack of Check, Type Confusion",
+    "vulnerable_function": [
+        "EmbFile::save2"
+    ],
+    "root_cause": "In the EmbFile::save2 function, there is a lack of checking for the m_objStr type. When the m_objStr type is not a stream, subsequent stream-related operations cannot be performed, leading to a type confusion vulnerability."
+}

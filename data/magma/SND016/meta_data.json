@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Lack of Boundary Check",
+    "vulnerable_function": [
+        "double64_init"
+    ],
+    "root_cause": ""
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Buffer-Overflow, Format String Vulnerability, Out-of-bound Write",
+    "vulnerable_function": "view_paper_info,add_paper",
+    "root_cause": "In the add_paper function, the gets function is used without length limit, which causes a vulnerability of memory overflow. In the view_paper_info function, printf(a1->abstract); and printf(a1->tags); are used, and a1->abstract and a1->tags can be controlled by users, leading to a format string vulnerability.",
+    "global_variables_ida": "_DWORD dword_60208C;\nchar jpt_400AD7[0x40];\nchar jpt_400EE6[0x30];",
+    "global_variables_manual": "struct Paper\n{\n  char name[256];\n  char author[256];\n  char abstract[512];\n  char tags[64];\n};\n\nint count;\nPaper paper[25];"
+}

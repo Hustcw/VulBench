@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Buffer-Overflow",
+    "vulnerable_function": "sub_804895A,sub_8048A71",
+    "root_cause": "In the sub_804895A function, the size of nptr is 120, but through v1 = sub_8048907(nptr, 0x78u); the nptr is read with a size of 0x78, leading to a memory overflow vulnerability. In the sub_8048A71 function, the size of the v1 variable is 40, but through sub_8048907(v1, 0x64u); the function reads a size of 0x64 data, leading to a memory overflow vulnerability.",
+    "global_variables_ida": "int fd;\nint dword_804B1BC;\nchar asc_8048F9C[0x22];\nchar a1Echo[0x9];\nchar a2ReverseEcho[0x11];\nchar a3Exit[0x9];\nchar asc_8048FE4[0x21];",
+    "global_variables_manual": "int fd;\nint dword_804B1BC;"
+}

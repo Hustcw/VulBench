@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": "get_array",
+    "root_cause": "In the get_array function, there is no check for whether the input n is less than the size of memory allocated for a1, resulting in the possibility to access addresses beyond the allocated size of a1 through a loop, causing a buffer overflow.",
+    "global_variables_ida": "FILE * stdin@@GLIBC_2.2.5;\nFILE * stderr@@GLIBC_2.2.5;\nFILE * stdout@@GLIBC_2.2.5;\n_DWORD n;\nchar t[8];\nchar a1ChangeNum[0xE];\nchar a2GetArray[0xD];\nchar a3Unique[0xA];\n_QWORD a4Exit;\nchar asc_4012A3[0x3];",
+    "global_variables_manual": "int n; // weak\nchar t[8]; // idb"
+}

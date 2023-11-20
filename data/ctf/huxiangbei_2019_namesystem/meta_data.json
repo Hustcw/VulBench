@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerable_function": "delete_name",
+    "root_cause": "In the `delete_name` function, after freeing a1[v0] using `free(a1[v0])`, the pointer in a1[v0+1] is copied into a1[v0]. This results in pointers to the same address existing in both variables, which may cause Double Free or Use After Free vulnerabilities.",
+    "global_variables_ida": "void * ptr;",
+    "global_variables_manual": "char *a1[20];"
+}

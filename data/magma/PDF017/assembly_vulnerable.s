@@ -1,0 +1,968 @@
+FoFiTrueType::cvtSfnts(void (*)(void *,char const*,int),void *,GooString const*,bool,int *)const proc
+    push    rbp
+    push    r15
+    push    r14
+    push    r13
+    push    r12
+    push    rbx
+    sub     rsp, 298h
+    mov     rbp, maxUsedGlyph
+    mov     [rsp+2C8h+var_2AC], r8d
+    mov     r15, name
+    mov     r14, outputStream
+    mov     r12, outputFunc
+    mov     rbx, this
+    pxor    xmm0, xmm0
+    movdqa  [rsp+2C8h+var_258], xmm0
+    movdqa  [rsp+2C8h+var_248], xmm0
+    mov     [rsp+2C8h+var_238], 1000000h
+    mov     byte ptr [rsp+2C8h+var_258+1], 1
+    mov     byte ptr [rsp+2C8h+var_248+5], 1
+    mov     dword ptr [r9], 0FFFFFFFFh
+    mov     esi, offset tag; "head"
+    call    _ZNK12FoFiTrueType9seekTableEPKc; FoFiTrueType::seekTable(char const*)
+    test    eax, eax
+    js      loc_4D3F34
+    mov     rdi, this; this
+    cmp     eax, [rbx+20h]
+    jge     loc_4D3F34
+    mov     rcx, [this+18h]
+    cdqe
+    lea     rax, [rax+rax*4]
+    mov     ebx, [rcx+rax*4+8]
+    mov     esi, ebx; pos
+    mov     edx, 36h ; '6'; size
+    mov     [rsp+2C8h+var_2B8], this
+    call    _ZNK8FoFiBase11checkRegionEii; FoFiBase::checkRegion(int,int)
+    mov     rdx, [rsp+2C8h+var_2B8]
+    test    al, al
+    jz      loc_4D3F34
+    mov     [rsp+2C8h+var_270], maxUsedGlyph
+    mov     [rsp+2C8h+var_230], name
+    mov     [rsp+2C8h+var_2A8], outputStream
+    mov     [rsp+2C8h+var_2A0], outputFunc
+    movsxd  rax, ebx
+    mov     rcx, [rdx+8]
+    movdqu  xmm0, xmmword ptr [rcx+rax]
+    movdqu  xmm1, xmmword ptr [rcx+rax+10h]
+    movupd  xmm2, xmmword ptr [rcx+rax+20h]
+    movdqa  xmmword ptr [rsp+2C8h+data], xmm0
+    mov     rax, [rcx+rax+2Eh]
+    mov     [rsp+2C8h+var_1EA], rax
+    movapd  xmmword ptr [rsp+0D0h], xmm2
+    movdqa  [rsp+2C8h+var_208], xmm1
+    mov     dword ptr [rsp+2C8h+data+8], 0
+    cmp     dword ptr [rdx+38h], 2
+    jb      short loc_4D3403
+    mov     word ptr [rsp+2C8h+var_1EA+4], 100h
+loc_4D3403:
+    mov     edi, [rdx+34h]
+    add     edi, 1; count
+    mov     esi, 10h; size
+    xor     edx, edx; checkoverflow
+    call    _Z8gmallocniib; gmallocn(int,int,bool)
+    mov     rbp, rax
+    mov     esi, offset aLoca; "loca"
+    mov     rdi, [rsp+2C8h+var_2B8]; this
+    call    _ZNK12FoFiTrueType9seekTableEPKc; FoFiTrueType::seekTable(char const*)
+    mov     rcx, [rsp+2C8h+var_2B8]
+    mov     pos, [rcx+18h]
+    cdqe
+    lea     rax, [rax+rax*4]
+    mov     r13d, [rbx+rax*4+8]
+    mov     esi, offset aGlyf; "glyf"
+    mov     rdi, [rsp+2C8h+var_2B8]; this
+    call    _ZNK12FoFiTrueType9seekTableEPKc; FoFiTrueType::seekTable(char const*)
+    mov     r15, [rsp+2C8h+var_2B8]
+    cdqe
+    lea     rax, [rax+rax*4]
+    mov     r12d, [rbx+rax*4+10h]
+    mov     [rsp+2C8h+ok], 1
+    mov     eax, [r15+34h]
+    test    eax, eax
+    mov     [rsp+2C8h+p], locaTable
+    js      short loc_4D34D8
+    add     rbp, 4
+    mov     r14, 0FFFFFFFFFFFFFFFFh
+    mov     ebx, r13d
+    jmp     short loc_4D34B3
+loc_4D3480:
+    mov     rdi, r15; this
+    mov     esi, ebx; pos
+    lea     rdx, [rsp+2C8h+ok]; ok
+    call    _ZNK8FoFiBase8getU16BEEiPb; FoFiBase::getU16BE(int,bool *)
+    add     eax, eax
+loc_4D3491:
+    cmp     eax, r12d
+    cmovg   eax, r12d
+    mov     [rbp+0], eax
+    movsxd  rax, dword ptr [r15+34h]
+    add     ebx, 2
+    add     rbp, 10h
+    add     r14, 1
+    add     r13d, 4
+    cmp     r14, rax
+    jge     short loc_4D34D3
+loc_4D34B3:
+    lea     eax, [r14+1]
+    mov     [rbp-4], eax
+    cmp     dword ptr [r15+38h], 0
+    jz      short loc_4D3480
+    mov     rdi, r15; this
+    mov     esi, r13d; pos
+    lea     rdx, [rsp+2C8h+ok]; ok
+    call    _ZNK8FoFiBase8getU32BEEiPb; FoFiBase::getU32BE(int,bool *)
+    jmp     short loc_4D3491
+loc_4D34D3:
+    mov     rbp, [rsp+2C8h+p]
+loc_4D34D8:
+    cdqe
+    shl     rax, 4
+    lea     rsi, [rax+rbp]
+    add     rsi, 10h; __last
+    mov     rdi, rbp; __first
+    call    _ZNSt3__14sortIP12TrueTypeLoca28cmpTrueTypeLocaOffsetFunctorEEvT_S4_T0_; std::sort<TrueTypeLoca *,cmpTrueTypeLocaOffsetFunctor>(TrueTypeLoca *,TrueTypeLoca *,cmpTrueTypeLocaOffsetFunctor)
+    movsxd  r9, dword ptr [r15+34h]
+    test    r9, r9
+    mov     glyfTableLen, rbp
+    mov     r13, [rsp+2C8h+var_270]
+    jle     short loc_4D3565
+    mov     edx, [r12+4]
+    mov     r8d, r9d
+    and     r8d, 1
+    cmp     r9d, 1
+    jnz     short loc_4D351A
+    xor     esi, esi
+    test    r8, r8
+    jnz     short loc_4D3555
+    jmp     short loc_4D3565
+loc_4D351A:
+    lea     rdi, [r12+24h]
+    mov     rax, r9
+    sub     rax, r8
+    xor     esi, esi
+    mov     ecx, edx
+    nop     dword ptr [rax+00000000h]
+loc_4D3530:
+    mov     ebp, [rdi-10h]
+    mov     edx, [rdi]
+    mov     ebx, edx
+    sub     ebx, ebp
+    sub     ebp, ecx
+    mov     [rdi-18h], ebp
+    add     rsi, 2
+    mov     [rdi-8], ebx
+    add     rdi, 20h ; ' '
+    mov     ecx, edx
+    cmp     rax, rsi
+    jnz     short loc_4D3530
+    test    r8, r8
+    jz      short loc_4D3565
+loc_4D3555:
+    shl     i, 4
+    mov     eax, [r12+rsi+14h]
+    sub     eax, edx
+    mov     [r12+rsi+0Ch], eax
+loc_4D3565:
+    shl     r9, 4
+    mov     dword ptr [r12+r9+0Ch], 0
+    lea     rsi, [r12+r9]
+    add     rsi, 10h; __last
+    mov     rdi, r12; __first
+    call    _ZNSt3__14sortIP12TrueTypeLoca25cmpTrueTypeLocaIdxFunctorEEvT_S4_T0_; std::sort<TrueTypeLoca *,cmpTrueTypeLocaIdxFunctor>(TrueTypeLoca *,TrueTypeLoca *,cmpTrueTypeLocaIdxFunctor)
+    mov     rcx, [rsp+2C8h+var_2B8]
+    mov     edi, [rcx+34h]
+    test    edi, edi
+    js      short loc_4D3609
+    lea     rbp, [r12+0Ch]
+    xor     r14d, r14d
+    mov     rbx, 0FFFFFFFFFFFFFFFFh
+    lea     r15, [rsp+2C8h+z]
+    jmp     short loc_4D35C1
+loc_4D35B0:
+    movsxd  rdi, dword ptr [rcx+34h]
+    add     rbx, 1
+    add     rbp, 10h
+    cmp     rbx, rdi
+    jge     short loc_4D3609
+loc_4D35C1:
+    mov     [rbp-4], r14d
+    mov     esi, [rbp+0]; y
+    mov     edi, r14d; x
+    mov     rdx, r15; z
+    call    _Z10checkedAddIiEbT_S0_PS0_; checkedAdd<int>(int,int,int*)
+    test    al, al
+    jnz     short loc_4D3602
+    mov     r14d, [rsp+2C8h+z]
+    mov     eax, r14d
+    and     eax, 3
+    jz      short loc_4D35EE
+    sub     r14d, eax
+    add     r14d, 4
+loc_4D35EE:
+    mov     rcx, [rsp+2C8h+var_2B8]
+    cmp     dword ptr [rbp+0], 0
+    jle     short loc_4D35B0
+    lea     eax, [rbx+1]
+    mov     [r13+0], eax
+    jmp     short loc_4D35B0
+loc_4D3602:
+    mov     [rsp+2C8h+ok], 0
+    jmp     short loc_4D35EE
+loc_4D3609:
+    add     edi, 1; count
+    xor     eax, eax
+    cmp     dword ptr [rcx+38h], 0
+    setnz   al
+    lea     esi, [rax+rax]
+    add     esi, 2; size
+    mov     [rsp+2C8h+var_294], 0
+    xor     edx, edx; checkoverflow
+    call    _Z8gmallocniib; gmallocn(int,int,bool)
+    mov     rbx, [rsp+2C8h+var_2B8]
+    cmp     dword ptr [rbx+34h], 0
+    js      short loc_4D369C
+    xor     ebp, ebp
+    jmp     short loc_4D3665
+loc_4D3640:
+    mov     edx, ecx
+    shr     edx, 9
+    mov     [locaData+i*2], dl
+    shr     ecx, 1
+    lea     rdx, ds:1[i]
+    add     rdx, i
+loc_4D3655:
+    mov     [locaData+rdx], cl
+    movsxd  rcx, dword ptr [rbx+34h]
+    cmp     rbp, rcx
+    lea     rbp, [rbp+1]
+    jge     short loc_4D369C
+loc_4D3665:
+    mov     rcx, i
+    shl     rcx, 4
+    mov     ecx, [r12+rcx+8]
+    cmp     dword ptr [rbx+38h], 0
+    jz      short loc_4D3640
+    mov     edx, ecx
+    shr     edx, 18h
+    lea     esi, ds:0[i*4]
+    mov     [locaData+rsi], dl
+    mov     edx, ecx
+    shr     edx, 10h
+    mov     [locaData+rsi+1], dl
+    mov     [locaData+rsi+2], ch
+    lea     edx, ds:3[i*4]
+    jmp     short loc_4D3655
+loc_4D369C:
+    mov     [rsp+2C8h+var_278], locaData
+    mov     esi, offset aVhea; "vhea"
+    mov     rdi, rbx; this
+    call    _ZNK12FoFiTrueType9seekTableEPKc; FoFiTrueType::seekTable(char const*)
+    mov     ebp, eax
+    not     ebp
+    shr     ebp, 1Fh
+    mov     esi, offset aVmtx; "vmtx"
+    mov     rdi, rbx; this
+    call    _ZNK12FoFiTrueType9seekTableEPKc; FoFiTrueType::seekTable(char const*)
+    not     eax
+    shr     eax, 1Fh
+    lea     eax, [rax+rbp]
+    add     eax, 9
+    mov     [rsp+2C8h+var_298], eax
+    cmp     byte ptr [rsp+2C8h+var_2AC], 0
+    jz      short loc_4D373E
+    mov     esi, offset aVhea; "vhea"
+    mov     rdi, rbx; this
+    call    _ZNK12FoFiTrueType9seekTableEPKc; FoFiTrueType::seekTable(char const*)
+    mov     r14d, eax
+    mov     esi, offset aVmtx; "vmtx"
+    mov     rdi, rbx; this
+    call    _ZNK12FoFiTrueType9seekTableEPKc; FoFiTrueType::seekTable(char const*)
+    mov     ebp, eax
+    or      eax, r14d
+    jns     short loc_4D373E
+    mov     esi, offset tag; "head"
+    mov     rdi, rbx; this
+    call    _ZNK12FoFiTrueType9seekTableEPKc; FoFiTrueType::seekTable(char const*)
+    mov     rcx, [rbx+18h]
+    cdqe
+    lea     rax, [rax+rax*4]
+    mov     esi, [rcx+rax*4+8]
+    add     esi, 12h; pos
+    lea     rdx, [rsp+2C8h+ok]; ok
+    mov     rdi, rbx; this
+    call    _ZNK8FoFiBase8getU16BEEiPb; FoFiBase::getU16BE(int,bool *)
+    mov     [rsp+2C8h+var_294], eax
+    shr     r14d, 1Fh
+    add     r14d, [rsp+2C8h+var_298]
+    shr     ebp, 1Fh
+    add     ebp, r14d
+    mov     [rsp+2C8h+var_298], ebp
+loc_4D373E:
+    mov     rdi, rbx; this
+    mov     eax, [rsp+2C8h+var_298]
+    shl     eax, 4
+    mov     qword ptr [rsp+2C8h+var_290], rax
+    lea     r13d, [rax+0Ch]
+    mov     eax, [rsp+2C8h+var_294]
+    mov     ecx, eax
+    sar     ecx, 1Fh
+    shr     ecx, 18h
+    add     ecx, eax
+    shr     ecx, 8
+    mov     [rsp+2C8h+var_27C], ecx
+    lea     rax, [r12+0Ch]
+    mov     [rsp+2C8h+var_228], rax
+    xor     ebx, ebx
+    lea     r14, [rsp+2C8h+s]
+    xor     eax, eax
+    mov     [rsp+2C8h+var_288], rax
+    xor     r15d, r15d
+    cmp     ebx, 2
+    jnz     short loc_4D37BC
+    jmp     short loc_4D37F0
+loc_4D378E:
+    mov     [rsp+2C8h+ok], 0
+    nop     word ptr [rax+rax+00000000h]
+    nop     dword ptr [rax]
+loc_4D37A0:
+    mov     rdi, [rsp+2C8h+var_2B8]; this
+    add     r15d, 1
+loc_4D37A9:
+    add     rbx, 1
+    cmp     rbx, 0Bh
+    jz      loc_4D3ADA
+    cmp     ebx, 2
+    jz      short loc_4D37F0
+loc_4D37BC:
+    cmp     ebx, 6
+    jz      loc_4D38C0
+    cmp     ebx, 3
+    jnz     loc_4D3900
+    mov     ebp, 36h ; '6'
+    lea     rsi, [rsp+2C8h+data]; data
+    mov     edx, 36h ; '6'; length
+loc_4D37E0:
+    call    _ZNK12FoFiTrueType20computeTableChecksumEPKhi; FoFiTrueType::computeTableChecksum(uchar const*,int)
+    mov     edx, eax
+    jmp     loc_4D3A50
+loc_4D37F0:
+    mov     rbp, [rdi+18h]
+    mov     esi, offset aGlyf; "glyf"
+    call    _ZNK12FoFiTrueType9seekTableEPKc; FoFiTrueType::seekTable(char const*)
+    mov     rdi, [rsp+2C8h+var_2B8]
+    cmp     dword ptr [rdi+34h], 0
+    jle     loc_4D3982
+    mov     [rsp+2C8h+var_220], i
+    mov     [rsp+2C8h+var_260], r13d
+    mov     [rsp+2C8h+var_25C], r15d
+    cdqe
+    lea     rax, [rax+rax*4]
+    movsxd  rbx, dword ptr [rbp+rax*4+8]
+    xor     r15d, r15d
+    mov     r13, [rsp+2C8h+var_228]
+    mov     dword ptr [rsp+2C8h+var_270], 0
+    xor     ebp, ebp
+    jmp     short loc_4D386B
+loc_4D3850:
+    add     ebp, r12d
+    add     j, 1
+    movsxd  rax, dword ptr [r14+34h]
+    add     r13, 10h
+    cmp     r15, rax
+    mov     rdi, r14; this
+    jge     loc_4D3957
+loc_4D386B:
+    mov     edx, [r13+0]; size
+    mov     r12d, ebp
+    add     r12d, edx
+    mov     eax, r12d
+    and     eax, 3
+    mov     ebp, 4
+    sub     ebp, eax
+    test    eax, eax
+    cmovz   ebp, eax
+    mov     esi, [r13-8]
+    add     esi, ebx; pos
+    mov     r14, rdi
+    call    _ZNK8FoFiBase11checkRegionEii; FoFiBase::checkRegion(int,int)
+    test    al, al
+    jz      short loc_4D3850
+    mov     rax, [r14+8]
+    add     rax, rbx
+    movsxd  rsi, dword ptr [r13-8]
+    add     rsi, rax; data
+    mov     edx, [r13+0]; length
+    call    _ZNK12FoFiTrueType20computeTableChecksumEPKhi; FoFiTrueType::computeTableChecksum(uchar const*,int)
+    add     dword ptr [rsp+2C8h+var_270], eax
+    jmp     short loc_4D3850
+loc_4D38C0:
+    mov     eax, [rdi+34h]
+    add     eax, 1
+    xor     ecx, ecx
+    cmp     dword ptr [rdi+38h], 0
+    setnz   cl
+    lea     ebp, [rcx+rcx]
+    add     ebp, 2
+    imul    ebp, eax
+    mov     rsi, [rsp+2C8h+var_278]; data
+    mov     edx, ebp; length
+    call    _ZNK12FoFiTrueType20computeTableChecksumEPKhi; FoFiTrueType::computeTableChecksum(uchar const*,int)
+    mov     edx, eax
+    test    ebp, ebp
+    jns     loc_4D3A50
+    jmp     loc_4D3AD0
+loc_4D3900:
+    mov     rax, i
+    shl     rax, 4
+    mov     rsi, qword ptr ds:_ZL9t42Tables.tag[rax]; tag
+    mov     r12, rdi
+    call    _ZNK12FoFiTrueType9seekTableEPKc; FoFiTrueType::seekTable(char const*)
+    test    eax, eax
+    js      short loc_4D398B
+    mov     rcx, [r12+18h]
+    cdqe
+    lea     r14, [rax+rax*4]
+    mov     esi, [rcx+r14*4+8]; pos
+    mov     ebp, [rcx+r14*4+10h]
+    mov     rdi, r12; this
+    mov     edx, ebp; size
+    call    _ZNK8FoFiBase11checkRegionEii; FoFiBase::checkRegion(int,int)
+    xor     edx, edx
+    test    al, al
+    jz      loc_4D3A38
+    mov     rax, [r12+18h]
+    movsxd  rsi, dword ptr [rax+r14*4+8]
+    add     rsi, [r12+8]
+    jmp     loc_4D3A2F
+loc_4D3957:
+    mov     r15d, [rsp+2C8h+var_25C]
+    mov     r13d, [rsp+2C8h+var_260]
+    mov     rbx, [rsp+2C8h+var_220]
+    lea     r14, [rsp+2C8h+s]
+    mov     edx, dword ptr [rsp+2C8h+var_270]
+    test    ebp, ebp
+    jns     loc_4D3A50
+    jmp     loc_4D3AD0
+loc_4D3982:
+    xor     edx, edx
+    xor     ebp, ebp
+    jmp     loc_4D3A50
+loc_4D398B:
+    cmp     i, 9
+    jnz     short loc_4D39BC
+    cmp     byte ptr [rsp+2C8h+var_2AC], 0
+    jz      short loc_4D39BC
+    mov     eax, [rsp+2C8h+var_27C]
+    mov     byte ptr [rsp+2C8h+var_258+0Ah], al
+    mov     eax, [rsp+2C8h+var_294]
+    mov     byte ptr [rsp+2C8h+var_258+0Bh], al
+    mov     ebp, 24h ; '$'
+    lea     rsi, [rsp+2C8h+var_258]
+    mov     edx, 24h ; '$'
+    jmp     loc_4D37E0
+loc_4D39BC:
+    cmp     i, 0Ah
+    jnz     loc_4D3ABC
+    cmp     byte ptr [rsp+2C8h+var_2AC], 0
+    jz      loc_4D3ABC
+    mov     j, [rsp+2C8h+var_2B8]
+    mov     r14d, [rax+34h]
+    lea     ebp, [r14+r14]
+    add     ebp, 2
+    movsxd  r12, ebp
+    mov     rdi, r12; size
+    xor     esi, esi; checkoverflow
+    call    _Z7gmallocmb; gmalloc(ulong,bool)
+    mov     ecx, [rsp+2C8h+var_27C]
+    mov     [vmtxTab], cl
+    mov     ecx, [rsp+2C8h+var_294]
+    mov     [vmtxTab+1], cl
+    cmp     r12d, 3
+    mov     rcx, vmtxTab
+    mov     [rsp+2C8h+var_288], rax
+    jl      short loc_4D3A2C
+    add     r14d, r14d
+    mov     rdi, [rsp+2C8h+var_288]
+    add     rdi, 2; this
+    add     r14d, 0FFFFFFFEh
+    add     r14, 2
+    xor     esi, esi; c
+    mov     rdx, r14; n
+    call    _memset
+    mov     rax, [rsp+2C8h+var_288]
+loc_4D3A2C:
+    mov     rsi, rax; data
+loc_4D3A2F:
+    mov     edx, ebp; length
+    call    _ZNK12FoFiTrueType20computeTableChecksumEPKhi; FoFiTrueType::computeTableChecksum(uchar const*,int)
+    mov     edx, eax
+loc_4D3A38:
+    lea     r14, [rsp+2C8h+s]
+    test    ebp, ebp
+    js      loc_4D3AD0
+    nop     dword ptr [rax+rax+00000000h]
+loc_4D3A50:
+    mov     rax, rbx
+    shl     rax, 4
+    mov     rax, qword ptr ds:_ZL9t42Tables.tag[rax]; t42Tables
+    mov     eax, [rax]
+    bswap   eax
+    movsxd  rcx, r15d
+    lea     rcx, [rcx+rcx*4]
+    mov     [rsp+rcx*4+2C8h+z], eax
+    mov     [rsp+rcx*4+2C8h+var_114], edx
+    mov     [rsp+rcx*4+2C8h+var_110], r13d
+    mov     [rsp+rcx*4+2C8h+var_108], ebp
+    mov     edi, r13d; x
+    mov     esi, ebp; y
+    mov     rdx, r14; z
+    call    _Z10checkedAddIiEbT_S0_PS0_; checkedAdd<int>(int,int,int*)
+    test    al, al
+    jnz     loc_4D378E
+    mov     r13d, dword ptr [rsp+2C8h+s]
+    test    r13b, 3
+    jz      loc_4D37A0
+    and     ebp, 3
+    sub     r13d, ebp
+    add     r13d, 4
+    jmp     loc_4D37A0
+loc_4D3ABC:
+    lea     j, [i-9]
+    xor     edx, edx
+    mov     ebp, 0
+    cmp     rax, 1
+    ja      short loc_4D3A50
+    nop     dword ptr [rax]
+loc_4D3AD0:
+    mov     rdi, [rsp+2C8h+var_2B8]
+    jmp     loc_4D37A9
+loc_4D3ADA:
+    mov     r12d, [rsp+2C8h+var_298]
+    cmp     r15d, r12d
+    jl      loc_4D3F46
+loc_4D3AE8:
+    mov     dword ptr [rsp+2C8h+s], 100h
+    mov     [rsp+2C8h+var_1D4], 0
+    mov     [rsp+2C8h+var_1D3], r12b
+    mov     [rsp+2C8h+var_1D2], 3008000h
+    mov     [rsp+2C8h+var_1CE], 0
+    mov     rdx, qword ptr [rsp+2C8h+var_290]
+    mov     eax, edx
+    xor     al, 80h
+    mov     [rsp+2C8h+var_1CD], al
+    movsxd  r13, r12d
+    test    r12d, r12d
+    jle     short loc_4D3B9B
+    lea     rax, [rsp+2C8h+var_1BD]
+    lea     rcx, [rsp+2C8h+var_108]
+    xor     edi, edi
+loc_4D3B40:
+    mov     esi, [rcx-10h]
+    bswap   esi
+    mov     [rax-0Fh], esi
+    mov     esi, [rcx-0Ch]
+    bswap   esi
+    mov     [rax-0Bh], esi
+    mov     esi, [rcx-8]
+    bswap   esi
+    mov     [rax-7], esi
+    mov     esi, [rcx]
+    bswap   esi
+    mov     [rax-3], esi
+    add     i, 1; this
+    add     rax, 10h
+    add     rcx, 14h
+    cmp     rdi, r13
+    jl      short loc_4D3B40
+    or      edx, 0Ch; length
+    lea     rsi, [rsp+2C8h+s]; data
+    mov     qword ptr [rsp+2C8h+var_290], rdx
+    call    _ZNK12FoFiTrueType20computeTableChecksumEPKhi; FoFiTrueType::computeTableChecksum(uchar const*,int)
+    test    r12d, r12d
+    jle     loc_4D3C8F
+    cmp     r12d, 9
+    jnb     short loc_4D3BB5
+    xor     ecx, ecx
+    jmp     loc_4D3C65
+loc_4D3B9B:
+    or      edx, 0Ch; length
+    lea     rsi, [rsp+2C8h+s]; data
+    mov     qword ptr [rsp+2C8h+var_290], rdx
+    call    _ZNK12FoFiTrueType20computeTableChecksumEPKhi; FoFiTrueType::computeTableChecksum(uchar const*,int)
+    jmp     loc_4D3C8F
+loc_4D3BB5:
+    mov     ecx, r12d
+    and     ecx, 7
+    test    rcx, rcx
+    mov     edx, 8
+    cmovnz  rdx, rcx
+    mov     rcx, r13
+    sub     rcx, rdx
+    movd    xmm1, eax
+    lea     checksum, [rsp+2C8h+var_C4]
+    pxor    xmm0, xmm0
+    mov     rdx, rcx
+loc_4D3BE0:
+    movdqu  xmm2, xmmword ptr [rax-50h]
+    movdqu  xmm3, xmmword ptr [rax-40h]
+    movdqu  xmm4, xmmword ptr [rax-30h]
+    movdqu  xmm5, xmmword ptr [rax-20h]
+    movdqu  xmm8, xmmword ptr [rax+30h]
+    movdqu  xmm9, xmmword ptr [rax+20h]
+    movdqu  xmm6, xmmword ptr [rax]
+    movdqu  xmm7, xmmword ptr [rax+10h]
+    pshufd  xmm3, xmm3, 0E5h
+    punpckldq xmm2, xmm3
+    pshufd  xmm3, xmm4, 0A4h
+    punpckhdq xmm3, xmm5
+    movsd   xmm3, xmm2
+    paddd   xmm1, xmm3
+    pshufd  xmm2, xmm7, 0E5h
+    punpckldq xmm6, xmm2
+    pshufd  xmm2, xmm9, 0A4h
+    punpckhdq xmm2, xmm8
+    movsd   xmm2, xmm6
+    paddd   xmm0, xmm2
+    add     rax, 0A0h
+    add     rdx, 0FFFFFFFFFFFFFFF8h
+    jnz     short loc_4D3BE0
+    paddd   xmm0, xmm1
+    pshufd  xmm1, xmm0, 4Eh ; 'N'
+    paddd   xmm1, xmm0
+    pshufd  xmm0, xmm1, 0E5h
+    paddd   xmm0, xmm1
+    movd    eax, xmm0
+loc_4D3C65:
+    lea     rdx, [rcx+rcx*4]
+    lea     rdx, [rsp+rdx*4+2C8h+var_2C8]
+    add     rdx, 1B4h
+    nop     word ptr [checksum+checksum+00000000h]
+    xchg    ax, ax
+loc_4D3C80:
+    add     eax, [rdx]
+    add     i, 1
+    add     rdx, 14h
+    cmp     rcx, r13
+    jl      short loc_4D3C80
+loc_4D3C8F:
+    mov     ecx, 0B1B0AFBAh
+    sub     ecx, eax
+    bswap   ecx
+    mov     dword ptr [rsp+2C8h+data+8], ecx
+    mov     rbp, [rsp+2C8h+var_230]
+    test    rbp, rbp
+    jz      short loc_4D3CF1
+    mov     esi, 5A3F5Eh
+    mov     r15, [rsp+2C8h+var_2A8]
+    mov     rdi, r15
+    mov     edx, 1
+    mov     rbx, [rsp+2C8h+var_2A0]
+    call    rbx
+    mov     rdi, rbp; this
+    call    _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5c_strEv; std::string::c_str(void)
+    mov     r14, rax
+    mov     rdi, rbp; this
+    call    _ZNK9GooString9getLengthEv; GooString::getLength(void)
+    mov     rdi, r15
+    mov     rsi, r14
+    mov     edx, eax
+    call    rbx
+    mov     esi, (offset aEncoding_0+9); " [\n"
+    mov     rdi, r15
+    mov     edx, 3
+    jmp     short loc_4D3D08
+loc_4D3CF1:
+    mov     esi, offset aSfnts; "/sfnts [\n"
+    mov     r15, [rsp+2C8h+var_2A8]
+    mov     rdi, r15; this
+    mov     edx, 9
+    mov     rbx, [rsp+2C8h+var_2A0]
+loc_4D3D08:
+    call    rbx
+    mov     rbp, [rsp+2C8h+var_278]
+    lea     rsi, [rsp+2C8h+s]; s
+    mov     rdx, qword ptr [rsp+2C8h+var_290]; length
+    mov     rcx, rbx; outputFunc
+    mov     r8, r15; outputStream
+    call    _ZNK12FoFiTrueType10dumpStringEPKhiPFvPvPKciES2_; FoFiTrueType::dumpString(uchar const*,int,void (*)(void *,char const*,int),void *)
+    test    r12d, r12d
+    mov     rdi, [rsp+2C8h+var_2B8]; this
+    jle     loc_4D3F00
+    mov     r14, [rsp+2C8h+p]
+    add     r14, 0Ch
+    xor     r12d, r12d
+    cmp     r12d, 2
+    jnz     short loc_4D3D97
+    jmp     short loc_4D3DC0
+loc_4D3D50:
+    mov     eax, [rdi+34h]
+    add     eax, 1
+    xor     ecx, ecx
+    cmp     dword ptr [rdi+38h], 0
+    setnz   cl
+    lea     edx, [rcx+rcx]
+    add     edx, 2
+    imul    edx, eax; length
+    mov     rsi, rbp; s
+loc_4D3D6B:
+    mov     rcx, [rsp+2C8h+var_2A0]; outputFunc
+    mov     r8, [rsp+2C8h+var_2A8]; outputStream
+    call    _ZNK12FoFiTrueType10dumpStringEPKhiPFvPvPKciES2_; FoFiTrueType::dumpString(uchar const*,int,void (*)(void *,char const*,int),void *)
+    mov     rdi, [rsp+2C8h+var_2B8]; this
+loc_4D3D7F:
+    add     i, 1
+    cmp     r12, r13
+    mov     rbp, [rsp+2C8h+var_278]
+    jge     loc_4D3F00
+    cmp     r12d, 2
+    jz      short loc_4D3DC0
+loc_4D3D97:
+    cmp     r12d, 6
+    jz      short loc_4D3D50
+    cmp     r12d, 3
+    jnz     loc_4D3E50
+    lea     rsi, [rsp+2C8h+data]
+    mov     edx, 36h ; '6'
+    jmp     short loc_4D3D6B
+loc_4D3DC0:
+    mov     rbx, [rdi+18h]
+    mov     esi, offset aGlyf; "glyf"
+    call    _ZNK12FoFiTrueType9seekTableEPKc; FoFiTrueType::seekTable(char const*)
+    mov     rdi, [rsp+2C8h+var_2B8]; this
+    cmp     dword ptr [rdi+34h], 0
+    jle     short loc_4D3D7F
+    cdqe
+    lea     rax, [rax+rax*4]
+    movsxd  rbp, dword ptr [rbx+rax*4+8]
+    mov     rbx, r14
+    xor     r15d, r15d
+    jmp     short loc_4D3E05
+loc_4D3DF0:
+    add     j, 1
+    movsxd  rax, dword ptr [rdi+34h]
+    add     rbx, 10h
+    cmp     r15, rax
+    jge     loc_4D3D7F
+loc_4D3E05:
+    mov     edx, [rbx]; size
+    test    edx, edx
+    jle     short loc_4D3DF0
+    mov     esi, [rbx-8]
+    add     esi, ebp; pos
+    call    _ZNK8FoFiBase11checkRegionEii; FoFiBase::checkRegion(int,int)
+    mov     rdi, [rsp+2C8h+var_2B8]; this
+    test    al, al
+    jz      short loc_4D3DF0
+    mov     rax, [rdi+8]
+    add     rax, rbp
+    movsxd  rsi, dword ptr [rbx-8]
+    add     rsi, rax; s
+    mov     edx, [rbx]; length
+    mov     rcx, [rsp+2C8h+var_2A0]; outputFunc
+    mov     r8, [rsp+2C8h+var_2A8]; outputStream
+    call    _ZNK12FoFiTrueType10dumpStringEPKhiPFvPvPKciES2_; FoFiTrueType::dumpString(uchar const*,int,void (*)(void *,char const*,int),void *)
+    mov     rdi, [rsp+2C8h+var_2B8]
+    jmp     short loc_4D3DF0
+loc_4D3E50:
+    lea     rax, [i+i*4]
+    mov     r15d, [rsp+rax*4+2C8h+var_108]
+    test    r15d, r15d
+    jle     loc_4D3D7F
+    mov     rax, i
+    shl     rax, 4
+    mov     rsi, qword ptr ds:_ZL9t42Tables.tag[rax]; tag
+    mov     rbp, rdi
+    call    _ZNK12FoFiTrueType9seekTableEPKc; FoFiTrueType::seekTable(char const*)
+    test    eax, eax
+    js      short loc_4D3EC5
+    mov     rcx, [rbp+18h]
+    cdqe
+    lea     rbx, [rax+rax*4]
+    mov     esi, [rcx+rbx*4+8]; pos
+    mov     edx, [rcx+rbx*4+10h]; size
+    mov     rdi, rbp; this
+    call    _ZNK8FoFiBase11checkRegionEii; FoFiBase::checkRegion(int,int)
+    test    al, al
+    jz      short loc_4D3EC5
+    mov     rax, [rbp+18h]
+    movsxd  rsi, dword ptr [rax+rbx*4+8]
+    add     rsi, [rbp+8]; s
+    mov     edx, [rax+rbx*4+10h]; length
+    mov     rcx, [rsp+2C8h+var_2A0]; outputFunc
+    mov     r8, [rsp+2C8h+var_2A8]; outputStream
+    call    _ZNK12FoFiTrueType10dumpStringEPKhiPFvPvPKciES2_; FoFiTrueType::dumpString(uchar const*,int,void (*)(void *,char const*,int),void *)
+    mov     rdi, rbp
+    jmp     loc_4D3D7F
+loc_4D3EC5:
+    cmp     i, 9
+    jnz     short loc_4D3ED9
+    cmp     byte ptr [rsp+2C8h+var_2AC], 0
+    jz      short loc_4D3ED9
+    lea     rsi, [rsp+2C8h+var_258]
+    jmp     short loc_4D3EF8
+loc_4D3ED9:
+    cmp     i, 0Ah
+    mov     rdi, [rsp+2C8h+var_2B8]
+    jnz     loc_4D3D7F
+    cmp     byte ptr [rsp+2C8h+var_2AC], 0
+    jz      loc_4D3D7F
+    mov     rsi, [rsp+2C8h+var_288]
+loc_4D3EF8:
+    mov     edx, r15d
+    jmp     loc_4D3D6B
+loc_4D3F00:
+    mov     esi, (offset aFontmatrix1001+18h); char *
+    mov     rdi, [rsp+2C8h+var_2A8]; void *
+    mov     edx, 6; int
+    call    [rsp+2C8h+var_2A0]
+    mov     rdi, rbp; p
+    call    _Z5gfreePv; gfree(void *)
+    mov     rdi, [rsp+2C8h+p]; p
+    call    _Z5gfreePv; gfree(void *)
+    mov     rdi, [rsp+2C8h+var_288]; p
+    test    rdi, rdi
+    jz      short loc_4D3F34
+    call    _Z5gfreePv; gfree(void *)
+loc_4D3F34:
+    add     rsp, 298h
+    pop     rbx
+    pop     r12
+    pop     r13
+    pop     r14
+    pop     r15
+    pop     rbp
+    retn
+loc_4D3F46:
+    mov     edx, offset aUnexpectedNumb; "unexpected number of tables"
+    xor     edi, edi; category
+    mov     rsi, 0FFFFFFFFFFFFFFFFh; pos
+    xor     eax, eax
+    call    _Z5error13ErrorCategoryxPKcz; error(ErrorCategory,long long,char const*,...)
+    mov     eax, r15d
+    shl     eax, 4
+    mov     qword ptr [rsp+2C8h+var_290], rax
+    mov     r12d, r15d
+    jmp     loc_4D3AE8
+FoFiTrueType::cvtSfnts(void (*)(void *,char const*,int),void *,GooString const*,bool,int *)const endp
+
+
+
+FoFiTrueType::dumpString(unsigned char const*,int,void (*)(void *,char const*,int),void *)const proc
+    push    rbp
+    push    r15
+    push    r14
+    push    r13
+    push    r12
+    push    rbx
+    sub     rsp, 28h
+    mov     rdi, outputStream
+    mov     ebp, edx
+    mov     [rsp+58h+var_38], s
+    mov     esi, (offset asc_5A43F6+2); "<"
+    mov     [rsp+58h+var_48], r8
+    mov     edx, 1
+    mov     [rsp+58h+var_40], outputFunc
+    call    rcx
+    test    ebp, ebp
+    jle     loc_4D5065
+    movsxd  r13, ebp
+    xor     r14d, r14d
+    mov     [rsp+58h+var_4C], ebp
+    jmp     short loc_4D4F94
+loc_4D4F70:
+    mov     esi, offset asc_5A43F6; ">\n<"
+    mov     rdi, [rsp+58h+var_48]
+    mov     edx, 3
+    call    [rsp+58h+var_40]
+    add     i, 20h ; ' '
+    mov     ebp, [rsp+58h+var_4C]
+loc_4D4F8B:
+    cmp     r14d, ebp
+    jge     loc_4D5065
+loc_4D4F94:
+    mov     rax, [rsp+58h+var_38]
+    lea     r15, [rax+i]
+    xor     r12d, r12d
+    jmp     short loc_4D4FBA
+loc_4D4FB0:
+    add     j, 1
+    cmp     r12, 20h ; ' '
+    jz      short loc_4D5010
+loc_4D4FBA:
+    lea     rax, [i+j]
+    cmp     rax, r13
+    jge     short loc_4D5010
+    movzx   esi, byte ptr [r15+j]
+    mov     edi, offset a002x_0; "{0:02x}"
+    xor     eax, eax
+    call    _ZN9GooString6formatEPKcz; GooString::format(char const*,...)
+    mov     rbp, rax
+    mov     rdi, rax; this
+    call    _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5c_strEv; std::string::c_str(void)
+    mov     rbx, rax
+    mov     rdi, buf; this
+    call    _ZNK9GooString9getLengthEv; GooString::getLength(void)
+    mov     rdi, [rsp+58h+var_48]
+    mov     rsi, rbx
+    mov     edx, eax
+    call    [rsp+58h+var_40]
+    test    buf, buf
+    jz      short loc_4D4FB0
+    mov     rdi, buf; void *
+    call    __ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev; std::string::~string()
+    mov     rdi, buf; void *
+    call    __ZdlPv; operator delete(void *)
+    jmp     short loc_4D4FB0
+loc_4D5010:
+    mov     eax, r14d
+    shr     eax, 5
+    imul    rax, 8010021h
+    shr     rax, 26h
+    imul    eax, 0FFE0h
+    mov     ecx, r14d
+    sub     ecx, eax
+    cmp     ecx, 0FFC0h
+    jz      loc_4D4F70
+    add     i, 20h ; ' '
+    mov     ebp, [rsp+58h+var_4C]
+    cmp     r14d, ebp
+    jge     loc_4D4F8B
+    mov     esi, 53FD52h
+    mov     rdi, [rsp+58h+var_48]
+    mov     edx, 1
+    call    [rsp+58h+var_40]
+    cmp     r14d, ebp
+    jl      loc_4D4F94
+loc_4D5065:
+    and     ebp, 3
+    mov     rax, [rsp+58h+var_40]
+    mov     r14, [rsp+58h+var_48]
+    jz      short loc_4D5099
+    cmp     ebp, 4
+    jz      short loc_4D5099
+    add     ebp, 0FFFFFFFCh
+    nop     dword ptr [rax+00h]
+loc_4D5080:
+    mov     esi, 543E41h
+    mov     rdi, r14
+    mov     edx, 2
+    mov     rbx, rax
+    call    rax
+    mov     rax, rbx
+    inc     ebp
+    jnz     short loc_4D5080
+loc_4D5099:
+    mov     esi, offset a00; "00>\n"
+    mov     rdi, r14
+    mov     edx, 4
+    add     rsp, 28h
+    pop     rbx
+    pop     r12
+    pop     r13
+    pop     r14
+    pop     r15
+    pop     rbp
+    jmp     rax
+FoFiTrueType::dumpString(unsigned char const*,int,void (*)(void *,char const*,int),void *)const endp
+

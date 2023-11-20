@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Buffer-Overflow",
+    "vulnerable_function": "",
+    "root_cause": "In the Dog::Dog and Cat::Cat functions, there is a use of `strcpy(a1->data, v3)` to assign memory. However, the size of `a1->data` is only 24, while `v3` is input by the user and there is no length restriction. This causes a memory overflow.",
+    "global_variables_ida": "",
+    "global_variables_manual": ""
+}

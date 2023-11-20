@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Lack of Boundary Check, Out-of-bound Read",
+    "vulnerable_function": [
+        "aiff_read_chanmap"
+    ],
+    "root_cause": "In a file, the number of channels corresponding to the layout_tag may differ from psf->sf.channels. The function aiff_caf_of_channel_layout_tag(layout_tag) is used to obtain the map_info. When copying data in memcpy(psf->channel_map, map_info->channel_map, chanmap_size); chanmap_size should be restricted by the size of map_info->channel_map. However, the code directly uses psf->sf.channels * sizeof(psf->channel_map[0]) to calculate the size to be copied without considering the actual size of map_info->channel_map."
+}

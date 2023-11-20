@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow",
+    "vulnerable_function": [
+        "Parser::makeStream"
+    ],
+    "root_cause": "There may be an integer overflow vulnerability when executing the statement \"length += 5000;\""
+}

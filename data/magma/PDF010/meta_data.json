@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "NULL-Pointer Dereference",
+    "vulnerable_function": [
+        "SplashOutputDev::type3D1"
+    ],
+    "root_cause": "There is a null pointer dereference vulnerability as the code does not check if t3GlyphStack is NULL before accessing t3GlyphStack->haveDx."
+}

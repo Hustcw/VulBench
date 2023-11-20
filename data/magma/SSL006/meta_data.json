@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow",
+    "vulnerable_function": [
+        "EVP_EncodeUpdate"
+    ],
+    "root_cause": "In the comparison `if ((ctx->num + inl) < ctx->length)`, there might be an integer overflow vulnerability when calculating `ctx->num + inl`."
+}

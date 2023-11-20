@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Double Free / Use After Free, Out-of-bound Write",
+    "vulnerable_function": "main",
+    "root_cause": "In the line `v4 = &v9[read_num()];`, there is a vulnerability due to a lack of checking the range of the return value from the `read_num()` function, which could lead to out-of-bounds access. After the statement `free(v4);`, there is a potential issue since `v9[read_num()]` is not emptied or zeroed out, which may result in Double Free or Use After Free vulnerabilities.",
+    "global_variables_ida": "FILE * stdout@@GLIBC_2.2.5;\nFILE * stdin@@GLIBC_2.2.5;\nFILE * stderr@@GLIBC_2.2.5;",
+    "global_variables_manual": ""
+}

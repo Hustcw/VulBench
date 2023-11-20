@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerable_function": "dele",
+    "root_cause": "In the dele function, the weapon_list[atoi] is freed, but it is not set to empty or marked, which leads to the existence of Double Free or Use After Free vulnerabilities.",
+    "global_variables_ida": "FILE * stdout@@GLIBC_2.2.5;\nchar a1CreateAWeapon[0x13];\nchar a2ShowMeWeapon[0x12];\nchar a3FightFightFig[0x19];\nchar a5YouAreALoserB[0x1D];",
+    "global_variables_manual": "struct Weapon\n{\n  __int64 attack_times;\n  __int64 attack_numbers;\n  char name[8];\n};\n\nWeapon *weapon_list[9];"
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": [
+        "X509v3_addr_get_afi"
+    ],
+    "root_cause": "When accessing f->addressFamily->data[0] and f->addressFamily->data[1], there is no check to ensure that f->addressFamily->data is at least 2 elements in size, leading to a vulnerability of out-of-bounds access."
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out of Bound, Out-of-bound Write",
+    "vulnerable_function": [
+        "XRef::getEntry"
+    ],
+    "root_cause": "In the XRef::getEntry function, there is no check for the range of 'i', which could exceed the 'capacity'. This can cause a buffer overflow vulnerability as '&entries[i]' is passed as the 'entry' parameter to the 'parseEntry' function and then modified, leading to out-of-bounds read and write issues."
+}

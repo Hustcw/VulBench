@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": [
+        "exif_scan_thumbnail"
+    ],
+    "root_cause": "In the exif_scan_thumbnail function, there is a vulnerability due to the lack of boundary checking when accessing data with the statement \"length = php_jpg_get16(data + pos);\". The issue arises because it is not verified whether the accessed range (data + pos) falls within the size boundaries of data = ImageInfo->Thumbnail.data. This can lead to out-of-bounds access."
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": [
+        "exif_scan_thumbnail"
+    ],
+    "root_cause": "Before calling memcmp(data, \"\\xFF\\xD8\\xFF\", 3), the size of data, which is ImageInfo->Thumbnail.data, is not checked to ensure it is greater than 3. This leads to a potential out-of-bounds access vulnerability."
+}

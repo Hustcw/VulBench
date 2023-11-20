@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "NULL-Pointer Dereference",
+    "vulnerable_function": [
+        "AnnotInk::draw"
+    ],
+    "root_cause": "In the AnnotInk::draw function, the value of inkList[i] may be null, leading to a potential NULL-Pointer Dereference vulnerability when checking if (path->getCoordsLength() != 0)."
+}

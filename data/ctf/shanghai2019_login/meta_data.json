@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerable_function": "sub_400C2A",
+    "root_cause": "In the sub_400C2A function, after freeing the memory pointed to by qword_602040[v0], no zeroing or marking operation is performed, leading to a potential Double Free or Use After Free vulnerability.",
+    "global_variables_ida": "char jpt_400E62[0x18];",
+    "global_variables_manual": "_QWORD qword_602040[6];"
+}

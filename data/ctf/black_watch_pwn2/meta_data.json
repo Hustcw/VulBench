@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Double Free / Use After Free, Out-of-bound Read, Out-of-bound Write",
+    "vulnerable_function": "throw,get,watch,change",
+    "root_cause": "In the throw function, after freeing the memory of a1[v1].content using free(a1[v1].content), it does not zero or mark the memory, leading to potential Double Free or Use After Free issues. In the throw, get, watch, and change functions, read_int() is used to access parameters passed in by reading RedPacket *a1, but during range checking, it uses v3 > 0x10 for judgment. Since the size of the red_packet_list parameter is 16, when v3 is 0x10, there is a vulnerability of out-of-bounds read/write.",
+    "global_variables_ida": "_QWORD qword_4010;\n_QWORD qword_4018;\nFILE * stderr;\n_QWORD qword_4050;\n_QWORD qword_4058;\nconst char aXynm[4];\nconst char aXynm_0[4];\nconst char aXynm_1[4];",
+    "global_variables_manual": "struct RedPacket\n{\n  char *content;\n  int size;\n  int field_C;\n};\n\n__int64 qword_4050;\n__int64 qword_4058;\nRedPacket red_packet_list[16];"
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "NULL-Pointer Dereference",
+    "vulnerable_function": [
+        "png_read_transform_info"
+    ],
+    "root_cause": "In the png_set_PLTE function, after the condition (num_palette > 0 && palette == NULL) is met, the function still continues to execute, leading to a vulnerability where a null pointer dereference occurs in the memcpy(png_ptr->palette, palette, (unsigned int)num_palette * (sizeof(png_color))) statement."
+}

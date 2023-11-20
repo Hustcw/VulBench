@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerable_function": "delete",
+    "root_cause": "In the delete function, when freeing list[v0], only list[v0].used is cleared, but when avoiding multiple freeing, it checks if list[v0].content is empty. The mismatch between the marked and checked object leads to potential Double Free or Use After Free issues.",
+    "global_variables_ida": "",
+    "global_variables_manual": "struct Content\n{\n  char *content;\n  __attribute__((aligned(16))) int size;\n  void (__fastcall *free_func)(Content *);\n};\n\nstruct String\n{\n  int used;\n  int field_4;\n  Content *content;\n};\n\n\nString list[16];"
+}

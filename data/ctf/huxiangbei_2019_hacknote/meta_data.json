@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read, Out-of-bound Write",
+    "vulnerable_function": "",
+    "root_cause": "In the `edit()` function, the `read_str()` function is used to read input, but `read_str()` does not always add a NULL terminator at the end in all cases. This causes `strlen()` to consider adjacent heap allocator metadata when calculating the length, resulting in a length that is larger than the actual memory size. This can lead to a memory overflow issue when modifying beyond the actual memory size during the next `edit()`.",
+    "global_variables_ida": "",
+    "global_variables_manual": ""
+}

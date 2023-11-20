@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "DoS",
+    "vulnerable_function": [
+        "asn1_d2i_read_bio"
+    ],
+    "root_cause": ""
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow",
+    "vulnerable_function": [
+        "png_read_start_row"
+    ],
+    "root_cause": "In the expression `row_bytes = PNG_ROWBYTES(max_pixel_depth, row_bytes) + 1 + ((max_pixel_depth + 7) >> 3U);`, there is a potential for integer overflow issues, which could result in the allocation of an incorrect memory size later on."
+}

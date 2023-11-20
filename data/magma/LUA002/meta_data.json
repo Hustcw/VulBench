@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "NULL-Pointer Dereference",
+    "vulnerable_function": [
+        "changedline"
+    ],
+    "root_cause": "There is no check for whether `p->lineinfo` is NULL, which may result in a null pointer dereference issue."
+}

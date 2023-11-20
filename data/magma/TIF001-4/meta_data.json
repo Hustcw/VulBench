@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read, Out-of-bound Write",
+    "vulnerable_function": [
+        "fpAcc"
+    ],
+    "root_cause": "In the fpAcc function, there is no check for whether wc is divisible by stride or if cc is divisible by bps * stride. This can potentially lead to a vulnerability where out-of-bounds read/write occurs in the loop."
+}

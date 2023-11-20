@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read, Out-of-bound Write",
+    "vulnerable_function": [
+        "horDiff16"
+    ],
+    "root_cause": "In the horDiff16 function, there is no check if wc is divisible by stride or if cc is divisible by 2 * stride. This may lead to out-of-bounds read/write vulnerabilities during the loop."
+}

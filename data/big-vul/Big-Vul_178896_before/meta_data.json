@@ -1,0 +1,4 @@
+{
+    "vulnerability_type": "Improper Access Control or information exposure due to missing check",
+    "vulnerable": true
+}

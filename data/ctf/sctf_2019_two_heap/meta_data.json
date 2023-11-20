@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Double Free / Use After Free, Format String Vulnerability",
+    "vulnerable_function": "main",
+    "root_cause": "In the main function, sub_15A0() is called, and unk_4020[v0].field_8 is freed without being set to NULL. This results in a double free or use-after-free vulnerability when continuously calling sub_15A0() from the main function. Additionally, in the main function, variable a1 is passed as a format string argument to __printf_chk, while a1 is user-input from the sub_1350(a1, 11); function call, leading to a format string vulnerability.",
+    "global_variables_ida": "FILE * stderr;",
+    "global_variables_manual": "struct Data\n{\n  int field_0;\n  char *field_8;\n};\n\nData off_4020[16] =\n{\n  { 128, NULL },\n  { 128, NULL },\n  { 128, NULL },\n  { 128, NULL },\n  { 128, NULL },\n  { 128, NULL },\n  { 128, NULL },\n  { 128, NULL },\n  { 128, NULL },\n  { 128, NULL },\n  { 128, NULL },\n  { 128, NULL },\n  { 128, NULL },\n  { 128, NULL },\n  { 128, NULL },\n  { 128, NULL },\n};\n__int64 end;"
+}

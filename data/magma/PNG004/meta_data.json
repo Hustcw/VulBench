@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow",
+    "vulnerable_function": [
+        "png_combine_row"
+    ],
+    "root_cause": "In the png_combine_row function, when row_width is multiplied by pixel_depth, the result does not fit into the integer data type, causing row_width to become 0. Later, when row_width is decremented by the offset value, an integer underflow occurs."
+}

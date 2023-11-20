@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "NULL-Pointer Dereference",
+    "vulnerable_function": [
+        "get_crl_sk"
+    ],
+    "root_cause": "In the get_crl_sk function, there is a null pointer dereference vulnerability because X509_CRL_get0_lastUpdate(best_crl) is called without checking if best_crl is null."
+}

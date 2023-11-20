@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow",
+    "vulnerable_function": [
+        "findvararg", "luaG_findlocal"
+    ],
+    "root_cause": "The function findvararg does not properly check for integer overflow, especially for n equals to INT_MIN"
+}

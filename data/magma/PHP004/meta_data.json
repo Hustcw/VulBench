@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": [
+        "exif_process_IFD_in_MAKERNOTE"
+    ],
+    "root_cause": "In the exif_process_IFD_in_MAKERNOTE function, within the loop for (de = 0; de < NumDirEntries; de++), there is no check if dir_start + offset is within the range of dir_start and dir_start + value_len. This can lead to out-of-bounds access vulnerability when dir_start + offset is passed as a dir_entry parameter to exif_process_IFD_TAG and exif_process_IFD_TAG_impl functions. Specifically, the vulnerability occurs in the following lines of code:\n\ntag = php_ifd_get16u(dir_entry, ImageInfo->motorola_intel);\nformat = php_ifd_get16u(dir_entry+2, ImageInfo->motorola_intel);\ncomponents = php_ifd_get32u(dir_entry+4, ImageInfo->motorola_intel);\n\nThis issue can potentially be exploited by an attacker to cause a denial-of-service or execute arbitrary code on the system."
+}

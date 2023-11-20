@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": "main",
+    "root_cause": "When reading the 's' variable, it is being read in the function sub_804869C(0, s, 1536). The function attempts to read 1536 bytes, but the size of 's' is only 50 bytes, causing a buffer overflow to occur.",
+    "global_variables_ida": "char asc_8048A00[0x2D];\nchar asc_8048A5C[0x2C];",
+    "global_variables_manual": ""
+}

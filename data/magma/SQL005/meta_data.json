@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "NULL-Pointer Dereference",
+    "vulnerable_function": [
+        "zipfileUpdate"
+    ],
+    "root_cause": "In the zipfileUpdate function, after obtaining zPath by calling sqlite3_value_text(apVal[2]), there is no check if zPath is NULL. This leads to a vulnerability of dereferencing a null pointer when accessing it later on."
+}

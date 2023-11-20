@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": "update",
+    "root_cause": "In the main function, 0x31 bytes are read from the variable name, but the definition of name is char name[48];, so an overflow occurs.",
+    "global_variables_ida": "char jpt_CF8[0x1C];",
+    "global_variables_manual": "int size;\nchar name[48];\nchar *ptr;"
+}

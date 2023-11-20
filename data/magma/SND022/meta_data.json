@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Lack of Check",
+    "vulnerable_function": [
+        "d2ulaw_array"
+    ],
+    "root_cause": "In the d2ulaw_array function, when rounding ptr[i], it fails to check if the value is infinite."
+}

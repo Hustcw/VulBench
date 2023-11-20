@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read, Out-of-bound Write",
+    "vulnerable_function": "sub_BD9",
+    "root_cause": "In the sub_BD9 function, there is no check for the range of the v0 variable after reading it. This leads to a vulnerability of out-of-bounds read and write in the subsequent qword_2021E0[v0] operation.",
+    "global_variables_ida": "_QWORD qword_202090;\n_QWORD qword_202098;",
+    "global_variables_manual": "struct Data\n{\n  char *field_0;\n  __int64 field_8;\n};\n\nchar byte_202088;\n__int64 qword_202090;\n__int64 qword_202098;\nchar byte_2020A0[20][8];\nchar *byte_202140[20];\nData *qword_2021E0[20];"
+}

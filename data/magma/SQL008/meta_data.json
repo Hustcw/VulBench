@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "NULL-Pointer Dereference",
+    "vulnerable_function": [
+        "tableColumnList"
+    ],
+    "root_cause": "When setting `azCol[0] = 0`, the code does not check if `azCol` is null, resulting in a null pointer dereference vulnerability when accessing `azCol[0] = 0` and `azCol[nCol + 1] = 0`."
+}

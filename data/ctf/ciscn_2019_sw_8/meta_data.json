@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Buffer-Overflow, Out-of-bound Write",
+    "vulnerable_function": "edit",
+    "root_cause": "In the `edit` function, the size argument of the `read` function is not checked for its size. This allows users to input arbitrary lengths of data, which can then overwrite data outside the memory allocated for `note_ptr[i]`, causing a memory overflow issue.",
+    "global_variables_ida": "FILE * __bss_start;\nFILE * stdin@@GLIBC_2.2.5;\nFILE * stderr@@GLIBC_2.2.5;\nchar edit_times;\nchar magic_times;\nchar delete_times;\nchar add_times[4];\nchar * note_ptr[3];",
+    "global_variables_manual": "char edit_times;\nchar magic_times;\nchar delete_times;\nchar add_times[4];\nchar *note_ptr[3];"
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Type Confusion",
+    "vulnerable_function": [
+        "ASN1_TYPE_cmp"
+    ],
+    "root_cause": "The root cause of the vulnerability is that the variable 'a-type' is of type ASN1_TYPE, and within a switch statement, the V_ASN1_BOOLEAN branch uses ASN1_STRING_cmp to compare. This results in comparing a boolean type as if it were a char* type, leading to a type confusion vulnerability."
+}

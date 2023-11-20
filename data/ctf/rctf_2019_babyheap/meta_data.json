@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read, Out-of-bound Write",
+    "vulnerable_function": "edit",
+    "root_cause": "In the 'edit' section, after reading the value of ptrs[v0].content, an attempt is made to use this returned value as an index to set ptrs[v0].content to 0. However, this can lead to an overflow issue due to an off-by-one error. The reason for this is that the index could potentially be equal to the size of the content, resulting in out-of-bounds reads and writes.",
+    "global_variables_ida": "void * ptrs;\nchar jpt_C60[0x18];",
+    "global_variables_manual": "struct Heap\n{\n  char *content;\n  int size;\n};\n\nHeap *ptrs;"
+}

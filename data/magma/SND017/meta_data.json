@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Write",
+    "vulnerable_function": [
+        "wavlike_read_fmt_chunk"
+    ],
+    "root_cause": ""
+}

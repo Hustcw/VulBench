@@ -1,0 +1,4 @@
+{
+    "vulnerability_type": "Out of bound write",
+    "vulnerable": true
+}

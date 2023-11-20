@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Format String Vulnerability",
+    "vulnerable_function": "sub_400A22,sub_400A9B",
+    "root_cause": "In the sub_400A22 function, a 0x1000-sized data is read into the 'buf' variable using read(0, buf, 0x1000uLL); however, the 'buf' variable is only 264 bytes in size, causing a memory overflow vulnerability. In the sub_400A9B function, there is a format string vulnerability as printf(s, 1LL); is used to output the 's' variable, which is user-inputted.",
+    "global_variables_ida": "FILE * stderr;\n_DWORD dword_602060;",
+    "global_variables_manual": "int dword_602060;\nchar byte_602068[24];\nchar byte_602080[4096];"
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Divide-by-Zero, Lack of Check, Math Error",
+    "vulnerable_function": [
+        "GfxGouraudTriangleShading::parse"
+    ],
+    "root_cause": "During the calculation of nRows = nVerticesA / vertsPerRow, it fails to check if vertsPerRow is greater than 0. This leads to a divide-by-zero vulnerability when vertsPerRow is equal to 0. When vertsPerRow is less than 0, it results in incorrect calculation of nTrianglesA and subsequently allocates an incorrect memory size during the allocation of trianglesA = (int(*)[3])gmallocn_checkoverflow(nTrianglesA * 3, sizeof(int));, causing a memory overflow vulnerability."
+}

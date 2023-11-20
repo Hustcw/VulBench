@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read, Out-of-bound Write",
+    "vulnerable_function": "save,load",
+    "root_cause": "In the save and load functions, there is no check for the range of v2. Instead, it directly accesses a1->val[a1->stack_rsp + v2], leading to out-of-bounds read/write issues.",
+    "global_variables_ida": "char * delim;\nFILE * stderr;\nchar jpt_4019B7[0x88];",
+    "global_variables_manual": "struct Link\n{\n  __int64 *val;\n  int stack_top;\n  int stack_rsp;\n  __int64 content[];\n};"
+}

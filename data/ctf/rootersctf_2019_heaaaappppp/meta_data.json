@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerable_function": "deleteUser",
+    "root_cause": "In the deleteUser function, after using free(root) to release the memory allocated to root, the root pointer is not set to NULL or marked, which may lead to potential Double Free or Use After Free vulnerabilities.",
+    "global_variables_ida": "FILE * __bss_start;\nvoid * root;\n_QWORD message;\nchar jpt_14B4[0x14];",
+    "global_variables_manual": "struct User\n{\n  char *username;\n  __int64 age;\n};\n\nUser *root;"
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerable": true,
+    "address_range": [
+        "0x123a",
+        "0x1379"
+    ]
+}

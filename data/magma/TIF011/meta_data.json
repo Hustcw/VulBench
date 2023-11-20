@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Write",
+    "vulnerable_function": [
+        "TIFFPrintDirectory"
+    ],
+    "root_cause": "In the code:\n\n```cpp\nfor (i = 1; i < td->td_samplesperpixel; i++) {\n    fprintf(fd, \" %5\" PRIu16, td->td_transferfunction[i][l]);\n}\n```\n\nThere is a vulnerability due to the improper size of the `td_transferfunction` variable. It is defined as `td->td_samplesperpixel - td->td_extrasamples` instead of `td_samplesperpixel`, which results in an out-of-bounds array access vulnerability."
+}

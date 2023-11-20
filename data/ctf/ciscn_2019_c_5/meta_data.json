@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerable_function": "delete",
+    "root_cause": "In the delete function, the content of stories[v0] is freed, but it is not cleared or marked, which leads to a potential double-free or use-after-free vulnerability.",
+    "global_variables_ida": "FILE * stderr;\n_DWORD dword_20204C;\nchar jpt_E88[0x18];",
+    "global_variables_manual": "struct Story\n{\n  int size;\n  char *content;\n};\n\nint count;\nStory stories[16];"
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow",
+    "vulnerable_function": [
+        "Parser::makeStream"
+    ],
+    "root_cause": "When calling `lexer.setPos(pos + length);`, there might be an issue of integer overflow with `pos + length`."
+}

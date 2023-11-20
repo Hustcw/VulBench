@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Buffer-Overflow, Out-of-bound Write",
+    "vulnerable_function": "main",
+    "root_cause": "When reading a file using v6 = fgetc(fp), if the file size increases, it can cause more data to be read from the file into the buf variable than the allocated memory, resulting in a memory overflow.",
+    "global_variables_ida": "FILE * _edata;\nFILE * stdout@@GLIBC_2.2.5;\nFILE * fp;\nshort word_4013F5;\nchar a63s[0x5];",
+    "global_variables_manual": "FILE *edata;\nFILE *fp;"
+}

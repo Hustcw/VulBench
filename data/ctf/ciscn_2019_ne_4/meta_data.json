@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Buffer-Overflow, Out-of-bound Write",
+    "vulnerable_function": "sub_E3C,sub_E98",
+    "root_cause": "In the sub_E98 function, the length required to read in sub_DA8(games[v3].content, v4); is calculated using v4 = sub_E3C(games[v3].size, v2);. However, in sub_E3C, if a2 - a1 equals 10, a1 is incremented and returned, causing the return value of v4 = sub_E3C(games[v3].size, v2); to potentially exceed games[v3].size. This can result in a memory overflow or out-of-bounds write by reading data larger than the memory size of games[v3].content.",
+    "global_variables_ida": "char jpt_1266[0x18];",
+    "global_variables_manual": "struct Data\n{\n  int used;\n  int size;\n  char *content;\n};\n\nData games[20];"
+}

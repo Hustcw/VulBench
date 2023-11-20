@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Write",
+    "vulnerable_function": "main",
+    "root_cause": "In the main function, the variable dword_202440 has a maximum value of 256. In the subsequent loop: for (i = 0; i <= (unsigned int)dword_202440; ++i), the variable i can address up to 256, which allows modification of array[i] = read_int(v6, 16LL); However, the memory size of the array variable is only 256, resulting in a buffer overflow vulnerability due to the out-of-bounds write.",
+    "global_variables_ida": "_DWORD dword_202440;",
+    "global_variables_manual": "unsigned int array[256];\nint dword_202440;"
+}

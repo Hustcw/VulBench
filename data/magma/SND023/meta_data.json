@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow",
+    "vulnerable_function": [
+        "i2ulaw_array"
+    ],
+    "root_cause": "In the i2ulaw_array function, if ptr[i] is equal to INT_MIN, then -ptr[i] is still a negative number. This leads to an out-of-bounds vulnerability when calculating the index ulaw_encode[-ptr[i] >> (16 + 2)], as the index becomes negative."
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerable_function": "free_note",
+    "root_cause": "In the free_note function, after freeing v0 using free(v0); it is not reset or marked, leading to potential Double Free or Use After Free vulnerabilities.",
+    "global_variables_ida": "_DWORD dword_202010;\nchar byte_202038;\n_QWORD qword_202040;\n_DWORD asc_CBB;",
+    "global_variables_manual": "struct Note\n{\n  char title[8];\n  char content[104];\n};\n\nint dword_202010 = 3; // weak\nNote* qword_202040[10];"
+}

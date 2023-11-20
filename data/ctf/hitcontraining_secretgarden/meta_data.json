@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerable_function": "del",
+    "root_cause": "In the del function, after freeing flowerlist[v0]->name, the pointer was not set to empty. Instead, the variable flowerlist[v0]->used was set to 0. This variable is not used to check for and avoid double-free or use-after-free issues for the same index.",
+    "global_variables_ida": "_DWORD flowercount;\nconst char s[8];\nconst char byte_400FF0;\nconst char byte_401040;\nchar a23s[0x5];\nchar jpt_400EF7[0x18];",
+    "global_variables_manual": "struct Flower\n{\n  int used;\n  _BYTE gap4[4];\n  char *name;\n  char color[24];\n};\n\nint flowercount;\nFlower *flowerlist[100];"
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Lack of Check",
+    "vulnerable_function": [
+        "ImageStream::ImageStream"
+    ],
+    "root_cause": "The vulnerability root cause is the lack of verification for the input parameter nComps to ensure that it is a positive number."
+}

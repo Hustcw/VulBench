@@ -1,0 +1,7 @@
+{
+    "vulnerable": true,
+    "address_range": [
+        "0x80486e7",
+        "0x8048828"
+    ]
+}

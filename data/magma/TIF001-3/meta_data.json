@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read, Out-of-bound Write",
+    "vulnerable_function": [
+        "horAcc32"
+    ],
+    "root_cause": "In the horAcc32 function, there is no check if wc is divisible by stride or if cc is divisible by 4 * stride, which may lead to an out-of-bounds read/write vulnerability during the loop."
+}

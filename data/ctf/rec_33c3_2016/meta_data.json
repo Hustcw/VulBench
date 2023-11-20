@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": "sub_CDB",
+    "root_cause": "In the sub_CDB function, when v2 is set to 0, the variable v1 is not initialized, which results in the use of stack data when calling v1();",
+    "global_variables_ida": "char a0TakeNote[0xE];\nchar a1ReadNote[0xE];\nchar a2Polish[0xB];\nchar a3Infix[0xA];\nchar a4ReversePolish[0x13];\nchar a5Sign[0x9];\nchar a6Exit[0x9];\nchar asc_10FE[0x3];",
+    "global_variables_manual": ""
+}

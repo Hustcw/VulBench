@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read, Out-of-bound Write",
+    "vulnerable_function": "read_str,edit,show",
+    "root_cause": "In the `read_str` function, after the `for` loop ends, `a1[i]` is set to 0, where `i = a2`. If `a2` is equal to the size of the `a1` memory, an off-by-null error will occur, causing a buffer overflow. In the `edit` and `show` functions, user input is read as an index into the `chunk` array, but there is no range check for the user input, leading to a potential out-of-bounds read/write vulnerability.",
+    "global_variables_ida": "_DWORD number;",
+    "global_variables_manual": "_QWORD size[12];\nchar *chunk[10];"
+}

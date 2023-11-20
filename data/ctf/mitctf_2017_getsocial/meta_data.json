@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Buffer-Overflow, Out-of-bound Write",
+    "vulnerable_function": "overwrite,main",
+    "root_cause": "In the `overwrite` function, the `memcpy` function is used to copy the content of `s` into `dest`. However, the size of `s` can be up to 256 bytes, while the size of `dest` is only 140 bytes. This causes a memory overflow vulnerability when the `overwrite(v1, s)` function is called in the `main` function.",
+    "global_variables_ida": "char * src;\n_DWORD dword_8049FB4;\n_DWORD dword_8049FB8;\nshort a0;\nshort a1;\nshort a2;\nshort a3;",
+    "global_variables_manual": "struct Tweet\n{\n  char content[140];\n  struct Tweet *next;\n};\n\nchar a0[2] = \"0\";\nchar a1[2] = \"1\";\nchar a2[2] = \"2\";\nchar a3[2] = \"3\";\nTweet aH3ll0Fr13nd = {\"h3ll0 fr13nd\", 0};\nTweet aWeVeBeenWaitin = {\"we've been waiting for you\", 0};\nTweet aWonTYouJoinUs = {\"won't you join us?\", 0};\nTweet *src[] =\n    {&aH3ll0Fr13nd, &aWeVeBeenWaitin, &aWonTYouJoinUs};\nint tweet_count;\nTweet *head;"
+}

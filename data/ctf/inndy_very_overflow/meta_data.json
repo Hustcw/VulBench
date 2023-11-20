@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": "add_note",
+    "root_cause": "In the add_note function, there is no check to ensure that the next pointer does not exceed the bounds of the buffer variable in the main function, leading to out-of-bounds access.",
+    "global_variables_ida": "FILE * stdin@@GLIBC_2.0;\nFILE * stdout@@GLIBC_2.0;\nconst char byte_8048AB7;\nchar jpt_8048894[0x18];",
+    "global_variables_manual": "struct NOTE\n{\n  NOTE *next;\n  char data[128];\n};"
+}

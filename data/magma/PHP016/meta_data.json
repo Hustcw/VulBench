@@ -1,0 +1,8 @@
+{
+    "vulnerability_type": "Lack of Check",
+    "vulnerable_function": [
+        "phar_verify_signature",
+        "phar_parse_zipfile"
+    ],
+    "root_cause": "When calling `memcmp(digest, sig, sizeof(digest))`, the size of the `sig` variable is not checked to ensure it is equal to `sizeof(digest)`. This can lead to a buffer overflow vulnerability due to out-of-bounds memory access."
+}

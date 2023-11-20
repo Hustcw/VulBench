@@ -1,0 +1,8 @@
+{
+    "vulnerability_type": "Heap Out-of-bound Write",
+    "vulnerable_function": [
+        "xmlStrncat",
+        "xmlStrncatNew"
+    ],
+    "root_cause": "If a very long string is input, xmlStrlen may return a negative value. This causes the size argument in xmlStrncat to be negative, leading to an out-of-bounds access and memory overflow issue when accessing ret[size]. In xmlStrncatNew, both len and size can be negative, leading to memory overflow issues due to out-of-bounds reads and writes in memcpy(ret, str1, size * sizeof(xmlChar));, memcpy(&ret[size], str2, len * sizeof(xmlChar));, and ret[size + len] = 0;."
+}

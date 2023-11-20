@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Format String Vulnerability",
+    "vulnerable_function": "main",
+    "root_cause": "In the main function, the printf(buf) call after the read invocation causes a format string vulnerability.",
+    "global_variables_ida": "",
+    "global_variables_manual": "#include <defs.h>\n\n_DWORD dword_804C044;"
+}

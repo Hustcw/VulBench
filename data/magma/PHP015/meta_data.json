@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow, Out-of-bound Read",
+    "vulnerable_function": [
+        "phar_parse_pharfile"
+    ],
+    "root_cause": "In the phar_parse_pharfile function, before performing the following operations on the buffer:\n\n1. PHAR_GET_32(buffer, entry.uncompressed_filesize);\n2. PHAR_GET_32(buffer, entry.timestamp);\n3. PHAR_GET_32(buffer, entry.compressed_filesize);\n4. PHAR_GET_32(buffer, entry.crc32);\n5. PHAR_GET_32(buffer, entry.flags);\n6. PHAR_GET_32(buffer, len);\n\nThere is a range check before these operations: if (entry.filename_len + 20 > endbuffer - buffer). However, the range check is too small and should be: entry.filename_len + 24 > endbuffer - buffer. This leads to a buffer overflow vulnerability. Additionally, there is an integer overflow vulnerability when entry.filename_len + 20 is reached."
+}

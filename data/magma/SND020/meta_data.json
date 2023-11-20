@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow, Out-of-bound Write",
+    "vulnerable_function": [
+        "wavlike_read_fmt_chunk"
+    ],
+    "root_cause": "In the wavlike_read_fmt_chunk function, if the length of the bit is less than 2, two decrements of bit will cause an integer overflow in the bit variable, leading to a buffer overflow when accessing buffer[--bit]."
+}

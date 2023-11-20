@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Buffer-Overflow, Out-of-bound Write",
+    "vulnerable_function": "add_note,edit_note",
+    "root_cause": "In the add_note and edit_note functions, there is a memory overflow issue when reading input for the 'name' and 'desc' variables using the fgets function. The input size for 'name' is limited to 81 characters, which exceeds the memory allocated for the variable. Similarly, the input size for 'desc' is limited to 257 characters, which also exceeds its allocated memory. In the edit_note function, there is another memory overflow issue when reading input for the 'ptr' variable, which is allocated memory using the malloc function. The fgets function is used to read input for 'ptr', exceeding the allocated memory size 'size'.",
+    "global_variables_ida": "note * table[10];\nchar jpt_401060[0x18];",
+    "global_variables_manual": "struct note\n{\n  char name[80];\n  __int64 size;\n  char *desc;\n};\n\nnote *table[10];"
+}

@@ -1,0 +1,4 @@
+{
+    "vulnerability_type": "Math Error, Numeric Errors, improper calculation or conversion of numbers",
+    "vulnerable": true
+}

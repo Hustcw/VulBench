@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow, Lack of Check, Out-of-bound Read",
+    "vulnerable_function": [
+        "i2alaw_array"
+    ],
+    "root_cause": "In the i2alaw_array function, if ptr[i] is INT_MIN, it will cause an underflow when converting to a negative number, resulting in INT_MIN. This leads to a negative index when accessing the array alaw_encode[-ptr[i] >> (16 + 4)], causing an out-of-bounds vulnerability."
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Lack of Check",
+    "vulnerable_function": [
+        "rsa_item_verify"
+    ],
+    "root_cause": "Range check error: The function should return -1 when magma_int < 0 as well."
+}

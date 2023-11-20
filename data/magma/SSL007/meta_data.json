@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow",
+    "vulnerable_function": [
+        "MDC2_Update"
+    ],
+    "root_cause": "A potential integer overflow vulnerability may occur when comparing in the statement: if (i + len < MDC2_BLOCK) {."
+}

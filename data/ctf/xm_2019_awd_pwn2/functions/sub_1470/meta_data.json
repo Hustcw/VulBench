@@ -1,0 +1,7 @@
+{
+    "vulnerable": true,
+    "address_range": [
+        "0x1470",
+        "0x151d"
+    ]
+}

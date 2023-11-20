@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Buffer-Overflow",
+    "vulnerable_function": "write_mail",
+    "root_cause": "In the write_mail function, gets is used to read v1->title and v1->content without checking the length, leading to a potential memory overflow issue.",
+    "global_variables_ida": "FILE * stdin@@GLIBC_2.0;\nFILE * stdout@@GLIBC_2.0;\n_DWORD root;",
+    "global_variables_manual": "struct Mail\n{\n  Mail *root;\n  char title[64];\n  int content_len;\n  char content[];\n};\n\nMail helloworld;\nMail *root;"
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Lack of Check, Out of Bound",
+    "vulnerable_function": [
+        "php_stream_url_wrap_http_ex"
+    ],
+    "root_cause": "In the code segment:\n\nif (tmp_line[tmp_line_len - 1] == '\\n') { --tmp_line_len;\nif (tmp_line[tmp_line_len - 1] == '\\r') {--tmp_line_len;}}\n\nThere is no check for the size of tmp_line_len, which is the length of user input obtained from php_stream_get_line(stream, tmp_line, sizeof(tmp_line) - 1, &tmp_line_len). This could lead to a buffer overflow vulnerability due to the potential for out-of-bounds access."
+}

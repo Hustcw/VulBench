@@ -1,0 +1,4 @@
+{
+    "vulnerability_type": "Out of bound read or write or memory corruption or buffer overflow",
+    "vulnerable": true
+}

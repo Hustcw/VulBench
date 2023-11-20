@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Write",
+    "vulnerable_function": [
+        "NeXTDecode"
+    ],
+    "root_cause": "Failure to check if the operation offset (op_offset) is less than the scanline.\n\nThis means that there is a vulnerability in the code because it does not verify if an important parameter, the operation offset, is within a certain range or boundary. This could potentially lead to unexpected behavior or security issues. The parameter in question relates to the scanline, which is a line of pixels in a digital image."
+}

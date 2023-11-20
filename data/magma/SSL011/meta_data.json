@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "NULL-Pointer Dereference",
+    "vulnerable_function": [
+        "PKCS7_dataDecode"
+    ],
+    "root_cause": "The vulnerability root cause is that there is no check for data_body being null before accessing data_body->length, which can lead to a null pointer dereference vulnerability."
+}

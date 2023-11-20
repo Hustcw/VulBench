@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerable_function": "cancel",
+    "root_cause": "In the cancel function, under the if (--vote_list[v0] == --ptr[v0]->count) branch, the free(ptr[v0]); statement is used to release the memory pointed by ptr[v0]. However, after freeing the memory, the ptr[v0] pointer is not cleared or marked, which may lead to Double Free or Use After Free vulnerabilities.",
+    "global_variables_ida": "void * ptr;\n_DWORD dword_602160;\n_QWORD qword_602180;\nchar a0Create[0xA];\n_QWORD a1Show;\n_QWORD a2Vote;\nchar a3Result[0xA];\nchar a4Cancel[0xA];\n_QWORD a5Exit;",
+    "global_variables_manual": "struct Vote\n{\n  __int64 count;\n  __int64 time;\n  char name[8];\n};\n\nVote *ptr[16];\nint idx;\n__int64 vote_list[16];"
+}

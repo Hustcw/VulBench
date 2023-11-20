@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Lack of Check",
+    "vulnerable_function": [
+        "xmlFAParseCharRange"
+    ],
+    "root_cause": ""
+}

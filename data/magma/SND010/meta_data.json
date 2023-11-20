@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Write",
+    "vulnerable_function": [
+        "psf_binheader_writef"
+    ],
+    "root_cause": "In the 's' branch of the switch statement, the size of psf->header.ptr is not checked to see if it is greater than the amount of data being written. Later, there are writes including 4 bytes for header_put_be_int(psf, size) and size bytes for memcpy(&(psf->header.ptr[psf->header.indx]), strptr, size). If these checks are not performed, there is a risk of out-of-bounds reads or memory overflow issues."
+}

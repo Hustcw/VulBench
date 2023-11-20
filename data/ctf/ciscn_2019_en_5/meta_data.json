@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Write",
+    "vulnerable_function": "add",
+    "root_cause": "In the add function, when clearing using the for loop `for (j = 0; j <= size; ++j)`, it accesses the element `a1[size]` which is out of bounds, as the memory size of `a1` is `size` and this leads to a buffer overflow.",
+    "global_variables_ida": "FILE * stderr;\nvoid * ptr;",
+    "global_variables_manual": "_QWORD content_size[20]; // weak\nchar *content[20];\n_BYTE *a1; // idb"
+}

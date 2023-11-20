@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Write",
+    "vulnerable_function": "main",
+    "root_cause": "In the main function, v6[0] can be directly modified, having the capability of arbitrary write.",
+    "global_variables_ida": "FILE * __bss_start;",
+    "global_variables_manual": ""
+}

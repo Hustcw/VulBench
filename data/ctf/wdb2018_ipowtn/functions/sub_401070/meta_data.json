@@ -1,0 +1,7 @@
+{
+    "vulnerable": false,
+    "address_range": [
+        "0x401070",
+        "0x401118"
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": [
+        "XRef::getEntry"
+    ],
+    "root_cause": "There is no check to ensure that i is non-negative, which leads to a potential out-of-bounds access vulnerability when accessing entries[i]."
+}

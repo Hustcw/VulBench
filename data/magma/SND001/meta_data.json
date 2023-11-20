@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Lack of Boundary Check",
+    "vulnerable_function": [
+        "paf_read_header"
+    ],
+    "root_cause": "There is no check on the range of `paf_fmt.channels`."
+}

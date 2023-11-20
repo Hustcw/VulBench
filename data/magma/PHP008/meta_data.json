@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow, Lack of Check",
+    "vulnerable_function": [
+        "php_parserr"
+    ],
+    "root_cause": "After reading the `dlen` variable through `GETSHORT(dlen, cp);`, in the `DNS_T_CAA` branch, the size of `dlen` is not checked. When performing the operation `n = dlen - n - 2;`, `n` may become a negative value, causing an exception to occur when calling `add_assoc_stringl(subarray, \"value\", (char *)cp, n);`."
+}

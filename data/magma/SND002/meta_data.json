@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Heap Out-of-bound Read",
+    "vulnerable_function": [
+        "sd2_parse_rsrc_fork"
+    ],
+    "root_cause": ""
+}

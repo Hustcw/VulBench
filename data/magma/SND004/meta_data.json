@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Lack of Boundary Check",
+    "vulnerable_function": [
+        "psf_fwrite"
+    ],
+    "root_cause": "There is no check for bytes and item being 0 at the beginning of the function, specifically before the 'if (psf->virtual_io)' statement."
+}

@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": "execute_it",
+    "root_cause": "In the `execute_it` function, there is a potential vulnerability when using `v8 = read(0, global, 0x100uLL); global[v8] = 0;` to read the `global` variable. If the read operation retrieves data with a length equal to the size of `global`, then `v8` will be set to the size of `global`. This can lead to out-of-bounds memory write when the subsequent statement `global[v8] = 0;` is executed, as it attempts to write beyond the bounds of the `global` array.",
+    "global_variables_ida": "FILE * stderr@@GLIBC_2.2.5;\nFILE * stdout@@GLIBC_2.2.5;\nchar * key;\n_QWORD exec_guy;\nchar global;\nchar byte_602240;\n_QWORD s_exec_guy;\n_QWORD m_exec_guy;\nconst char kLs[4];\nconst char byte_40165B[5];",
+    "global_variables_manual": "struct __attribute__((aligned(8))) ExecGuy\n{\n  char hash[20];\n  __attribute__((packed)) void (__fastcall *deny_ptr)(const char *) __attribute__((aligned(1)));\n  __attribute__((packed)) void (__fastcall *success_ptr)(const char *) __attribute__((aligned(1)));\n};\n\nstruct __attribute__((packed)) __attribute__((aligned(1))) MExecGuy\n{\n  char hash[19];\n  void (__fastcall *deny_ptr)(const char *);\n  void (__fastcall *success_ptr)(const char *);\n};\n\nchar *key;\nExecGuy *exec_guy;\nchar global[256];\nchar is_md5;\nExecGuy *s_exec_guy;\nMExecGuy *m_exec_guy;"
+}

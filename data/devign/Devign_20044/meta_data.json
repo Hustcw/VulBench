@@ -1,0 +1,4 @@
+{
+    "vulnerability_type": "Integer Overflow",
+    "vulnerable": true
+}

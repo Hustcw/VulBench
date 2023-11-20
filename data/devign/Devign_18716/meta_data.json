@@ -1,0 +1,4 @@
+{
+    "vulnerability_type": "Lack Sanity Check",
+    "vulnerable": true
+}

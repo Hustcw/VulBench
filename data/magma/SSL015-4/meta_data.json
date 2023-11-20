@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "NULL-Pointer Dereference",
+    "vulnerable_function": [
+        "PKCS7_dataVerify"
+    ],
+    "root_cause": "There is a null pointer dereference vulnerability as the input parameter p7 is not checked for being NULL."
+}

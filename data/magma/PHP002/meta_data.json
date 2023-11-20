@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow",
+    "vulnerable_function": [
+        "exif_process_IFD_in_TIFF_impl"
+    ],
+    "root_cause": "At the offset dir_offset + 2, there may be an integer overflow vulnerability."
+}

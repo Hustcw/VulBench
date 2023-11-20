@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Memory Leak",
+    "vulnerable_function": [
+        "png_free_data"
+    ],
+    "root_cause": "The root cause of the vulnerability is that the `info_ptr->free_me` attribute is not set to include the `PNG_FREE_EXIF` flag. This causes the `info_ptr->eXIf_buf` memory to not be freed during the cleanup process in `png_free_data`, resulting in a memory leak."
+}

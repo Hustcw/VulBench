@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": [
+        "SplashXPathScanner::clipAALine"
+    ],
+    "root_cause": "Before accessing the `allIntersections` array using the `intersectionIndex` variable in the line `const auto &line = allIntersections[intersectionIndex];`, there is no check to ensure that the `intersectionIndex` is within the bounds of the `allIntersections` array's size. This can potentially lead to out-of-bounds access vulnerabilities."
+}

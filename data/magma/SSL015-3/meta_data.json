@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "NULL-Pointer Dereference",
+    "vulnerable_function": [
+        "PKCS7_dataFinal"
+    ],
+    "root_cause": "There is no check for whether the input parameter p7 is NULL, leading to a null pointer dereference vulnerability."
+}

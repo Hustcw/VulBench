@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow",
+    "vulnerable_function": [
+        "png_check_chunk_length"
+    ],
+    "root_cause": "In the function png_check_chunk_length, the variable row_factor_l is forced to be converted to png_uint_32. If row_factor_l is the maximum value of png_uint_32, an integer overflow occurs after the conversion, causing row_factor to become 0. Then, during the later stage of PNG_UINT_32_MAX / row_factor, a division-by-zero error occurs."
+}

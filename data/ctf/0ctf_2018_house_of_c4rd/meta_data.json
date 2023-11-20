@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Buffer-Overflow, Integer Overflow, Out-of-bound Write",
+    "vulnerable_function": "main",
+    "root_cause": "In the main function, when inputting the size, it is not checked if it is a negative number. This leads to an integer overflow issue when converting the type in the function call sub_1050(0, ptr, (unsigned int)size);. As a result, a potentially large amount of data can be read from the ptr variable, causing a memory overflow problem.",
+    "global_variables_ida": "_DWORD dword_203124;\n_DWORD dword_203128;\nFILE * qword_203130;\nFILE * stream;\nchar jpt_168B[0x10];\nconst char s[181];\nconst char asc_1FD5[1];\nconst char a1[1];\nconst char a2[1];\nconst char a3[1];\nconst char a4[1];",
+    "global_variables_manual": "int dword_203124;\nint dword_203128;\nFILE *qword_203130;\nFILE *stream;"
+}

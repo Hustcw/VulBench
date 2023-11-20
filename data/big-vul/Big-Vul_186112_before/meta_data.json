@@ -1,0 +1,4 @@
+{
+    "vulnerability_type": "Double free / Use after free",
+    "vulnerable": true
+}

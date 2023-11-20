@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Integer Overflow",
+    "vulnerable_function": [
+        "JPXStream::init"
+    ],
+    "root_cause": "In the JPXStream::init function, a variable called bufSize is obtained from user input through the code oLen = getDict()->lookup(\"Length\"); bufSize = oLen.getInt(); However, this code does not check if bufSize is a positive number. Later, when calling unsigned char *buf = str->toUnsignedChars(&length, bufSize); an integer overflow occurs, leading to a large positive number being passed as an argument to gmalloc(initialSize). This results in an allocation of a very large amount of memory."
+}

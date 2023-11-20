@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerable_function": "call_realloc",
+    "root_cause": "In the call_realloc function, when size can be read as 0, and the size of the realloc is also 0, it is equivalent to calling the free function. This can lead to Double Free or Use After Free issues.",
+    "global_variables_ida": "FILE * __bss_start;\nFILE * stdin@@GLIBC_2.2.5;\nvoid * ptr_r;\nvoid * ptr_m;\nvoid * ptr_c;\nchar jpt_DCE[0x18];",
+    "global_variables_manual": ""
+}

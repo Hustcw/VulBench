@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Lack of Check",
+    "vulnerable_function": [
+        "dtls1_preprocess_fragment"
+    ],
+    "root_cause": ""
+}

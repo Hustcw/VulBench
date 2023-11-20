@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Heap Out-of-bound Write",
+    "vulnerable_function": [
+        "PixarLogDecode"
+    ],
+    "root_cause": "When using inflate(&sp->stream, Z_PARTIAL_FLUSH) for reading, there is no check if the size needed to be read, sp->stream.avail_out, is less than the size of the output buffer, which can potentially lead to a buffer overflow vulnerability."
+}

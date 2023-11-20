@@ -1,0 +1,7 @@
+{
+    "vulnerability_type": "Out-of-bound Read",
+    "vulnerable_function": [
+        "phar_parse_pharfile"
+    ],
+    "root_cause": "In the PHAR_GET_32(buffer, manifest_count); PHAR_GET_32(buffer, manifest_flags); PHAR_GET_32(buffer, len); operations, there is no check for the size of the buffer memory before copying. This can lead to a buffer overflow vulnerability due to reading beyond the intended memory boundaries."
+}
