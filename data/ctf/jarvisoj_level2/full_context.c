@@ -1,5 +1,4 @@
 #include <defs.h>
-#include <defs.h>
 
 ssize_t vulnerable_function()
 {

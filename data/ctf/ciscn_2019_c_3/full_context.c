@@ -6,14 +6,6 @@ struct Weapon
 };
 
 Weapon *weapon_list[9];
-struct Weapon
-{
-  __int64 attack_times;
-  __int64 attack_numbers;
-  char name[8];
-};
-
-Weapon *weapon_list[9];
 
 void __fastcall read_str(char *a1, unsigned int a2)
 {

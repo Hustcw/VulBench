@@ -2,10 +2,6 @@ void *ptr;
 int delete_count = 4;
 int new_count = 2;
 
-void *ptr;
-int delete_count = 4;
-int new_count = 2;
-
 void __fastcall __noreturn main(__int64 a1, char **a2, char **a3)
 {
   int i;

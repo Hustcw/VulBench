@@ -4,12 +4,6 @@ char byte_6024C1; // weak
 _BYTE byte_6024E0[1024]; // weak
 char byte_6028E0; // weak
 char byte_6028E1; // weak
-char byte_6020C0[1024]; // weak
-char byte_6024C0; // weak
-char byte_6024C1; // weak
-_BYTE byte_6024E0[1024]; // weak
-char byte_6028E0; // weak
-char byte_6028E1; // weak
 
 void __fastcall __noreturn main(int a1, const char **a2, char **a3)
 {

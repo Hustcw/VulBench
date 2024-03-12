@@ -1,8 +1,5 @@
 char byte_804A080[256]; // idb
 char byte_804A180[256]; // idb
-
-char byte_804A080[256]; // idb
-char byte_804A180[256]; // idb
 int main()
 {
   char s[256]; // [esp+7h] [ebp-111h] BYREF

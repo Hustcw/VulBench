@@ -1,5 +1,4 @@
 char *a1[7];
-char *a1[7];
 
 void sub_4008E3()
 {

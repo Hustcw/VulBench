@@ -1,7 +1,5 @@
 int note_size[32];
 char *note[32];
-int note_size[32];
-char *note[32];
 
 
 void new()

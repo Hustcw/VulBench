@@ -14,22 +14,6 @@ struct workspace_t
   pointer _anon_0;
 };
 
-char buf_3753[4096];
-
-union pointer
-{
-  void (*print_encoded)(const char *, size_t);
-  char *enc_state;
-};
-
-struct workspace_t
-{
-  int type;
-  char *input_buf;
-  size_t buf_len;
-  pointer _anon_0;
-};
-
 int __cdecl main(int argc, const char **argv, const char **envp)
 {
   const char *cmd;

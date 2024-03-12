@@ -1,9 +1,6 @@
 _QWORD size[12];
 char *chunk[10];
 
-_QWORD size[12];
-char *chunk[10];
-
 int __cdecl __noreturn main(int argc, const char **argv, const char **envp)
 {
   int v3;

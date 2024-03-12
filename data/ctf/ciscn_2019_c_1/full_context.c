@@ -1,5 +1,4 @@
 #include <defs.h>
-#include <defs.h>
 
 __sighandler_t init()
 {

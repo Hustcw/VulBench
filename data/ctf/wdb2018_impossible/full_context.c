@@ -1,9 +1,6 @@
 int dword_602060;
 char byte_602068[24];
 char byte_602080[4096];
-int dword_602060;
-char byte_602068[24];
-char byte_602080[4096];
 
 void sub_4008A3()
 {

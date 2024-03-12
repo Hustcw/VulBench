@@ -7,15 +7,6 @@ struct Notebook
 };
 
 Notebook notebook[16];
-struct Notebook
-{
-  int used;
-  int size;
-  char title[144];
-  char *content;
-};
-
-Notebook notebook[16];
 
 __int64 __fastcall input2addr(char *a1, signed int a2)
 {

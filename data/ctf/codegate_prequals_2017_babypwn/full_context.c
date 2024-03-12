@@ -1,9 +1,6 @@
 int fd;
 int dword_804B1BC;
 
-int fd;
-int dword_804B1BC;
-
 unsigned int sub_804880D()
 {
   sub_80488B1("\nTime Out!\n");

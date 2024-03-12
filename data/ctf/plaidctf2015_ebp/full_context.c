@@ -1,7 +1,5 @@
 char buf[1024]; // idb
 char response[1024]; // idb
-char buf[1024]; // idb
-char response[1024]; // idb
 
 int make_response()
 {

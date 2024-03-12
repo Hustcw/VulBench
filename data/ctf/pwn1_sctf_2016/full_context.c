@@ -1,5 +1,4 @@
 #include <defs.h>
-#include <defs.h>
 
 int get_flag()
 {

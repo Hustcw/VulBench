@@ -8,17 +8,6 @@ char name[128];
 int dword_6022A0;
 char *s2;
 pthread_t th;
-
-int dword_6020FC;
-int dword_602100;
-char byte_602120[200];
-char nptr[16];
-pthread_t newthread;
-char haystack[32];
-char name[128];
-int dword_6022A0;
-char *s2;
-pthread_t th;
 void __fastcall start_routine(void *a1)
 {
   char *i;

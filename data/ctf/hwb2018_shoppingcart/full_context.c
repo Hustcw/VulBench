@@ -10,18 +10,6 @@ __int64 qword_202098;
 char byte_2020A0[20][8];
 char *byte_202140[20];
 Data *qword_2021E0[20];
-struct Data
-{
-  char *field_0;
-  __int64 field_8;
-};
-
-char byte_202088;
-__int64 qword_202090;
-__int64 qword_202098;
-char byte_2020A0[20][8];
-char *byte_202140[20];
-Data *qword_2021E0[20];
 
 
 void sub_9B0()

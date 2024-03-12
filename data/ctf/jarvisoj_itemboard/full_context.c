@@ -8,16 +8,6 @@ struct ItemStruct
 typedef ItemStruct Item;
 
 Item **item_array;
-struct ItemStruct
-{
-  char *name;
-  char *description;
-  void (*free)(ItemStruct *);
-};
-
-typedef ItemStruct Item;
-
-Item **item_array;
 int __cdecl main(int argc, const char **argv, const char **envp)
 {
   int result; // eax

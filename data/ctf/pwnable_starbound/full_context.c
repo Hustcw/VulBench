@@ -14,22 +14,6 @@ int dword_8058150;
 int func_ptr_list[10];
 int (*cur_action_ptr)(void);
 
-char map[0x202];
-int me;
-int dword_8057F84;
-int pos;
-int dword_8057F8C;
-int hp;
-int dword_8057F94;
-char byte_8057F98[300];
-int fd;
-char *cp;
-int dword_80580CC;
-char byte_80580D0[128];
-int dword_8058150;
-int func_ptr_list[10];
-int (*cur_action_ptr)(void);
-
 void cmd_go_back()
 {
   cur_action_ptr = show_main_menu;

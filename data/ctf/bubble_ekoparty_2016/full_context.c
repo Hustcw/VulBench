@@ -1,11 +1,6 @@
 unsigned int array[256];
 int dword_202440;
 
-
-
-unsigned int array[256];
-int dword_202440;
-
 int __fastcall sub_89A(const char *a1, unsigned __int64 a2)
 {
   int v2;

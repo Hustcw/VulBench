@@ -8,16 +8,6 @@ struct Vote
 Vote *ptr[16];
 int idx;
 __int64 vote_list[16];
-struct Vote
-{
-  __int64 count;
-  __int64 time;
-  char name[8];
-};
-
-Vote *ptr[16];
-int idx;
-__int64 vote_list[16];
 
 
 void __fastcall read_str(char *a1, unsigned __int64 a2)

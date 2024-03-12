@@ -2,10 +2,6 @@ char text[512];
 FILE *fp;
 int init;
 char filepath[8];
-char text[512];
-FILE *fp;
-int init;
-char filepath[8];
 
 void show_menu()
 {

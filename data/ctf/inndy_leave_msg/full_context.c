@@ -1,7 +1,5 @@
 int dword_804A04C; // weak
 int dword_804A060[64]; // weak
-int dword_804A04C; // weak
-int dword_804A060[64]; // weak
 
 int __cdecl main()
 {

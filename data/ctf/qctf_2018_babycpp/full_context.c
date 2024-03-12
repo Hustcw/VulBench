@@ -1,7 +1,5 @@
 int n; // weak
 char t[8]; // idb
-int n; // weak
-char t[8]; // idb
 
 void __fastcall show_num(int *a1)
 {

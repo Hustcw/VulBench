@@ -1,7 +1,5 @@
 _DWORD dword_202040[64];
 Data *qword_202140[62];
-_DWORD dword_202040[64];
-Data *qword_202140[62];
 
 void __noreturn exit_()
 {

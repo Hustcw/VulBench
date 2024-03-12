@@ -15,23 +15,6 @@ Tweet *src[] =
     {&aH3ll0Fr13nd, &aWeVeBeenWaitin, &aWonTYouJoinUs};
 int tweet_count;
 Tweet *head;
-struct Tweet
-{
-  char content[140];
-  struct Tweet *next;
-};
-
-char a0[2] = "0";
-char a1[2] = "1";
-char a2[2] = "2";
-char a3[2] = "3";
-Tweet aH3ll0Fr13nd = {"h3ll0 fr13nd", 0};
-Tweet aWeVeBeenWaitin = {"we've been waiting for you", 0};
-Tweet aWonTYouJoinUs = {"won't you join us?", 0};
-Tweet *src[] =
-    {&aH3ll0Fr13nd, &aWeVeBeenWaitin, &aWonTYouJoinUs};
-int tweet_count;
-Tweet *head;
 
 void init_0()
 {

@@ -3,11 +3,6 @@ struct NOTE
   NOTE *next;
   char data[128];
 };
-struct NOTE
-{
-  NOTE *next;
-  char data[128];
-};
 
 int read_integer()
 {

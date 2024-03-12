@@ -1,7 +1,5 @@
 char win1;
 char win2;
-char win1;
-char win2;
 
 void win_function1()
 {

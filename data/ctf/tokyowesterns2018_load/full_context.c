@@ -1,5 +1,4 @@
 char data[128];
-char data[128];
 
 __int64 __fastcall main(int rdi0, char **a2, char **rdx0)
 {

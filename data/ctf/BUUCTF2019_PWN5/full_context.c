@@ -1,8 +1,5 @@
 #include <defs.h>
 
-_DWORD dword_804C044;
-#include <defs.h>
-
 _DWORD dword_804C044; 
 
 int __cdecl main(int a1)

@@ -1,9 +1,6 @@
 int DEBUG = 1;
 char buff[64];
 char s[32];
-int DEBUG = 1;
-char buff[64];
-char s[32];
 
 int admin()
 {

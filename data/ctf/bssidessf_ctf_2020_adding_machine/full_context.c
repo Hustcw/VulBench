@@ -1,9 +1,6 @@
 __int64 debug_info;
 __int64 qword_40F8;
 __int64 qword_4100;
-__int64 debug_info;
-__int64 qword_40F8;
-__int64 qword_4100;
 
 int __cdecl main(int argc, const char **argv, const char **envp)
 {

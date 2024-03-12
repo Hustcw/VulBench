@@ -8,16 +8,6 @@ struct Note
 int dword_20204C;
 int note_count;
 Note notes[5];
-struct Note
-{
-  char name[16];
-  __int64 used;
-  char *content;
-};
-
-int dword_20204C;
-int note_count;
-Note notes[5];
 
 
 void sub_A93()

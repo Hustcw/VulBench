@@ -2,10 +2,6 @@ int dword_203124;
 int dword_203128;
 FILE *qword_203130;
 FILE *stream;
-int dword_203124;
-int dword_203128;
-FILE *qword_203130;
-FILE *stream;
 
 
 __int64 __fastcall sub_1050(int a1, char *a2, unsigned __int64 a3)

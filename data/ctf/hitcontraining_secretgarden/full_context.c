@@ -9,17 +9,6 @@ struct Flower
 int flowercount;
 Flower *flowerlist[100];
 
-struct Flower
-{
-  int used;
-  _BYTE gap4[4];
-  char *name;
-  char color[24];
-};
-
-int flowercount;
-Flower *flowerlist[100];
-
 int menu()
 {
   puts("  1 . Raise a flower ");

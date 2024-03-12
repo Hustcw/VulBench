@@ -1,9 +1,6 @@
 __int64 magic;
 char *heaparray[10];
 
-__int64 magic;
-char *heaparray[10];
-
 ssize_t __fastcall read_input(void *a1, size_t a2)
 {
   ssize_t result;

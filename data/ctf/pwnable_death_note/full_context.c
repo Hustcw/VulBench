@@ -1,5 +1,4 @@
 char *note[10];
-char *note[10];
 
 unsigned __int8 *__cdecl read_input(unsigned __int8 *buf, size_t nbytes)
 {

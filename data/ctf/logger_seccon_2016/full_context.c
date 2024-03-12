@@ -1,9 +1,6 @@
 FILE *edata;
 FILE *fp;
 
-FILE *edata;
-FILE *fp;
-
 char *__fastcall calc_filename(const char *a1, const char *a2, char *a3)
 {
   size_t v3;
@@ -165,4 +162,3 @@ int __cdecl __noreturn main(int argc, const char **argv, const char **envp)
     puts("==============");
   }
 }
-

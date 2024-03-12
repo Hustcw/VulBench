@@ -1,9 +1,6 @@
 _QWORD content_size[20]; // weak
 char *content[20];
 _BYTE *a1; // idb
-_QWORD content_size[20]; // weak
-char *content[20];
-_BYTE *a1; // idb
 
 
 void __fastcall read_str(_BYTE *a1, int a2)

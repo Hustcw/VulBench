@@ -5,13 +5,6 @@ struct Heap
 };
 
 Heap *ptrs;
-struct Heap
-{
-  char *content;
-  int size;
-};
-
-Heap *ptrs;
 
 int __cdecl main(int argc, const char **argv, const char **envp)
 {

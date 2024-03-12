@@ -1,5 +1,4 @@
 _QWORD qword_4060[20];
-_QWORD qword_4060[20];
 void __fastcall __noreturn main(__int64 a1, char **a2, char **a3)
 {
   int v3; // [rsp+4h] [rbp-Ch]

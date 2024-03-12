@@ -7,15 +7,6 @@ int qu[1000];
 _DWORD dword_206CE0[8];
 _DWORD head[30];
 _QWORD flag;
-int w;
-_DWORD len[1000];
-_DWORD used[904];
-_DWORD to[1000];
-_DWORD next[1000];
-int qu[1000];
-_DWORD dword_206CE0[8];
-_DWORD head[30];
-_QWORD flag;
 
 int __cdecl __noreturn main(int argc, const char **argv, const char **envp)
 {

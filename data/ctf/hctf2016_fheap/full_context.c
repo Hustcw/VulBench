@@ -14,22 +14,6 @@ struct String
 
 
 String list[16];
-struct Content
-{
-  char *content;
-  __attribute__((aligned(16))) int size;
-  void (__fastcall *free_func)(Content *);
-};
-
-struct String
-{
-  int used;
-  int field_4;
-  Content *content;
-};
-
-
-String list[16];
 
 int read_int()
 {

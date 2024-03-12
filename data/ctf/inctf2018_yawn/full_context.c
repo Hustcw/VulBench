@@ -6,14 +6,6 @@ struct note
 };
 
 note *table[10];
-struct note
-{
-  char name[80];
-  __int64 size;
-  char *desc;
-};
-
-note *table[10];
 
 int __cdecl get_inp(char *buffer, int size)
 {

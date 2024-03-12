@@ -5,13 +5,6 @@ struct Link
   int stack_rsp;
   __int64 content[];
 };
-struct Link
-{
-  __int64 *val;
-  int stack_top;
-  int stack_rsp;
-  __int64 content[];
-};
 
 __int64 __fastcall main(int a1, char **a2, char **a3)
 {

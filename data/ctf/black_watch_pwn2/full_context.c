@@ -8,16 +8,6 @@ struct RedPacket
 __int64 qword_4050;
 __int64 qword_4058;
 RedPacket red_packet_list[16];
-struct RedPacket
-{
-  char *content;
-  int size;
-  int field_C;
-};
-
-__int64 qword_4050;
-__int64 qword_4058;
-RedPacket red_packet_list[16];
 
 void init_0()
 {

@@ -8,16 +8,6 @@ struct Mail
 
 Mail helloworld;
 Mail *root;
-struct Mail
-{
-  Mail *root;
-  char title[64];
-  int content_len;
-  char content[];
-};
-
-Mail helloworld;
-Mail *root;
 
 int readint()
 {

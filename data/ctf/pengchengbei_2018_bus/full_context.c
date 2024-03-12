@@ -2,10 +2,6 @@ __int64 dest_cnt;
 __int64 idx;
 char *destination[32];
 _QWORD people_count[32];
-__int64 dest_cnt;
-__int64 idx;
-char *destination[32];
-_QWORD people_count[32];
 
 void __fastcall sub_B72(char *a1, __int64 a2)
 {

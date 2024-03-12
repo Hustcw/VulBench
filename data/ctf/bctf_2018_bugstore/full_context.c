@@ -4,12 +4,6 @@ char byte_202260; // weak
 __int64 qword_202040; // weak
 char byte_202049; // weak
 char byte_202048; // weak
-char unk_202060[0x200]; // weak
-char byte_202260; // weak
-
-__int64 qword_202040; // weak
-char byte_202049; // weak
-char byte_202048; // weak
 unsigned __int64 sub_AFE()
 {
   char v1[72]; // [rsp+0h] [rbp-58h] BYREF

@@ -3,11 +3,6 @@ __int64 A;
 __int64 B;
 int n;
 __int64 *x;
-char byte_202048;
-__int64 A;
-__int64 B;
-int n;
-__int64 *x;
 
 
 void __fastcall __noreturn sub_A97(const char *a1)

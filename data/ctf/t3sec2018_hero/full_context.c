@@ -1,7 +1,5 @@
 char *power[12];
 char *name[10];
-char *power[12];
-char *name[10];
 
 void add()
 {

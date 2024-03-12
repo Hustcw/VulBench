@@ -1,7 +1,5 @@
 char *byte_2020C0[16];
 
-char *byte_2020C0[16];
-
 void __fastcall sub_B20(char *a1, unsigned int a2)
 {
   char buf;

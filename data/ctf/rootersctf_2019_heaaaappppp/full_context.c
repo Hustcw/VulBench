@@ -5,13 +5,6 @@ struct User
 };
 
 User *root;
-struct User
-{
-  char *username;
-  __int64 age;
-};
-
-User *root;
 
 void __noreturn bye()
 {

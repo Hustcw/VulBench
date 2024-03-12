@@ -8,16 +8,6 @@ struct Paper
 
 int count;
 Paper paper[25];
-struct Paper
-{
-  char name[256];
-  char author[256];
-  char abstract[512];
-  char tags[64];
-};
-
-int count;
-Paper paper[25];
 
 void add_paper()
 {

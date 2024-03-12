@@ -1,5 +1,4 @@
 char str[1056];
-char str[1056];
 int main()
 {
   __int16 v1; // [esp+Ah] [ebp-41Eh] BYREF

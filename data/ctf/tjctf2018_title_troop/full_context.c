@@ -1,7 +1,5 @@
 char input[2];
 char src[254];
-char input[2];
-char src[254];
 
 int __fastcall fight(char *a1, int a2)
 {

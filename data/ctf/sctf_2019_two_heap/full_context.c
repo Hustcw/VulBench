@@ -24,32 +24,6 @@ Data off_4020[16] =
   { 128, NULL },
 };
 __int64 end;
-struct Data
-{
-  int field_0;
-  char *field_8;
-};
-
-Data off_4020[16] =
-{
-  { 128, NULL },
-  { 128, NULL },
-  { 128, NULL },
-  { 128, NULL },
-  { 128, NULL },
-  { 128, NULL },
-  { 128, NULL },
-  { 128, NULL },
-  { 128, NULL },
-  { 128, NULL },
-  { 128, NULL },
-  { 128, NULL },
-  { 128, NULL },
-  { 128, NULL },
-  { 128, NULL },
-  { 128, NULL },
-};
-__int64 end;
 
 void __fastcall __noreturn main(int rdi0, char **a2, char **a3)
 {

@@ -13,21 +13,6 @@ struct NoteList
 };
 
 NoteList *note_stru;
-struct Note
-{
-  __int64 used;
-  __int64 field_8;
-  char *content;
-};
-
-struct NoteList
-{
-  __int64 limit;
-  __int64 count;
-  Note note_list[256];
-};
-
-NoteList *note_stru;
 
 __int64 __fastcall read_str(char *a1, int a2)
 {

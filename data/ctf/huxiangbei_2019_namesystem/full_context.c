@@ -1,7 +1,5 @@
 char *a1[20];
 
-char *a1[20];
-
 void __fastcall read_str(char *a1, int a2)
 {
   char buf; // [rsp+13h] [rbp-Dh] BYREF

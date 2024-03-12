@@ -18,26 +18,6 @@ char global[256];
 char is_md5;
 ExecGuy *s_exec_guy;
 MExecGuy *m_exec_guy;
-struct __attribute__((aligned(8))) ExecGuy
-{
-  char hash[20];
-  __attribute__((packed)) void (__fastcall *deny_ptr)(const char *) __attribute__((aligned(1)));
-  __attribute__((packed)) void (__fastcall *success_ptr)(const char *) __attribute__((aligned(1)));
-};
-
-struct __attribute__((packed)) __attribute__((aligned(1))) MExecGuy
-{
-  char hash[19];
-  void (__fastcall *deny_ptr)(const char *);
-  void (__fastcall *success_ptr)(const char *);
-};
-
-char *key;
-ExecGuy *exec_guy;
-char global[256];
-char is_md5;
-ExecGuy *s_exec_guy;
-MExecGuy *m_exec_guy;
 
 void __fastcall deny_command(const char *a1)
 {

@@ -7,15 +7,6 @@ struct Flag
 
 Flag *flag_list[10];
 
-struct Flag
-{
-  char *content;
-  int size;
-  int state;
-};
-
-Flag *flag_list[10];
-
 void __fastcall secure_read(char *a1, unsigned int a2)
 {
   int v2;

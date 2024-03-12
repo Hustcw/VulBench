@@ -5,13 +5,6 @@ int re_entry; // idb
 int states[15]; // idb
 char name[144]; // idb
 
-char *notes[15]; // idb
-int fd; // idb
-char *key; // idb
-int re_entry; // idb
-int states[15]; // idb
-char name[144]; // idb
-
 void __cdecl myputs(const char *str, int newline)
 {
   int v2; // eax

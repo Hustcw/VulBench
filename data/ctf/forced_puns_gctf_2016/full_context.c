@@ -2,10 +2,6 @@ char *line_4718;
 Entry *(__fastcall **fp)(Entry *a1);
 Entry *root;
 
-char *line_4718;
-Entry *(__fastcall **fp)(Entry *a1);
-Entry *root;
-
 
 int __cdecl __noreturn main(int argc, const char **argv, const char **envp)
 {

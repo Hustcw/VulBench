@@ -7,15 +7,6 @@ struct Note
 int dword_202010 = 3; // weak
 Note* qword_202040[10];
 
-struct Note
-{
-  char title[8];
-  char content[104];
-};
-
-int dword_202010 = 3; // weak
-Note* qword_202040[10];
-
 void __fastcall __noreturn main(__int64 a1, char **a2, char **a3)
 {
   int v3; // [rsp+4h] [rbp-24h] BYREF

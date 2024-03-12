@@ -8,16 +8,6 @@ struct Note
 int counts;
 int key;
 Note note[10];
-struct Note
-{
-  __int64 content;
-  int size;
-  int field_C;
-};
-
-int counts;
-int key;
-Note note[10];
 
 unsigned __int64 banner()
 {

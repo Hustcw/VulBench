@@ -49,57 +49,6 @@ struct BossInfo
 Data data;
 char byte_6033F0;
 
-__int64 level_hp_mapping[8] = { 100LL, 1000LL, 3000LL, 9223372036854775806LL, 0LL, 0LL, 0LL, 0LL };
-char aAttack[9][32] =
-{
-  "fireball",
-  "iceball",
-  "magicball",
-  "lightning",
-  "hellfire",
-  "icesword",
-  "magicsword",
-  "hollylight"
-};
-char s2[] = "fireball";
-char aIceball[] = "iceball";
-char aMagicball[] = "magicball";
-char aLightning[] = "lightning";
-char aHellfire[] = "hellfire";
-char aIcesword[] = "icesword";
-char aMagicsword[] = "magicsword";
-char aHollylight[] = "hollylight";
-char byte_603380;
-
-struct Data
-{
-  __int64 hp;
-  int d;
-  char iceshield;
-  char fireshield;
-  char windshield;
-  char j;
-  BossInfo boss;
-  Skill skill;
-  char m;
-};
-
-struct Skill
-{
-  char skill[32];
-  char b[8];
-  __int64 damage;
-};
-
-struct BossInfo
-{
-  __int64 level;
-  __int64 hp;
-};
-
-Data data;
-char byte_6033F0;
-
 
 void __fastcall set_50(_QWORD *a1)
 {

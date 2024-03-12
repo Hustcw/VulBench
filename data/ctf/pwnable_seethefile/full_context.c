@@ -2,10 +2,6 @@ char filename[64];
 char magicbuf[416];
 char name[32];
 FILE *fp;
-char filename[64];
-char magicbuf[416];
-char name[32];
-FILE *fp;
 
 int openfile()
 {

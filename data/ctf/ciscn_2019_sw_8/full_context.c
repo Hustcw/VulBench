@@ -4,12 +4,6 @@ char delete_times;
 char add_times[4];
 char *note_ptr[3];
 
-char edit_times;
-char magic_times;
-char delete_times;
-char add_times[4];
-char *note_ptr[3];
-
 void __cdecl add()
 {
   int sz_choice;

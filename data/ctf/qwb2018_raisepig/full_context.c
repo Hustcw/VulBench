@@ -7,15 +7,6 @@ struct Pig
 
 int count;
 Pig *list[100];
-struct Pig
-{
-  int used;
-  char *name;
-  char type[24];
-};
-
-int count;
-Pig *list[100];
 
 
 void menu()

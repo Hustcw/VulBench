@@ -1,5 +1,4 @@
 #include <defs.h>
-#include <defs.h>
 
 int __cdecl main(int argc, const char **argv, const char **envp)
 {

@@ -1,9 +1,6 @@
 _DWORD size[16];
 char *notes[10];
 
-_DWORD size[16];
-char *notes[10];
-
 void __cdecl menu()
 {
   puts("1.Add note");

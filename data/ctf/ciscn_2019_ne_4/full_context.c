@@ -6,14 +6,6 @@ struct Data
 };
 
 Data games[20];
-struct Data
-{
-  int used;
-  int size;
-  char *content;
-};
-
-Data games[20];
 
 
 int sub_B5A()

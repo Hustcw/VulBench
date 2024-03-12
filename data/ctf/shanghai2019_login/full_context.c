@@ -1,7 +1,5 @@
 _QWORD qword_602040[6];
 
-_QWORD qword_602040[6];
-
 int __fastcall sub_40089E(const char *a1)
 {
   puts("You password is:");
@@ -192,4 +190,3 @@ __int64 __fastcall main(__int64 a1, char **a2, char **a3)
     }
   }
 }
-

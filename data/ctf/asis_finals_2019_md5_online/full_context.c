@@ -8,16 +8,6 @@ struct Data
 
 Data *struc;
 FILE *dword_3010;
-struct Data
-{
-  char e[60];
-  unsigned __int8 salt[4];
-  _BYTE data[512];
-  unsigned __int8 *salt_ptr;
-};
-
-Data *struc;
-FILE *dword_3010;
 
 
 void __cdecl calc_md5(char *a1, char *a2, int with_salt)

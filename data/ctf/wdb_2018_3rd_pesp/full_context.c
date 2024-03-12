@@ -1,7 +1,5 @@
 char unk_6020C8[1592];
 char itemlist[8];
-char unk_6020C8[1592];
-char itemlist[8];
 
 int __cdecl main(int argc, const char **argv, const char **envp)
 {

@@ -6,14 +6,6 @@ struct Story
 
 int count;
 Story stories[16];
-struct Story
-{
-  int size;
-  char *content;
-};
-
-int count;
-Story stories[16];
 
 void menu()
 {

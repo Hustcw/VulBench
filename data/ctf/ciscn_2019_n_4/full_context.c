@@ -5,13 +5,6 @@ struct Nest
 };
 
 Nest *nests[10];
-struct Nest
-{
-  __int64 size;
-  char *content;
-};
-
-Nest *nests[10];
 
 int __cdecl main(int argc, const char **argv, const char **envp)
 {

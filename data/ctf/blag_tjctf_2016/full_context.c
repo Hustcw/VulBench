@@ -2,10 +2,6 @@ int numposts;
 int isadmin;
 char adminpassword[32];
 Post *posts[8];
-int numposts;
-int isadmin;
-char adminpassword[32];
-Post *posts[8];
 
 void __cdecl readline(char *a1, int a2, FILE *a3)
 {

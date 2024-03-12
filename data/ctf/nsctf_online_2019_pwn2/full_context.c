@@ -2,10 +2,6 @@ int size;
 char name[48];
 char *ptr;
 
-int size;
-char name[48];
-char *ptr;
-
 ssize_t sub_A00()
 {
   setvbuf(stdin, 0LL, 2, 0LL);

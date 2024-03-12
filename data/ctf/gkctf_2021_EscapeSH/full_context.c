@@ -1,9 +1,6 @@
 char *argv[];
 int per_argv_size[8];
 
-char *argv[];
-int per_argv_size[8];
-
 void __fastcall __noreturn main(int a1, char **a2, char **a3)
 {
   int v3;

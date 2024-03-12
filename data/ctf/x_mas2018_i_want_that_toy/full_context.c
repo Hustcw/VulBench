@@ -23,31 +23,6 @@ char* payload;
 const char *uri;
 __int64 payload_size;
 char* prot;
-struct ReqVars
-{
-  char query[32];
-  char param[64];
-};
-
-struct Header
-{
-  char *name;
-  char *value;
-};
-
-Header reqhdr[32];
-Header reqhdr_end;
-int listenfd;
-int req_cvar;
-ReqVars reqvars[128]
-int clientfd;
-char *buf;
-const char *method;
-char* qs;
-char* payload;
-const char *uri;
-__int64 payload_size;
-char* prot;
 
 void route()
 {
