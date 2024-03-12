@@ -1,5 +1,5 @@
 {
-    "vulnerable": false,
+    "vulnerable": true,
     "address_range": [
         "0x1058",
         "0x10e4"

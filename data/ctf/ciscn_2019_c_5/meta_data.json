@@ -1,7 +1,7 @@
 {
-    "vulnerability_type": "Double Free / Use After Free",
-    "vulnerable_function": "delete",
-    "root_cause": "In the delete function, the content of stories[v0] is freed, but it is not cleared or marked, which leads to a potential double-free or use-after-free vulnerability.",
+    "vulnerability_type": "Double Free / Use After Free,Out-of-bound Write",
+    "vulnerable_function": "delete,add",
+    "root_cause": "In the delete function, the content of stories[v0] is freed, but it is not cleared or marked, which leads to a potential double-free or use-after-free vulnerability. In the add function, when indexing with stories[count].field_0, it only checks if (count > 16). When count = 16, since the size of stories is 16, an out-of-bounds write vulnerability will occur.",
     "global_variables_ida": "FILE * stderr;\n_DWORD dword_20204C;\nchar jpt_E88[0x18];",
     "global_variables_manual": "struct Story\n{\n  int size;\n  char *content;\n};\n\nint count;\nStory stories[16];"
 }

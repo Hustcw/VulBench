@@ -1,3 +1,4 @@
+_QWORD n;
 
 __int64 read_long()
 {

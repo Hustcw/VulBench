@@ -1,4 +1,4 @@
 {
-    "vulnerability_type": "Improper Input Validation",
+    "vulnerability_type": "Improper-Access-Control",
     "vulnerable": true
 }

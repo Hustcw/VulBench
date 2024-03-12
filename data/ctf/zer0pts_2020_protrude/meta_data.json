@@ -3,5 +3,5 @@
     "vulnerable_function": "calc_sum",
     "root_cause": "In the calc_sum function, a dynamic stack allocation of 16 * ((4 * n + 30) / 0x10uLL) size is made. When n is 20 or 22, the allocated size is insufficient to accommodate 8 * n. This leads to a stack overflow issue when executing the for loop (for i = 0LL; i >= 0 && i < n; ++i).",
     "global_variables_ida": "FILE * stdout@@GLIBC_2.2.5;\nFILE * stdin@@GLIBC_2.2.5;\nFILE * stderr@@GLIBC_2.2.5;\n_QWORD n;",
-    "global_variables_manual": ""
+    "global_variables_manual": "_QWORD n;"
 }

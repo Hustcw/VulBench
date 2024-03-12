@@ -1,0 +1,503 @@
+common:
+  binary_classification_prompt:
+    2_shot:
+      few_shot_examples:
+      - content: "Please review and analyse the following code, determine whether\
+          \ it is vulnerable. Think step by step. Answer as \"VULNERABLE: YES/NO\"\
+          .\nbeep_print(netdissect_options *ndo, const u_char *bp, u_int length)\n\
+          {\n\tif (l_strnstart(\"MSG\", 4, (const char *)bp, length)) /* A REQuest\
+          \ */\n       ND_PRINT((ndo, \" BEEP MSG\"));\nelse if (l_strnstart(\"RPY\
+          \ \", 4, (const char *)bp, length))\n       ND_PRINT((ndo, \" BEEP RPY\"\
+          ));\nelse if (l_strnstart(\"ERR \", 4, (const char *)bp, length))\n    \
+          \   ND_PRINT((ndo, \" BEEP ERR\"));\nelse if (l_strnstart(\"ANS \", 4, (const\
+          \ char *)bp, length))\n       ND_PRINT((ndo, \" BEEP ANS\"));\nelse if (l_strnstart(\"\
+          NUL \", 4, (const char *)bp, length))\n       ND_PRINT((ndo, \" BEEP NUL\"\
+          ));\nelse if (l_strnstart(\"SEQ \", 4, (const char *)bp, length))\n    \
+          \   ND_PRINT((ndo, \" BEEP SEQ\"));\nelse if (l_strnstart(\"END\", 4, (const\
+          \ char *)bp, length))\n       ND_PRINT((ndo, \" BEEP END\"));\n    else\n\
+          \       ND_PRINT((ndo, \" BEEP (payload or undecoded)\"));\n}\n"
+        role: user
+      - content: "The function has a buffer overflow vulnerability due to the code:\n\
+          if (l_strnstart(\"MSG\", 4, (const char *)bp, length)) /* A REQuest */\n\
+          \        ND_PRINT((ndo, \" BEEP MSG\"));\nIf the length of bp is less than\
+          \ 4, the function will read beyond the buffer boundary, leading to a buffer\
+          \ overflow vulnerability.\n\nVULNERABLE: YES"
+        role: assistant
+      - content: "Please review and analyse the following code, determine whether\
+          \ it is vulnerable. Think step by step. Answer as \"VULNERABLE: YES/NO\"\
+          .\nstatic int announce_self_create(uint8_t *buf, \n\tuint8_t *mac_addr)\n\
+          {\n    uint32_t magic = EXPERIMENTAL_MAGIC;\n    uint16_t proto = htons(ETH_P_EXPERIMENTAL);\n\
+          \    /* FIXME: should we send a different packet (arp/rarp/ping)? */\n \
+          \   memset(buf, 0, 64);\n    memset(buf, 0xff, 6);         /* h_dst */\n\
+          \    memcpy(buf + 6, mac_addr, 6); /* h_src */\n    memcpy(buf + 12, &proto,\
+          \ 2);  /* h_proto */\n    memcpy(buf + 14, &magic, 4);  /* magic */\n  \
+          \  return 64; /* len */\n}"
+        role: user
+      - content: 'The memset function is used to initially set the entire buffer to
+          zero, ensuring there''s no lingering junk data. The function doesn''t take
+          any untrusted inputs from the outside. The only input is mac_addr, and we
+          assume the code calling this function ensures it''s a valid MAC address.
+          There is no apprently vulnerability in the function.
+
+
+          VULNERABLE: NO'
+        role: assistant
+      prompt_template: 'Please review and analyse the following code, determine whether
+        it is vulnerable. Think step by step. Answer as "VULNERABLE: YES/NO".
+
+        ____YOUR____CODE____HERE____'
+    5_shot:
+      few_shot_examples:
+      - content: "Please review and analyse the following code, determine whether\
+          \ it is vulnerable. Think step by step. Answer as \"VULNERABLE: YES/NO\"\
+          .\nbeep_print(netdissect_options *ndo, const u_char *bp, u_int length)\n\
+          {\n\tif (l_strnstart(\"MSG\", 4, (const char *)bp, length)) /* A REQuest\
+          \ */\n       ND_PRINT((ndo, \" BEEP MSG\"));\nelse if (l_strnstart(\"RPY\
+          \ \", 4, (const char *)bp, length))\n       ND_PRINT((ndo, \" BEEP RPY\"\
+          ));\nelse if (l_strnstart(\"ERR \", 4, (const char *)bp, length))\n    \
+          \   ND_PRINT((ndo, \" BEEP ERR\"));\nelse if (l_strnstart(\"ANS \", 4, (const\
+          \ char *)bp, length))\n       ND_PRINT((ndo, \" BEEP ANS\"));\nelse if (l_strnstart(\"\
+          NUL \", 4, (const char *)bp, length))\n       ND_PRINT((ndo, \" BEEP NUL\"\
+          ));\nelse if (l_strnstart(\"SEQ \", 4, (const char *)bp, length))\n    \
+          \   ND_PRINT((ndo, \" BEEP SEQ\"));\nelse if (l_strnstart(\"END\", 4, (const\
+          \ char *)bp, length))\n       ND_PRINT((ndo, \" BEEP END\"));\n    else\n\
+          \       ND_PRINT((ndo, \" BEEP (payload or undecoded)\"));\n}\n"
+        role: user
+      - content: "The function has a buffer overflow vulnerability due to the code:\n\
+          if (l_strnstart(\"MSG\", 4, (const char *)bp, length)) /* A REQuest */\n\
+          \        ND_PRINT((ndo, \" BEEP MSG\"));\nIf the length of bp is less than\
+          \ 4, the function will read beyond the buffer boundary, leading to a buffer\
+          \ overflow vulnerability.\n\nVULNERABLE: YES"
+        role: assistant
+      - content: "Please review and analyse the following code, determine whether\
+          \ it is vulnerable. Think step by step. Answer as \"VULNERABLE: YES/NO\"\
+          .\nstatic int announce_self_create(uint8_t *buf, \n\tuint8_t *mac_addr)\n\
+          {\n    uint32_t magic = EXPERIMENTAL_MAGIC;\n    uint16_t proto = htons(ETH_P_EXPERIMENTAL);\n\
+          \    /* FIXME: should we send a different packet (arp/rarp/ping)? */\n \
+          \   memset(buf, 0, 64);\n    memset(buf, 0xff, 6);         /* h_dst */\n\
+          \    memcpy(buf + 6, mac_addr, 6); /* h_src */\n    memcpy(buf + 12, &proto,\
+          \ 2);  /* h_proto */\n    memcpy(buf + 14, &magic, 4);  /* magic */\n  \
+          \  return 64; /* len */\n}"
+        role: user
+      - content: 'The memset function is used to initially set the entire buffer to
+          zero, ensuring there''s no lingering junk data. The function doesn''t take
+          any untrusted inputs from the outside. The only input is mac_addr, and we
+          assume the code calling this function ensures it''s a valid MAC address.
+          There is no apprently vulnerability in the function.
+
+
+          VULNERABLE: NO'
+        role: assistant
+      - content: "Please review and analyse the following code, determine whether\
+          \ it is vulnerable. Think step by step. Answer as \"VULNERABLE: YES/NO\"\
+          .\nint main() {\n    int *arr = (int*) malloc(10 * sizeof(int));\n    if\
+          \ (arr == NULL) {\n        printf(\"Memory allocation failed\n\");\n   \
+          \     return 1;\n    }\n\n    // Do some operations related to arr...\n\n\
+          \    // Forgot to free the memory\n    // free(arr);\n\n    return 0;\n}"
+        role: user
+      - content: 'In the above function, memory has been allocated for an integer
+          array, but it was forgotten to be released before the program ends.
+
+
+          VULNERABLE: YES'
+        role: assistant
+      - content: "Please review and analyse the following code, determine whether\
+          \ it is vulnerable. Think step by step. Answer as \"VULNERABLE: YES/NO\"\
+          .\nunsigned __int64 banner()\n{\n  char format[12];\n  unsigned __int64\
+          \ v2;\n\n  v2 = __readfsqword(0x28u);\n  puts(\"Welcome to note management\
+          \ system!\");\n  printf(\"Enter your name: \");\n  __isoc99_scanf(\"%s\"\
+          , format);\n  printf(\"Hello, \");\n  printf(format);\n  return __readfsqword(0x28u)\
+          \ ^ v2;\n}"
+        role: user
+      - content: 'In the code you''ve provided, the format buffer gets its value from
+          the user with the __isoc99_scanf("%s", format); line. This means that a
+          malicious user can provide a string that contains format specifiers. When
+          the program then uses printf(format);, instead of treating the user''s input
+          as a plain string, the printf function treats it as a format string. If
+          the input contains format specifiers, printf will interpret them and try
+          to access the corresponding argument values. So it contains a format string
+          vulnerability.
+
+          VULNERABLE: YES'
+        role: assistant
+      - content: "Please review and analyse the following code, determine whether\
+          \ it is vulnerable. Think step by step. Answer as \"VULNERABLE: YES/NO\"\
+          .\nvoid process_data(char *data, unsigned int len) {\n    char* buffer;\n\
+          \    unsigned int real_size = len * sizeof(char);\n\n    buffer = (char*)\
+          \ malloc(real_size);\n\n    if (buffer == NULL) {\n        printf(\"Memory\
+          \ allocation failed\n\");\n        exit(1);\n    }\n\n    strncpy(buffer,\
+          \ data, real_size);\n    // ...other operations...\n    free(buffer);\n\
+          }\n\nint main() {\n    unsigned int length;\n    printf(\"Enter the length\
+          \ of your data: \");\n    scanf(\"%u\", &length);\n\n    char data[length];\n\
+          \    printf(\"Enter your data: \");\n    scanf(\"%s\", data);\n\n    process_data(data,\
+          \ length);\n    return 0;\n}"
+        role: user
+      - content: 'The code is vulnerable to an integer overflow during the computation
+          of `real_size = len * sizeof(char)`. If `len` is a large value, the multiplication
+          can result in wrapping around of the `real_size` value, leading it to be
+          smaller than needed. This miscalculation can then result in a buffer overflow
+          during the `strncpy` operation, as the allocated memory might be insufficient.
+          Buffer overflow vulnerabilities are hazardous, as they can let attackers
+          overwrite memory, leading to arbitrary code execution, data corruption,
+          or application crashes.
+
+          VULNERABLE: YES'
+        role: assistant
+      prompt_template: 'Please review and analyse the following code, determine whether
+        it is vulnerable. Think step by step. Answer as "VULNERABLE: YES/NO".
+
+        ____YOUR____CODE____HERE____'
+  description_prompt:
+    2_shot:
+      few_shot_examples:
+      - content: "Please determine if the following code has any vulnerabilities.\
+          \ If vulnerabilities are found, please elucidate their causes, think step\
+          \ by step.\nvoid authenticate(struct User *user) {\n    if (strcmp(user->username,\
+          \ \"admin\") == 0 && strcmp(user->password, \"secret123\") == 0) {\n   \
+          \     printf(\"Access granted.\n\");\n    } else {\n        printf(\"Access\
+          \ denied.\n\");\n    }\n}\n\nint main() {\n    struct User user;\n\n   \
+          \ printf(\"Enter username: \");\n    scanf(\"%s\", user.username);\n   \
+          \ printf(\"Enter password: \");\n    scanf(\"%s\", user.password);\n\n \
+          \   authenticate(&user);\n    return 0;\n}"
+        role: user
+      - content: 'Analysis: The above code demonstrates an unsafe use of the `scanf`
+          function. The code does not specify a maximum length for the username and
+          password inputs, making it susceptible to buffer overflow attacks. An attacker
+          can input values longer than the allocated space for `username` and `password`,
+          causing an overwrite of adjacent memory locations. This flaw can allow a
+          malefactor to overwrite important data, return addresses, and potentially
+          execute malicious code. Not constraining input sizes, especially with `scanf`,
+          is a classic pitfall that leads to buffer overflow vulnerabilities.'
+        role: assistant
+      - content: "Please determine if the following code has any vulnerabilities.\
+          \ If vulnerabilities are found, please elucidate their causes, think step\
+          \ by step.\nstatic int announce_self_create(uint8_t *buf, \n\tuint8_t *mac_addr)\n\
+          {\n    uint32_t magic = EXPERIMENTAL_MAGIC;\n    uint16_t proto = htons(ETH_P_EXPERIMENTAL);\n\
+          \    /* FIXME: should we send a different packet (arp/rarp/ping)? */\n \
+          \   memset(buf, 0, 64);\n    memset(buf, 0xff, 6);         /* h_dst */\n\
+          \    memcpy(buf + 6, mac_addr, 6); /* h_src */\n    memcpy(buf + 12, &proto,\
+          \ 2);  /* h_proto */\n    memcpy(buf + 14, &magic, 4);  /* magic */\n  \
+          \  return 64; /* len */\n}"
+        role: user
+      - content: 'Analysis: The memset function is used to initially set the entire
+          buffer to zero, ensuring there''s no lingering junk data. The function doesn''t
+          take any untrusted inputs from the outside. The only input is mac_addr,
+          and we assume the code calling this function ensures it''s a valid MAC address.
+          There is no apprently vulnerability in the function.'
+        role: assistant
+      prompt_template: 'Please determine if the following code has any vulnerabilities.
+        If vulnerabilities are found, please elucidate their causes, think step by
+        step.
+
+        ____YOUR____CODE____HERE____'
+  multiple_classification_prompt:
+    2_shot:
+      few_shot_examples:
+      - content: "Please review and analyse the following code, determine whether\
+          \ it has vulnerabilities in the following type list.\nBuffer-Overflow\n\
+          Divede-by-Zero\nInteger-Overflow\nLack-Sanity-Check\nMemory-Leak\nNo-Vulnerability\n\
+          Null-Pointer-Dereference\nRace-Condition\nThink step by step. Answer as\
+          \ \"[Your Explaination]\nTYPE: [Vulnerability TYPE].\nbeep_print(netdissect_options\
+          \ *ndo, const u_char *bp, u_int length)\n{\n\tif (l_strnstart(\"MSG\", 4,\
+          \ (const char *)bp, length)) /* A REQuest */\n       ND_PRINT((ndo, \" BEEP\
+          \ MSG\"));\nelse if (l_strnstart(\"RPY \", 4, (const char *)bp, length))\n\
+          \       ND_PRINT((ndo, \" BEEP RPY\"));\nelse if (l_strnstart(\"ERR \",\
+          \ 4, (const char *)bp, length))\n       ND_PRINT((ndo, \" BEEP ERR\"));\n\
+          else if (l_strnstart(\"ANS \", 4, (const char *)bp, length))\n       ND_PRINT((ndo,\
+          \ \" BEEP ANS\"));\nelse if (l_strnstart(\"NUL \", 4, (const char *)bp,\
+          \ length))\n       ND_PRINT((ndo, \" BEEP NUL\"));\nelse if (l_strnstart(\"\
+          SEQ \", 4, (const char *)bp, length))\n       ND_PRINT((ndo, \" BEEP SEQ\"\
+          ));\nelse if (l_strnstart(\"END\", 4, (const char *)bp, length))\n     \
+          \  ND_PRINT((ndo, \" BEEP END\"));\n    else\n       ND_PRINT((ndo, \" BEEP\
+          \ (payload or undecoded)\"));\n}\n"
+        role: user
+      - content: "The function has a buffer overflow vulnerability due to the code:\n\
+          if (l_strnstart(\"MSG\", 4, (const char *)bp, length)) /* A REQuest */\n\
+          \        ND_PRINT((ndo, \" BEEP MSG\"));\nIf the length of bp is less than\
+          \ 4, the function will read beyond the buffer boundary, leading to a buffer\
+          \ overflow vulnerability.\n\nTYPE: Buffer-Overflow"
+        role: assistant
+      - content: "Please review and analyse the following code, determine whether\
+          \ it has vulnerabilities in the following type list.\nBuffer-Overflow\n\
+          Improper-Access-Control\nInteger-Overflow\nMath-Error\nMemory-Leak\nNo-Vulnerability\n\
+          Null-Pointer-Dereference\nRace-Condition\nResource-Exhaustion-Error\nUse-After-Free\n\
+          Think step by step. Answer as \"[Your Explaination]\nTYPE: [Vulnerability\
+          \ TYPE].\nstatic int announce_self_create(uint8_t *buf, \n\tuint8_t *mac_addr)\n\
+          {\n    uint32_t magic = EXPERIMENTAL_MAGIC;\n    uint16_t proto = htons(ETH_P_EXPERIMENTAL);\n\
+          \    /* FIXME: should we send a different packet (arp/rarp/ping)? */\n \
+          \   memset(buf, 0, 64);\n    memset(buf, 0xff, 6);         /* h_dst */\n\
+          \    memcpy(buf + 6, mac_addr, 6); /* h_src */\n    memcpy(buf + 12, &proto,\
+          \ 2);  /* h_proto */\n    memcpy(buf + 14, &magic, 4);  /* magic */\n  \
+          \  return 64; /* len */\n}"
+        role: user
+      - content: 'The memset function is used to initially set the entire buffer to
+          zero, ensuring there''s no lingering junk data. The function doesn''t take
+          any untrusted inputs from the outside. The only input is mac_addr, and we
+          assume the code calling this function ensures it''s a valid MAC address.
+          There is no apprently vulnerability in the function.
+
+
+          TYPE: No-Vulnerability'
+        role: assistant
+      prompt_template: 'Please review and analyse the following code, determine whether
+        it has vulnerabilities in the following type list.
+
+        ____TYPE____LIST____HERE____
+
+        Think step by step. Answer as "[Your Explaination]
+
+        TYPE: [Vulnerability TYPE].
+
+        ____YOUR____CODE____HERE____'
+    5_shot:
+      few_shot_examples:
+      - content: "Please review and analyse the following code, determine whether\
+          \ it has vulnerabilities in the following type list.\nBuffer-Overflow\n\
+          Divede-by-Zero\nInteger-Overflow\nLack-Sanity-Check\nMemory-Leak\nNo-Vulnerability\n\
+          Null-Pointer-Dereference\nRace-Condition\nThink step by step. Answer as\
+          \ \"[Your Explaination]\nTYPE: [Vulnerability TYPE].\nbeep_print(netdissect_options\
+          \ *ndo, const u_char *bp, u_int length)\n{\n\tif (l_strnstart(\"MSG\", 4,\
+          \ (const char *)bp, length)) /* A REQuest */\n       ND_PRINT((ndo, \" BEEP\
+          \ MSG\"));\nelse if (l_strnstart(\"RPY \", 4, (const char *)bp, length))\n\
+          \       ND_PRINT((ndo, \" BEEP RPY\"));\nelse if (l_strnstart(\"ERR \",\
+          \ 4, (const char *)bp, length))\n       ND_PRINT((ndo, \" BEEP ERR\"));\n\
+          else if (l_strnstart(\"ANS \", 4, (const char *)bp, length))\n       ND_PRINT((ndo,\
+          \ \" BEEP ANS\"));\nelse if (l_strnstart(\"NUL \", 4, (const char *)bp,\
+          \ length))\n       ND_PRINT((ndo, \" BEEP NUL\"));\nelse if (l_strnstart(\"\
+          SEQ \", 4, (const char *)bp, length))\n       ND_PRINT((ndo, \" BEEP SEQ\"\
+          ));\nelse if (l_strnstart(\"END\", 4, (const char *)bp, length))\n     \
+          \  ND_PRINT((ndo, \" BEEP END\"));\n    else\n       ND_PRINT((ndo, \" BEEP\
+          \ (payload or undecoded)\"));\n}\n"
+        role: user
+      - content: "The function has a buffer overflow vulnerability due to the code:\n\
+          if (l_strnstart(\"MSG\", 4, (const char *)bp, length)) /* A REQuest */\n\
+          \        ND_PRINT((ndo, \" BEEP MSG\"));\nIf the length of bp is less than\
+          \ 4, the function will read beyond the buffer boundary, leading to a buffer\
+          \ overflow vulnerability.\n\nTYPE: Buffer-Overflow"
+        role: assistant
+      - content: "Please review and analyse the following code, determine whether\
+          \ it has vulnerabilities in the following type list.\nBuffer-Overflow\n\
+          Improper-Access-Control\nInteger-Overflow\nMath-Error\nMemory-Leak\nNo-Vulnerability\n\
+          Null-Pointer-Dereference\nRace-Condition\nResource-Exhaustion-Error\nUse-After-Free\n\
+          Think step by step. Answer as \"[Your Explaination]\nTYPE: [Vulnerability\
+          \ TYPE].\nstatic int announce_self_create(uint8_t *buf, \n\tuint8_t *mac_addr)\n\
+          {\n    uint32_t magic = EXPERIMENTAL_MAGIC;\n    uint16_t proto = htons(ETH_P_EXPERIMENTAL);\n\
+          \    /* FIXME: should we send a different packet (arp/rarp/ping)? */\n \
+          \   memset(buf, 0, 64);\n    memset(buf, 0xff, 6);         /* h_dst */\n\
+          \    memcpy(buf + 6, mac_addr, 6); /* h_src */\n    memcpy(buf + 12, &proto,\
+          \ 2);  /* h_proto */\n    memcpy(buf + 14, &magic, 4);  /* magic */\n  \
+          \  return 64; /* len */\n}"
+        role: user
+      - content: 'The memset function is used to initially set the entire buffer to
+          zero, ensuring there''s no lingering junk data. The function doesn''t take
+          any untrusted inputs from the outside. The only input is mac_addr, and we
+          assume the code calling this function ensures it''s a valid MAC address.
+          There is no apprently vulnerability in the function.
+
+
+          TYPE: No-Vulnerability'
+        role: assistant
+      - content: "Please review and analyse the following code, determine whether\
+          \ it has vulnerabilities in the following type list.\nBuffer-Overflow\n\
+          Divede-by-Zero\nInteger-Overflow\nLack-of-Error-Handling\nMath-Error\nMemory-Leak\n\
+          No-Vulnerability\nNull-Pointer-Dereference\nResource-Exhaustion-Error\n\
+          Type-Confusion\nUse-After-Free\nThink step by step. Answer as \"[Your Explaination]\n\
+          TYPE: [Vulnerability TYPE].\nint main() {\n    int *arr = (int*) malloc(10\
+          \ * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation\
+          \ failed\n\");\n        return 1;\n    }\n\n    // Do some operations related\
+          \ to arr...\n\n    // Forgot to free the memory\n    // free(arr);\n\n \
+          \   return 0;\n}"
+        role: user
+      - content: 'In the above function, memory has been allocated for an integer
+          array, but it was forgotten to be released before the program ends.
+
+
+          TYPE: Memory-Leak'
+        role: assistant
+      - content: "Please review and analyse the following code, determine whether\
+          \ it has vulnerabilities in the following type list.\nBuffer-Overflow\n\
+          Format-String-Vulnerability\nInteger-Overflow\nNo-Vulnerability\nType-Confusion\n\
+          Use-After-Free\nThink step by step. Answer as \"[Your Explaination]\nTYPE:\
+          \ [Vulnerability TYPE].\nunsigned __int64 banner()\n{\n  char format[12];\n\
+          \  unsigned __int64 v2;\n\n  v2 = __readfsqword(0x28u);\n  puts(\"Welcome\
+          \ to note management system!\");\n  printf(\"Enter your name: \");\n  __isoc99_scanf(\"\
+          %s\", format);\n  printf(\"Hello, \");\n  printf(format);\n  return __readfsqword(0x28u)\
+          \ ^ v2;\n}"
+        role: user
+      - content: 'In the code you''ve provided, the format buffer gets its value from
+          the user with the __isoc99_scanf("%s", format); line. This means that a
+          malicious user can provide a string that contains format specifiers. When
+          the program then uses printf(format);, instead of treating the user''s input
+          as a plain string, the printf function treats it as a format string. If
+          the input contains format specifiers, printf will interpret them and try
+          to access the corresponding argument values. So it contains a format string
+          vulnerability.
+
+          TYPE: Format-String-Vulnerability'
+        role: assistant
+      - content: "Please review and analyse the following code, determine whether\
+          \ it has vulnerabilities in the following type list.\nBuffer-Overflow\n\
+          Integer-Overflow\nNo-Vulnerability\nNull-Pointer-Dereference\nResource-Exhaustion-Error\n\
+          Think step by step. Answer as \"[Your Explaination]\nTYPE: [Vulnerability\
+          \ TYPE].\nvoid process_data(char *data, unsigned int len) {\n    char* buffer;\n\
+          \    unsigned int real_size = len * sizeof(char);\n\n    buffer = (char*)\
+          \ malloc(real_size);\n\n    if (buffer == NULL) {\n        printf(\"Memory\
+          \ allocation failed\n\");\n        exit(1);\n    }\n\n    strncpy(buffer,\
+          \ data, real_size);\n    // ...other operations...\n    free(buffer);\n\
+          }\n\nint main() {\n    unsigned int length;\n    printf(\"Enter the length\
+          \ of your data: \");\n    scanf(\"%u\", &length);\n\n    char data[length];\n\
+          \    printf(\"Enter your data: \");\n    scanf(\"%s\", data);\n\n    process_data(data,\
+          \ length);\n    return 0;\n}"
+        role: user
+      - content: 'The code is vulnerable to an integer overflow during the computation
+          of `real_size = len * sizeof(char)`. If `len` is a large value, the multiplication
+          can result in wrapping around of the `real_size` value, leading it to be
+          smaller than needed. This miscalculation can then result in a buffer overflow
+          during the `strncpy` operation, as the allocated memory might be insufficient.
+          Buffer overflow vulnerabilities are hazardous, as they can let attackers
+          overwrite memory, leading to arbitrary code execution, data corruption,
+          or application crashes.
+
+          TYPE: Integer-Overflow'
+        role: assistant
+      prompt_template: 'Please review and analyse the following code, determine whether
+        it has vulnerabilities in the following type list.
+
+        ____TYPE____LIST____HERE____
+
+        Think step by step. Answer as "[Your Explaination]
+
+        TYPE: [Vulnerability TYPE].
+
+        ____YOUR____CODE____HERE____'
+  replace: ____YOUR____CODE____HERE____
+  replace_type: ____TYPE____LIST____HERE____
+  system_prompt: You are a cybersecurity specialist mastering vulnerability discovery.
+    Answer as concisely as possible.
+dataset:
+  big-vul:
+    type:
+    - Out of bound read or write or memory corruption or buffer overflow
+    - Race Condition
+    - Double free / Use after free
+    - Integer Overflow or Wraparound
+    - Math Error, Numeric Errors, improper calculation or conversion of numbers
+    - Improper Input Validation
+    - Improper Access Control or information exposure due to missing check
+    - Resource management error, like Excessive Iteration
+    - Type Confusion
+    - Null pointer dereference
+    - Memory Leak
+    type_to_replace: 'Buffer-Overflow
+
+      Improper-Access-Control
+
+      Integer-Overflow
+
+      Math-Error
+
+      Memory-Leak
+
+      No-Vulnerability
+
+      Null-Pointer-Dereference
+
+      Race-Condition
+
+      Resource-Exhaustion-Error
+
+      Use-After-Free'
+  ctf:
+    type:
+    - Use after free, double free
+    - Missing index boundy check, out of bound read/write, stack overflow and heap
+      overflow
+    - format string vulnerability
+    - Race condition
+    - Type Confusion
+    type_to_replace: 'Buffer-Overflow
+
+      Format-String-Vulnerability
+
+      Integer-Overflow
+
+      No-Vulnerability
+
+      Type-Confusion
+
+      Use-After-Free'
+  d2a:
+    type:
+    - Interger Overflow
+    - Buffer Overflow, such as stack overflow, heap overflow, out of bound read or
+      write
+    - malloc called with a large value
+    - Null pointer dereference
+    type_to_replace: 'Buffer-Overflow
+
+      Integer-Overflow
+
+      No-Vulnerability
+
+      Null-Pointer-Dereference
+
+      Resource-Exhaustion-Error'
+  devign:
+    type:
+    - Integer Overflow
+    - Memory Leak
+    - Null Pointer Dereference
+    - Race Condition
+    - Lack Sanity Check
+    - Division by Zero
+    - Out of bound read
+    - Out of bound write
+    type_to_replace: 'Buffer-Overflow
+
+      Divede-by-Zero
+
+      Integer-Overflow
+
+      Lack-Sanity-Check
+
+      Memory-Leak
+
+      No-Vulnerability
+
+      Null-Pointer-Dereference
+
+      Race-Condition'
+  magma:
+    type:
+    - Integer Overflow
+    - Double free / Use after free
+    - Out of bound read or write or memory corruption or buffer overflow, lack of
+      index boundary check
+    - Information leak such as secrets or memory address
+    - Null pointer dereference
+    - Type Confusion
+    - Lack of Error Handling
+    - Lack of Input Validation
+    - Math Error, Numeric Errors, improper calculation or conversion of numbers
+    - Denial of Service
+    type_to_replace: 'Buffer-Overflow
+
+      Divede-by-Zero
+
+      Integer-Overflow
+
+      Lack-of-Error-Handling
+
+      Math-Error
+
+      Memory-Leak
+
+      No-Vulnerability
+
+      Null-Pointer-Dereference
+
+      Resource-Exhaustion-Error
+
+      Type-Confusion
+
+      Use-After-Free'
