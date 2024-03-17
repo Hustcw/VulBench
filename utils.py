@@ -1,24 +1,8 @@
 import requests
 import sqlite3
-import json
-import aiohttp
 
 
-async def post_request(url, data):
-    timeout = aiohttp.ClientTimeout(total=3 * 3600)
-    headers = {"User-Agent": "Benchmark Client"}
-    async with aiohttp.ClientSession(timeout=timeout) as session:
-        async with session.post(url, headers=headers, json=data) as response:
-            chunks = []
-            async for chunk, _ in response.content.iter_chunks():
-                chunks.append(chunk)
-        output = b"".join(chunks).decode("utf-8")
-        output = json.loads(output)
-
-    return output
-
-
-async def make_request(api_endpoint, messages, model):
+def make_request(api_endpoint, messages, model):
     parameters = {
         'messages': messages,
         'temperature': 0.6,
@@ -26,8 +10,8 @@ async def make_request(api_endpoint, messages, model):
         'stream': False,
     }
 
-    resp = await post_request(
-        f'{api_endpoint}/v1/chat/completions', data=parameters)
+    resp = requests.post(
+        f'{api_endpoint}/v1/chat/completions', json=parameters)
 
     return resp.json()
 
@@ -48,9 +32,12 @@ def open_db(db_name):
             dataset_type TEXT NOT NULL,
             identifier TEXT NOT NULL,
             query_type TEXT NOT NULL,
+            code TEXT NOT NULL,
+            finish_reason TEXT NOT NULL,
             content TEXT NOT NULL,
             reference TEXT,
             trial INTEGER NOT NULL,
+            hash BLOB NOT NULL,
             prompt_type TEXT NOT NULL
         )
     ''')

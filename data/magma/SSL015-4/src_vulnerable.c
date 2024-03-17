@@ -5,9 +5,6 @@ int PKCS7_dataVerify(X509_STORE *cert_store, X509_STORE_CTX *ctx, BIO *bio,
   STACK_OF(X509) * cert;
   X509 *x509;
 
-#ifdef MAGMA_ENABLE_CANARIES
-  MAGMA_LOG("%MAGMA_BUG%", MAGMA_OR(p7 == NULL, p7->d.ptr));
-#endif
   if (PKCS7_type_is_signed(p7)) {
     cert = p7->d.sign->cert;
   } else if (PKCS7_type_is_signedAndEnveloped(p7)) {

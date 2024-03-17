@@ -99,7 +99,7 @@ LABEL_7:
         v26 = fileKey;
 LABEL_32:
         v28 = std::move<Object &>(dict);
-        v29 = (Stream *)(*(__int64 (__fastcall **)(__int64, __int64, __int64, __int64, Object *))(*(_QWORD *)v35 + 216LL))(
+        v29 = makeSubStream(
                           v35,
                           v19,
                           1LL,

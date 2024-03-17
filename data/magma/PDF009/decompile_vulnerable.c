@@ -91,8 +91,7 @@ LABEL_7:
           Parser::shift(this, -1);
 LABEL_30:
           v25 = std::move<Object &>(dict);
-          v26 = (Stream *)(*(__int64 (__fastcall **)(__int64, __int64, __int64, __int64, Object *))(*(_QWORD *)v23
-                                                                                                  + 216LL))(
+          v26 = makeSubStream(
                             v23,
                             v19,
                             1LL,

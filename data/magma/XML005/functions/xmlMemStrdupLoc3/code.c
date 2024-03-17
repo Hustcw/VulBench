@@ -9,10 +9,6 @@ char *xmlMemStrdupLoc(const char *str, const char *file, int line) {
     xmlInitMemory();
   TEST_POINT
 
-#ifdef MAGMA_ENABLE_CANARIES
-  MAGMA_LOG("%MAGMA_BUG%", size > (MAX_SIZE_T - RESERVE_SIZE));
-#endif
-
   p = (MEMHDR *)malloc(RESERVE_SIZE + size);
   if (!p) {
     goto error;

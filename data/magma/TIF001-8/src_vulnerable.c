@@ -5,10 +5,6 @@ static int horDiff32(TIFF *tif, uint8_t *cp0, tmsize_t cc) {
   uint32_t *wp = (uint32_t *)cp0;
   tmsize_t wc = cc / 4;
 
-#ifdef MAGMA_ENABLE_CANARIES
-  MAGMA_LOG("%MAGMA_BUG%", (cc % (4 * stride)) != 0);
-#endif
-
   if (wc > stride) {
     wc -= stride;
     wp += wc - 1;

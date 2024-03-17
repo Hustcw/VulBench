@@ -7,10 +7,6 @@ static int fpDiff(TIFF *tif, uint8_t *cp0, tmsize_t cc) {
   uint8_t *cp = (uint8_t *)cp0;
   uint8_t *tmp;
 
-#ifdef MAGMA_ENABLE_CANARIES
-  MAGMA_LOG("%MAGMA_BUG%", (cc % (bps * stride)) != 0);
-#endif
-
   tmp = (uint8_t *)_TIFFmalloc(cc);
   if (!tmp)
     return 0;

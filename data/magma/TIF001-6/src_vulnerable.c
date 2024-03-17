@@ -4,10 +4,6 @@ static int horDiff8(TIFF *tif, uint8_t *cp0, tmsize_t cc) {
   tmsize_t stride = sp->stride;
   unsigned char *cp = (unsigned char *)cp0;
 
-#ifdef MAGMA_ENABLE_CANARIES
-  MAGMA_LOG("%MAGMA_BUG%", (cc % stride) != 0);
-#endif
-
   if (cc > stride) {
     cc -= stride;
     /*

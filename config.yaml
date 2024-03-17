@@ -376,18 +376,6 @@ common:
     Answer as concisely as possible.
 dataset:
   big-vul:
-    type:
-    - Out of bound read or write or memory corruption or buffer overflow
-    - Race Condition
-    - Double free / Use after free
-    - Integer Overflow or Wraparound
-    - Math Error, Numeric Errors, improper calculation or conversion of numbers
-    - Improper Input Validation
-    - Improper Access Control or information exposure due to missing check
-    - Resource management error, like Excessive Iteration
-    - Type Confusion
-    - Null pointer dereference
-    - Memory Leak
     type_to_replace: 'Buffer-Overflow
 
       Improper-Access-Control
@@ -408,13 +396,6 @@ dataset:
 
       Use-After-Free'
   ctf:
-    type:
-    - Use after free, double free
-    - Missing index boundy check, out of bound read/write, stack overflow and heap
-      overflow
-    - format string vulnerability
-    - Race condition
-    - Type Confusion
     type_to_replace: 'Buffer-Overflow
 
       Format-String-Vulnerability
@@ -427,12 +408,6 @@ dataset:
 
       Use-After-Free'
   d2a:
-    type:
-    - Interger Overflow
-    - Buffer Overflow, such as stack overflow, heap overflow, out of bound read or
-      write
-    - malloc called with a large value
-    - Null pointer dereference
     type_to_replace: 'Buffer-Overflow
 
       Integer-Overflow
@@ -443,15 +418,6 @@ dataset:
 
       Resource-Exhaustion-Error'
   devign:
-    type:
-    - Integer Overflow
-    - Memory Leak
-    - Null Pointer Dereference
-    - Race Condition
-    - Lack Sanity Check
-    - Division by Zero
-    - Out of bound read
-    - Out of bound write
     type_to_replace: 'Buffer-Overflow
 
       Divede-by-Zero
@@ -468,18 +434,6 @@ dataset:
 
       Race-Condition'
   magma:
-    type:
-    - Integer Overflow
-    - Double free / Use after free
-    - Out of bound read or write or memory corruption or buffer overflow, lack of
-      index boundary check
-    - Information leak such as secrets or memory address
-    - Null pointer dereference
-    - Type Confusion
-    - Lack of Error Handling
-    - Lack of Input Validation
-    - Math Error, Numeric Errors, improper calculation or conversion of numbers
-    - Denial of Service
     type_to_replace: 'Buffer-Overflow
 
       Divede-by-Zero

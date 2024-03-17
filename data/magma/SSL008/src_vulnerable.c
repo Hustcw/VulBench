@@ -69,9 +69,6 @@ static int tls_construct_cke_ecdhe(SSL *s, WPACKET *pkt) {
   }
 
   ckey = ssl_generate_pkey(s, skey);
-#ifdef MAGMA_ENABLE_CANARIES
-  MAGMA_LOG("%MAGMA_BUG%", ckey == NULL);
-#endif
 
   if (ssl_derive(s, ckey, skey, 0) == 0) {
     /* SSLfatal() already called */

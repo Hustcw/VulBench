@@ -9,9 +9,6 @@ int PKCS7_dataFinal(PKCS7 *p7, BIO *bio) {
   ASN1_OCTET_STRING *os = NULL;
   const PKCS7_CTX *p7_ctx;
 
-#ifdef MAGMA_ENABLE_CANARIES
-  MAGMA_LOG("%MAGMA_BUG%", MAGMA_OR(p7 == NULL, p7->d.ptr == NULL));
-#endif
   ctx_tmp = EVP_MD_CTX_new();
   if (ctx_tmp == NULL) {
     ERR_raise(ERR_LIB_PKCS7, ERR_R_MALLOC_FAILURE);
