@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "NULL-Pointer Dereference",
+    "vulnerability_type": [
+        "Null-Pointer-Dereference"
+    ],
     "vulnerable_function": [
         "TIFFWriteDirectoryTagTransferfunction"
     ],

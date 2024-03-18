@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Lack of Error Handling",
+    "vulnerability_type": [
+        "Lack-of-Error-Handling"
+    ],
     "vulnerable_function": [
         "multiSelect"
     ],

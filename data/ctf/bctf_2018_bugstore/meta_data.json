@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Format String Vulnerability",
+    "vulnerability_type": [
+        "Format-String-Vulnerability"
+    ],
     "vulnerable_function": "sub_C62",
     "root_cause": "In the sub_C62 function, a user-controlled value, unk_202060, is passed to _printf_chk for formatted output, leading to a potential format string vulnerability.",
     "global_variables_ida": "_QWORD qword_202040;\nchar byte_202048;\nchar byte_202049;\nchar byte_202260;\nchar asc_EB0[0x12E];",

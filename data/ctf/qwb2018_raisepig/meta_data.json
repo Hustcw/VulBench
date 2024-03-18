@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerability_type": [
+        "Use-After-Free"
+    ],
     "vulnerable_function": "eat",
     "root_cause": "In the eat function, after freeing list[v1]->name using free(list[v1]->name); and setting list[v1]->used = 0; without zeroing out the pointer, it becomes possible to free or use the same memory location multiple times, leading to Double Free or Use After Free vulnerabilities.",
     "global_variables_ida": "_DWORD dword_20202C;\nconst char s;\nchar a23s[0x5];\nchar jpt_1276[0x18];",

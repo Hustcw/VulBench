@@ -1,5 +1,8 @@
 {
-    "vulnerability_type": "Integer Overflow, Out-of-bound Write",
+    "vulnerability_type": [
+        "Integer-Overflow",
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": [
         "wavlike_read_fmt_chunk"
     ],

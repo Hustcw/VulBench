@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Lack of Check, Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": [
         "ImageStream::getLine"
     ],

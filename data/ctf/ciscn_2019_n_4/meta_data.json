@@ -1,5 +1,8 @@
 {
-    "vulnerability_type": "Buffer-Overflow, Double Free / Use After Free",
+    "vulnerability_type": [
+        "Buffer-Overflow",
+        "Use-After-Free"
+    ],
     "vulnerable_function": "decoratenest,crash_nest",
     "root_cause": "In the `decoratenest` function, when reading from `nests[v1]->content`, the size limit used is `nests[v1]->size + 1`, which exceeds the actual memory size, causing a memory overflow issue. In the `crash_nest` function, after freeing `nests[v1]->content`, the pointer address is not set to zero, resulting in residual pointer addresses, which can lead to Use After Free or Double Free vulnerabilities.",
     "global_variables_ida": "FILE * __bss_start;\nFILE * stdin@@GLIBC_2.2.5;\nvoid * nests;\nchar jpt_400DB1[0x30];",

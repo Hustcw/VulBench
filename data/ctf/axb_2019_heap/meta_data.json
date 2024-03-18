@@ -1,5 +1,8 @@
 {
-    "vulnerability_type": "Format String Vulnerability, Out-of-bound Write",
+    "vulnerability_type": [
+        "Format-String-Vulnerability",
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "get_input,banner",
     "root_cause": "In the get_input function, when checking for exit conditions, the code uses if (a2 + 1 <= (unsigned int)++v2). This can cause an overflow by allowing the program to read one more byte than the input length parameter specifies. Additionally, in the banner, there is a vulnerability due to the direct use of printf(format), which may lead to a format string vulnerability.",
     "global_variables_ida": "",

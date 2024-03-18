@@ -1,5 +1,8 @@
 {
-    "vulnerability_type": "Divide-by-Zero, Lack of Check, Math Error",
+    "vulnerability_type": [
+        "Divede-by-Zero",
+        "Math-Error"
+    ],
     "vulnerable_function": [
         "GfxGouraudTriangleShading::parse"
     ],

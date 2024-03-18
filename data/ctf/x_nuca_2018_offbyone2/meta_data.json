@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "sub_B20",
     "root_cause": "In the sub_B20 function, after the for loop ends, a1[i] = 0 is set. At this point, i = a2, and if a2 is equal to the size of the a1 memory, a1[i]'s addressing will exceed the range of a1, causing an out-of-bounds write issue due to off-by-null.",
     "global_variables_ida": "",

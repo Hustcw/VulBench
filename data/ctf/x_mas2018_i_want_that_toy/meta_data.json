@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Buffer-Overflow, Format String Vulnerability",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "route,parse_query_string",
     "root_cause": "In the route function, there is a use of printf(v0); where v0 is user-controllable, leading to a format string vulnerability. In the parse_query_string function, base64decode is used to base64 decode the content of v9+1, with the result stored in the v11 variable. There is no check for the length of the base64 decoded content, which can exceed the memory size of the v11 variable, causing a memory overflow conflict.",
     "global_variables_ida": "_QWORD reqhdr;\nint listenfd;\n_DWORD req_cvar;\nint clientfd;\nchar * buf;\nvoid * decoding_table;\nchar a1337[0x5];",

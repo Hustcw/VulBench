@@ -1,3 +1,5 @@
 __pycache__
 *.db
 playground.py
+debug
+*.csv

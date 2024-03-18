@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Format String Vulnerability",
+    "vulnerability_type": [
+        "Format-String-Vulnerability"
+    ],
     "vulnerable_function": "dofmt",
     "root_cause": "In the dofmt function, input is received using dprintf(a1, s); where the formatted string s is read from v2 = recvlen_until(a1, s, 1024LL, \"\\n\");. This function reads user input and is vulnerable to format string vulnerabilities.",
     "global_variables_ida": "char a1Alloc2Free3Re[0x4D];\nchar jpt_1686[0x14];",

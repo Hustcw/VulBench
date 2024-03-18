@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "sub_D5D,sub_ACC",
     "root_cause": "In the sub_D5D function, there is no range check for v0, which can exceed the memory size of the x variable, resulting in a buffer overflow vulnerability. In sub_ACC, v3 is the length of the input data. If it equals the size of a1, an out-of-bounds write vulnerability occurs in the statement a1[v2] = 0; due to an off-by-one error.",
     "global_variables_ida": "FILE * stderr;\n_QWORD qword_202050;\n_QWORD qword_202058;\n_DWORD dword_202060;\n_QWORD qword_202068;",

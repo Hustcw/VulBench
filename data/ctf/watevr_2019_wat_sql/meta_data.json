@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Buffer-Overflow",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "sub_40128B",
     "root_cause": "In the sub_40128B function, data can be read into the s2 variable up to 36 bytes, but s2 was allocated with a size of only 32 bytes in the main function. This leads to a potential memory overflow issue.",
     "global_variables_ida": "_DWORD dword_6020FC;\n_DWORD dword_602100;\nchar byte_602120[200];\nchar nptr[16];\npthread_t newthread;\nchar haystack[32];\nchar name[128];\n_DWORD dword_6022A0;\nchar * s2;\npthread_t th;\nconst char modes[2];\nconst char delim[2];",

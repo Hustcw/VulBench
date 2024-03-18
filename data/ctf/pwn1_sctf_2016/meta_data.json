@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Buffer-Overflow, Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "vuln",
     "root_cause": "In the vulnerable function, the s array has a size of 32 and initially reads data up to a maximum length of 32. Afterward, it replaces the character 'I' in the input string with 'you'. As a result, if the length of the string after replacement exceeds 32 characters, it would cause a buffer overflow vulnerability.",
     "global_variables_ida": "FILE * _edata;",

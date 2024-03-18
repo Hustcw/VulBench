@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "uadd",
     "root_cause": "In the uadd function, when assigning values to notebook[i].title[j] using the loop for (j = 0; j <= 0x90; ++j), it attempts to access the 144th index (0x90) of the title array. However, the title array only has a size of 144, resulting in a buffer overflow due to the out-of-bounds write operation.",
     "global_variables_ida": "FILE * stdout@@GLIBC_2.2.5;\nFILE * stdin@@GLIBC_2.2.5;\nFILE * stderr@@GLIBC_2.2.5;\nchar asc_4011C2[0x19];\nchar a1AddNewNote[0x10];\nchar a2DeleteANote[0x11];\nchar a3ShowANote[0xF];\n_QWORD a4Exit;",

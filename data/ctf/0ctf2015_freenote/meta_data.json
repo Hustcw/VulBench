@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerability_type": [
+        "Use-After-Free"
+    ],
     "vulnerable_function": "delete",
     "root_cause": "In the delete function, the content of `note_stru->note_list[num].content` is freed, but it is not set to empty or marked, leading to potential Double Free or Use After Free vulnerabilities.",
     "global_variables_ida": "_QWORD qword_6020A8;\nchar jpt_4010C1[0x30];",

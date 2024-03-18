@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Integer Overflow",
+    "vulnerability_type": [
+        "Integer-Overflow"
+    ],
     "vulnerable_function": [
         "xmlMallocLoc",
         "xmlMallocAtomicLoc",

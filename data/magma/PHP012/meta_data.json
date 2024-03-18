@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Lack of Check, Out of Bound",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": [
         "php_stream_url_wrap_http_ex"
     ],

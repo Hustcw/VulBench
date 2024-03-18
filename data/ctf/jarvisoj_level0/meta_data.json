@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "vulnerable_function",
     "root_cause": "In the vulnerable_function, read can at most read 0x200 bytes. When reading more than 128 bytes, it will cause a buffer overflow vulnerability.",
     "global_variables_ida": "",

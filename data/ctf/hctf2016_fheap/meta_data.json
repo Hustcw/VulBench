@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerability_type": [
+        "Use-After-Free"
+    ],
     "vulnerable_function": "delete",
     "root_cause": "In the delete function, when freeing list[v0], only list[v0].used is cleared, but when avoiding multiple freeing, it checks if list[v0].content is empty. The mismatch between the marked and checked object leads to potential Double Free or Use After Free issues.",
     "global_variables_ida": "",

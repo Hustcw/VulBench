@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Format String Vulnerability",
+    "vulnerability_type": [
+        "Format-String-Vulnerability"
+    ],
     "vulnerable_function": "sub_8048786",
     "root_cause": "In the sub_8048786 function, the printf(buf); statement directly passes the user-controlled buf variable as a format to the printf function, resulting in a format-string vulnerability.",
     "global_variables_ida": "char a15s[0x5];",

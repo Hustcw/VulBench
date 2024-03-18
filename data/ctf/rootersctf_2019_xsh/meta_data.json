@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Format String Vulnerability",
+    "vulnerability_type": [
+        "Format-String-Vulnerability"
+    ],
     "vulnerable_function": "run",
     "root_cause": "In the `run` function, the value of `(const char *)(a1 + 5)` is user-controlled. Passing this variable as a format argument to `printf` introduces a format string vulnerability.",
     "global_variables_ida": "_DWORD poem;\nchar byte_23B8;\nchar byte_23BA;\nchar a131mXsh0m034mS[0x26];",

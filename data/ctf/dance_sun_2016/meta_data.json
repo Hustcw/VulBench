@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Buffer-Overflow, Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "main",
     "root_cause": "In the main function, the use of fgets(s, 89, _bss_start) reads the variable 's', but the size of 's' is only 80, leading to a potential memory overflow issue.",
     "global_variables_ida": "FILE * __bss_start;\nFILE * stdout@@GLIBC_2.0;\nconst char format[19];\nconst char aO[23];",

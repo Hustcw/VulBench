@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerability_type": [
+        "Use-After-Free"
+    ],
     "vulnerable_function": "delete",
     "root_cause": "In the delete function, the ptr variable is freed, but it is not set to empty or marked, which could lead to Double Free or Use After Free vulnerabilities.",
     "global_variables_ida": "_DWORD dword_202010;\n_DWORD dword_202014;\nFILE * stderr;\nvoid * ptr;",

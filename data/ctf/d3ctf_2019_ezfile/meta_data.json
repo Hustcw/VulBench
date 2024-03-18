@@ -1,5 +1,8 @@
 {
-    "vulnerability_type": "Double Free / Use After Free, Buffer-Overflow",
+    "vulnerability_type": [
+        "Use-After-Free",
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "deleteNote",
     "root_cause": "In the deleteNote function, after freeing the memory for notes[i] using free(notes[i]); the code does not nullify notes[i] and set states[i] to 0. This omission can lead to potential Double Free or Use After Free vulnerabilities, as it does not prevent notes[i] from being freed multiple times. In encryptNode, the seed variable has a size of only 80, but one can read up to 112 bytes through getContent(seed, size), causing an overflow.",
     "global_variables_ida": "FILE * stdout@@GLIBC_2.2.5;\nFILE * stdin@@GLIBC_2.2.5;\nchar * notes[15];\nint fd;\nchar * key;\nint re_entry;\nint states[15];\nchar name[144];\nchar a90s[0x5];",

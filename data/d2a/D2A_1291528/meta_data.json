@@ -1,4 +1,6 @@
 {
-    "vulnerability_type": "Interger Overflow",
+    "vulnerability_type": [
+        "Integer-Overflow"
+    ],
     "vulnerable": true
 }

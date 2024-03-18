@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Buffer-Overflow, Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "overwrite,main",
     "root_cause": "In the `overwrite` function, the `memcpy` function is used to copy the content of `s` into `dest`. However, the size of `s` can be up to 256 bytes, while the size of `dest` is only 140 bytes. This causes a memory overflow vulnerability when the `overwrite(v1, s)` function is called in the `main` function.",
     "global_variables_ida": "char * src;\n_DWORD dword_8049FB4;\n_DWORD dword_8049FB8;\nshort a0;\nshort a1;\nshort a2;\nshort a3;",

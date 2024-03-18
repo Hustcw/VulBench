@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Buffer-Overflow, Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "calc_md5,read_str",
     "root_cause": "In the calc_md5 function, the strlen(s) function is used to calculate the length of the 's' variable, but there is no check to ensure that the obtained length is within the struc->data range, which may cause an address leak due to being connected to struc->salt_ptr. In the read_str function, the v3 = read(0, &s[i], 0x1F4u); statement is used to perform read operations, but there is no check to see if the remaining amount that can be read is less than 0x1F4, resulting in a memory overflow issue.",
     "global_variables_ida": "char a02x[0x5];",

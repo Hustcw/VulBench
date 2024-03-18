@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "sub_B0E",
     "root_cause": "In the sub_B0E function, the size of notes[i].name is 16, but it allows reading of up to 0x15 bytes of data, which can lead to a buffer overflow vulnerability.",
     "global_variables_ida": "FILE * stderr;\n_DWORD dword_20204C;\n_DWORD dword_202050;\nchar jpt_FB8[0x18];",

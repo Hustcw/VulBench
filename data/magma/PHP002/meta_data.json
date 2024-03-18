@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Integer Overflow",
+    "vulnerability_type": [
+        "Integer-Overflow"
+    ],
     "vulnerable_function": [
         "exif_process_IFD_in_TIFF_impl"
     ],

@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "main",
     "root_cause": "In the main function, at line 4718, a char array of size 0x800 is allocated using malloc and assigned to variable v12. This variable is then passed to the parse_line function as the nptr argument. Later, nptr is copied into v15->name, but v15 is a char array that has only been allocated 0x1000 bytes of memory. This can result in a memory overflow vulnerability.",
     "global_variables_ida": "_DWORD banner_len;\n_QWORD line.4718;\n_QWORD fp;\n_QWORD root;\nchar jpt_1050;",

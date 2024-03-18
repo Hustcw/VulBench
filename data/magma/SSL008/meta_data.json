@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "NULL-Pointer Dereference",
+    "vulnerability_type": [
+        "Null-Pointer-Dereference"
+    ],
     "vulnerable_function": [
         "tls_construct_cke_dhe",
         "tls_construct_cke_ecdhe"

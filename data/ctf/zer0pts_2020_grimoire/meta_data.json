@@ -1,5 +1,8 @@
 {
-    "vulnerability_type": "Format String Vulnerability, Out-of-bound Write",
+    "vulnerability_type": [
+        "Format-String-Vulnerability",
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "error,grimoire_edit",
     "root_cause": "In the error function, there is a format string vulnerability caused by the formatted string input in snprintf((char *)ptr, v5, \"%s%s%s\\n\", s, v7, a2). This can lead to the content following fprintf(stderr, (const char *)ptr) being overwritten and exploited. In the grimoire_edit() function, the maximum acceptable length for buf is 512, and the text array is also 512 long. When memcpy(&text[v1], buf, v0) is called and v1 is non-zero, it can result in a buffer overflow vulnerability.",
     "global_variables_ida": "FILE * stdout@@GLIBC_2.2.5;\nFILE * stdin@@GLIBC_2.2.5;\nFILE * stderr@@GLIBC_2.2.5;\nFILE * fp;\n_DWORD init;\nchar filepath[];\n_DWORD dword_202288;\nchar byte_20228C;\nchar asc_15DF[0x3];",

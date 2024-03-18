@@ -218,7 +218,7 @@ def prepare_ctf():
         gv_ida = challenge_metadata['global_variables_ida']
         full_ida_decompile_code = gv_ida + '\n'
         exists_vul_type = [x.strip()
-                           for x in challenge_metadata['vulnerability_type'].split(',')]
+                           for x in challenge_metadata['vulnerability_type']]
         assert exists_vul_type, f'No vulnerability type for {identifier}'
         if (ctf_challenge / 'reversed_functions').exists():
             for reversed_function in (ctf_challenge / 'reversed_functions').iterdir():
@@ -308,7 +308,7 @@ def prepare_magma():
             (magma_challenge / 'meta_data.json').read_text())
         exists_vul_type = [
             x.strip()
-            for x in magma_metadata['vulnerability_type'].split(',')
+            for x in magma_metadata['vulnerability_type']
         ]
 
         has_seperate_functions = False
@@ -503,7 +503,7 @@ def prepare_suvery(dataset_name):
         }
         if suvery_metadata['vulnerability_type']:
             vul_type = [x.strip()
-                        for x in suvery_metadata['vulnerability_type'].split(',')]
+                        for x in suvery_metadata['vulnerability_type']]
             queries.append({
                 **metadata,
                 'type': vul_type if suvery_metadata['vulnerable'] else [],

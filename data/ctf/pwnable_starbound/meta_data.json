@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Read",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "main",
     "root_cause": "In the main function, v3 is a user-input value used as an array index without prior size checking, which results in a vulnerability of out-of-bounds array access.",
     "global_variables_ida": "char * jetpack;\nFILE * stdin@@GLIBC_2.0;\n_DWORD me;\n_DWORD dword_8057F84;\n_DWORD dword_8057F88;\n_DWORD dword_8057F8C;\n_DWORD dword_8057F90;\n_DWORD dword_8057F94;\nchar byte_8057F98;\nint fd;\nchar * cp;\n_DWORD dword_80580CC;\n_DWORD dword_8058150;\n_DWORD dword_8058154;\n_DWORD dword_8058158;\n_DWORD dword_805815C;\n_DWORD dword_8058160;\n_DWORD dword_8058164;\n_DWORD dword_8058168;\n_DWORD dword_805816C;\n_DWORD dword_8058170;\n_DWORD dword_805817C;\nchar asc_804A792[0x3];\nchar a02x[0x5];\nconst char asc_804EB85[2];",

@@ -1,4 +1,6 @@
 {
-    "vulnerability_type": "Null Pointer Dereference",
+    "vulnerability_type": [
+        "Null-Pointer-Dereference"
+    ],
     "vulnerable": true
 }

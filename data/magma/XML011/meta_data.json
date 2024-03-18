@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Heap Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": [
         "xmlStrncat",
         "xmlStrncatNew"

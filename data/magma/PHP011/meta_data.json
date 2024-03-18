@@ -1,5 +1,8 @@
 {
-    "vulnerability_type": "Integer Overflow, Lack of Check, Out of Bound",
+    "vulnerability_type": [
+        "Integer-Overflow",
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": [
         "exif_offset_info_try_get"
     ],

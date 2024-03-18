@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerability_type": [
+        "Use-After-Free"
+    ],
     "vulnerable_function": "delete",
     "root_cause": "In the delete function, the memory pointed to by note[v0] is freed, but it is not set to empty or marked, which leads to a potential Double Free or Use After Free vulnerability.",
     "global_variables_ida": "_DWORD note_size;\nchar * note;\n_DWORD asc_401277;",

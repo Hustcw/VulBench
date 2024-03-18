@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerability_type": [
+        "Use-After-Free"
+    ],
     "vulnerable_function": "free_mem",
     "root_cause": "In the free_mem function, after freeing the memory for qword_4060[v1], it is not zeroed out or marked, leading to potential Double Free or Use After Free issues.",
     "global_variables_ida": "FILE * stderr;",

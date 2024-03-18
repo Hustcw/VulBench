@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "get_entry",
     "root_cause": "In the get_entry function, if v4 is 0x80000000, abs32(v4) remains 0x80000000, v5 becomes 0x80000000%2 (-2), which causes an out-of-bounds access vulnerability when accessing qword_202140[v5].",
     "global_variables_ida": "const char byte_1446[2];",

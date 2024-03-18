@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "main",
     "root_cause": "In the main function, when calling __isoc99_scanf(\"%s\", name); the length of the input for the 'name' variable is not limited, allowing it to read more bytes than the actual size of 'name'. This can lead to a memory overflow.",
     "global_variables_ida": "char filename[64];\nchar magicbuf[416];\nFILE * fp;\nchar a63s[0x5];\nchar jpt_8048A9F[0x18];",

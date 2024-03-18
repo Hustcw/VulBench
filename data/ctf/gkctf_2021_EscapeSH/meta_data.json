@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Buffer-Overflow",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "get_input_process",
     "root_cause": "In the `get_input_process()` function, memory allocation for `v8` is based on the length of the string `v4`. However, when copying the content of `v4` into `v8` using `strcpy(v8, v4)`, not only is the content of `v4` copied, but a NULL terminator is also added at the end, exceeding the allocated memory size. This leads to a memory overflow issue.",
     "global_variables_ida": "char path[768];\nchar a1331mSSM34mSM[0x20];\nchar a1331mSSM34mSM_0[0x1F];\nconst char aGetcwd_0[7];\nchar a132mSM[0xE];\nchar a134mSM[0xE];\nchar a2j[0x5];\n_DWORD asc_2BD8;",

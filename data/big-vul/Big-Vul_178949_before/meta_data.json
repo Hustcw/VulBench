@@ -1,4 +1,6 @@
 {
-    "vulnerability_type": "Resource management error, like Excessive Iteration",
+    "vulnerability_type": [
+        "Resource-Exhaustion-Error"
+    ],
     "vulnerable": true
 }

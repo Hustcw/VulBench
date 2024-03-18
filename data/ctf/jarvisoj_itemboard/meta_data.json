@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerability_type": [
+        "Use-After-Free"
+    ],
     "vulnerable_function": "remove_item",
     "root_cause": "In the `remove_item` function, when `item_array[index]` is freed by calling the `dummy` function, there is no `NULL` assignment for `item_array[index]`. This can lead to a Double Free or Use After Free vulnerability.",
     "global_variables_ida": "int items_cnt;\nItem ** item_array;\nchar jpt_FB3[0x18];",

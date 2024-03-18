@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Type Confusion",
+    "vulnerability_type": [
+        "Type-Confusion"
+    ],
     "vulnerable_function": [
         "xmlValidateOneNamespace"
     ],

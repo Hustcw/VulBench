@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Buffer-Overflow, Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "sub_400C30",
     "root_cause": "In the sub_400C30 function, it reads 1024 bytes into the v23 variable using sub_400B38(v23, 1024); however, the size of the v23 variable is only 28, causing a memory overflow vulnerability.",
     "global_variables_ida": "char a0lfSec0lfUsec[0x19];\nshort word_401364;\nchar byte_401366;\n_DWORD dword_40136C;\n_DWORD dword_401374;\nchar byte_401378;\n_DWORD dword_40137C;\nchar byte_401380;\n_DWORD dword_401384;\nshort word_401388;\n_DWORD dword_40138C;\nchar byte_401390;\n_DWORD dword_401394;\n_DWORD dword_40139C;\nshort word_4013A0;\n_DWORD dword_4013A4;\nshort word_4013A8;\n_QWORD dbl_4013D8;\n_QWORD dbl_4013E0;\n_QWORD dbl_4013E8;",

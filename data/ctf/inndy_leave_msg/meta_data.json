@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "main",
     "root_cause": "In the main function, the code uses `v3 = atoi(nptr);` to convert a string to a number. However, it only uses `if ( v3 > 64 || nptr[0] == 45 )` to avoid negative inputs. By adding a space before the input nptr, the check for `nptr[0] == 45` can be bypassed, allowing for a negative value of v3 after the atoi conversion. This can then lead to out-of-bounds write when `dword_804A060[v3] = (int)strdup(buf);` is executed.",
     "global_variables_ida": "_DWORD dword_804A04C;\n_DWORD dword_804A060;",

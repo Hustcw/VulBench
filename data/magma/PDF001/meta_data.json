@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Divide-by-Zero, Math Error",
+    "vulnerability_type": [
+        "Divede-by-Zero"
+    ],
     "vulnerable_function": [
         "SplashOutputDev::tilingPatternFill"
     ],

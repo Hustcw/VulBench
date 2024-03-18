@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Read",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "main",
     "root_cause": "In the main function, when inputting n, it is possible to enter a negative number, which can lead to out-of-bounds memory access.",
     "global_variables_ida": "FILE * stdin@@GLIBC_2.0;",

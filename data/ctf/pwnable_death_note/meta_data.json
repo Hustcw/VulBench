@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "add_note",
     "root_cause": "In the add_note function, when inputting the index v1, only checks if it does not exceed 10, but does not check if it can input negative numbers. This leads to a problem of out-of-bounds write when using v1 for indexing later, as in note[v1] = strdup(s);.",
     "global_variables_ida": "FILE * __bss_start;\nFILE * stdout@@GLIBC_2.0;\nvoid * note;",

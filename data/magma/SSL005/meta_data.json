@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Memory Leak",
+    "vulnerability_type": [
+        "Memory-Leak"
+    ],
     "vulnerable_function": [
         "tls_parse_ctos_status_request"
     ],

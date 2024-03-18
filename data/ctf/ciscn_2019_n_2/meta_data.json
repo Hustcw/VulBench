@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerability_type": [
+        "Use-After-Free"
+    ],
     "vulnerable_function": "deleteUser",
     "root_cause": "In the deleteUser function, after freeing the memory of chunkList[Num].info, only chunkList[Num].used is set to 0, without clearing chunkList[Num].info. This leads to a potential for double-freeing or using-after-freeing the memory, causing a vulnerability.",
     "global_variables_ida": "FILE * stdout@@GLIBC_2.2.5;\nFILE * stdin@@GLIBC_2.2.5;\nFILE * stderr@@GLIBC_2.2.5;",

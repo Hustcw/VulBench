@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Lack of Check",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": [
         "rsa_item_verify"
     ],

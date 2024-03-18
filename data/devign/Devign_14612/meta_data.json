@@ -1,4 +1,6 @@
 {
-    "vulnerability_type": "Division by Zero",
+    "vulnerability_type": [
+        "Divede-by-Zero"
+    ],
     "vulnerable": true
 }

@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Buffer-Overflow, Out-of-bound Read, Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "",
     "root_cause": "In the parse_expr function, there is no check for the remaining operands in the a2 variable to ensure they do not exceed the number of operands required for arithmetic operations performed within the eval function. This can lead to overflow or out-of-bounds read/write issues.",
     "global_variables_ida": "",

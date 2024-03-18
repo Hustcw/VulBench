@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Read",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "change_item",
     "root_cause": "In the change_item function, when reading the name, the read length is inputted by the user without checking the size of the input. This allows the user to read values beyond the memory size of the name variable, resulting in a memory overflow issue.",
     "global_variables_ida": "FILE * stdout@@GLIBC_2.2.5;\nFILE * stdin@@GLIBC_2.2.5;\n_DWORD num;\nconst char byte_4010AC[4];\nchar jpt_400E7D[0x30];",

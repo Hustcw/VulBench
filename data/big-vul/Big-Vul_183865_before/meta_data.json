@@ -1,4 +1,6 @@
 {
-    "vulnerability_type": "Improper-Access-Control",
+    "vulnerability_type": [
+        "Improper-Access-Control"
+    ],
     "vulnerable": true
 }

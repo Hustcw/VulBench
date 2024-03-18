@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Lack of Check",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": [
         "dtls1_preprocess_fragment"
     ],

@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Read, Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": [
         "horAcc8"
     ],

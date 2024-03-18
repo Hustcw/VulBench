@@ -1,4 +1,6 @@
 {
-    "vulnerability_type": "Double free / Use after free",
+    "vulnerability_type": [
+        "Use-After-Free"
+    ],
     "vulnerable": true
 }

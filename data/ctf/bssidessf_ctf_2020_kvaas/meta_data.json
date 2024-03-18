@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerability_type": [
+        "Use-After-Free"
+    ],
     "vulnerable_function": "",
     "root_cause": "In the cmd_copy function, the use of memcpy(dest, src, node_size[src->node_type]); directly copies the pointers within the struct without copying the memory contents, resulting in multiple pointers pointing to the same memory address and potential Double Free or Use After Free vulnerabilities.",
     "global_variables_ida": "",

@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Read, Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "main",
     "root_cause": "There is no check for the range of the byte_6024C0 variable, which may lead to out-of-bounds read/write operations on byte_6020C0[byte_6024C0].",
     "global_variables_ida": "FILE * stderr;\nchar byte_6024C0;\nchar byte_6024C1;\nchar byte_6028E0;\nchar byte_6028E1;",

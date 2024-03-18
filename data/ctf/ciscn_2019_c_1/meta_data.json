@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "encrypt",
     "root_cause": "In the `encrypt` function, there is a `gets` input read operation without controlling the input size. If the input exceeds 48 bytes, it will cause a buffer overflow vulnerability.",
     "global_variables_ida": "_DWORD x;",

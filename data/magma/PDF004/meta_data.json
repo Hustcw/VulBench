@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Read",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": [
         "SplashXPathScanner::clipAALine"
     ],

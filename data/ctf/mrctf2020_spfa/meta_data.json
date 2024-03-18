@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "SPFA",
     "root_cause": "In the SPFA function, while performing relaxation operations, the check being performed is v3 > 1000. However, this can lead to accessing qu[1000], causing a problem of out-of-bounds write.",
     "global_variables_ida": "FILE * stdout@@GLIBC_2.2.5;\nFILE * stdin@@GLIBC_2.2.5;\n_DWORD w;\n_DWORD qu;\n_QWORD flag;",

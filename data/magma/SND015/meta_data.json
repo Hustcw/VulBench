@@ -1,5 +1,8 @@
 {
-    "vulnerability_type": "Integer Overflow, Lack of Check, Out-of-bound Read",
+    "vulnerability_type": [
+        "Integer-Overflow",
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": [
         "i2alaw_array"
     ],

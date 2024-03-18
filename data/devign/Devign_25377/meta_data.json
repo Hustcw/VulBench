@@ -1,4 +1,6 @@
 {
-    "vulnerability_type": "Race Condition",
+    "vulnerability_type": [
+        "Race-Condition"
+    ],
     "vulnerable": true
 }

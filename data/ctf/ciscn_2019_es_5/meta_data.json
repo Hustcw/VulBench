@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Double Free / Use After Free",
+    "vulnerability_type": [
+        "Use-After-Free"
+    ],
     "vulnerable_function": "Edit",
     "root_cause": "In the Edit function, when reallocating memory, the size of the allocated memory (v1->size) can be set to 0. When realloc is passed a size of 0, it is equivalent to calling free, which can lead to Double Free or Use After Free issues.",
     "global_variables_ida": "char jpt_106B[0x18];",

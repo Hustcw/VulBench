@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Math Error",
+    "vulnerability_type": [
+        "Math-Error"
+    ],
     "vulnerable_function": [
         "BN_GF2m_mod_inv_vartime"
     ],

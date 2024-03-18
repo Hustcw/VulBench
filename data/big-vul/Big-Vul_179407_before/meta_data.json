@@ -1,4 +1,6 @@
 {
-    "vulnerability_type": "Resource-Exhaustion-Error",
+    "vulnerability_type": [
+        "Resource-Exhaustion-Error"
+    ],
     "vulnerable": true
 }

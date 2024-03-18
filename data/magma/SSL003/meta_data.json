@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "DoS",
+    "vulnerability_type": [
+        "Resource-Exhaustion-Error"
+    ],
     "vulnerable_function": [
         "asn1_d2i_read_bio"
     ],

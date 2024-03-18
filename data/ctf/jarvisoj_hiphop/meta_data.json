@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "sub_401942,use_skill_impl",
     "root_cause": "In the `sub_401942` function, `scanf` is used to read from the `v0` parameter without limiting the read length, which leads to a memory overflow vulnerability. When calling the `use_skill_impl` function, a new thread is used for execution, but a global variable `data` is used, which can be modified by other threads as well, such as the `skill` variable. This causes a race condition vulnerability.",
     "global_variables_ida": "_QWORD qword_603100;\nchar s2[];\nchar aIceball[];\nchar aMagicball[];\nchar aLightning[];\nchar aHellfire[];\nchar aIcesword[];\nchar aMagicsword[];\nchar aHollylight[];\nchar byte_603380;\nchar byte_6033F0;\nchar jpt_400E8C[0x28];\nchar jpt_4010AA[0x28];\nchar a1HowToPlay[0xF];\nchar a2UseSkill[0xE];\nchar a3ChangeSkill[0x10];\nchar a4RemoveSkill[0x10];\nchar a5RecieveSugges[0x16];\n_QWORD a6Exit;\nchar jpt_401C32[0x30];",

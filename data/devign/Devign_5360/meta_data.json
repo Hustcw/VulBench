@@ -1,4 +1,6 @@
 {
-    "vulnerability_type": "Out of bound read",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable": true
 }

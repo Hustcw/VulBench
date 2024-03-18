@@ -1,4 +1,6 @@
 {
-    "vulnerability_type": "Math Error, Numeric Errors, improper calculation or conversion of numbers",
+    "vulnerability_type": [
+        "Math-Error"
+    ],
     "vulnerable": true
 }

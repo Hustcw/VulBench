@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Buffer-Overflow, Out-of-bound Write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "update",
     "root_cause": "In the update function, the value of variable v0 is read without checking for negative values, leading to a potential overflow issue. Additionally, after executing the statement nbytes_4 = read(0, notes[v0], nbytes);, the code attempts to set notes[v0][nbytes_4] to NULL, which results in a buffer overflow due to an index exceeding the memory size.",
     "global_variables_ida": "FILE * stderr;\nchar jpt_F14[0x18];",

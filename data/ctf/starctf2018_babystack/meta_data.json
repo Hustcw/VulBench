@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Out-of-bound Read",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable_function": "main",
     "root_cause": "In the main function, the size of the variable 's' is 4104 bytes. However, the function 'read_str' writes the contents of variable 'v2' into 's', and although 'v2' has a check, it only restricts its size to be less than 0x10000. This can still cause a buffer overflow by reading more than the allocated size for 's'.",
     "global_variables_ida": "const char byte_400C96[2];",

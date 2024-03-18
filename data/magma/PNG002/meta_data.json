@@ -1,5 +1,7 @@
 {
-    "vulnerability_type": "Double Free",
+    "vulnerability_type": [
+        "Use-After-Free"
+    ],
     "vulnerable_function": [
         "png_safe_execute"
     ],

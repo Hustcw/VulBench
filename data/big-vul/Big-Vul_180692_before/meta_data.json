@@ -1,4 +1,6 @@
 {
-    "vulnerability_type": "Memory Leak",
+    "vulnerability_type": [
+        "Memory-Leak"
+    ],
     "vulnerable": true
 }

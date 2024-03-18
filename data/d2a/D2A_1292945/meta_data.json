@@ -1,4 +1,6 @@
 {
-    "vulnerability_type": "Buffer Overflow, such as stack overflow, heap overflow, out of bound read or write",
+    "vulnerability_type": [
+        "Buffer-Overflow"
+    ],
     "vulnerable": true
 }
