@@ -1,5 +1,8 @@
 import requests
 import sqlite3
+import os
+
+api_key = os.environ.get('OPENAI_API_KEY')
 
 
 def make_request(api_endpoint, messages, model):
@@ -10,8 +13,16 @@ def make_request(api_endpoint, messages, model):
         'stream': False,
     }
 
+    headers = {
+        "Content-Type": "application/json",
+        'Authorization': "Bearer " + (api_key or '')
+    }
+
     resp = requests.post(
-        f'{api_endpoint}/v1/chat/completions', json=parameters)
+        f'{api_endpoint}/v1/chat/completions',
+        headers=headers,
+        json=parameters,
+    )
 
     return resp.json()
 
