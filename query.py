@@ -25,7 +25,6 @@ parser = argparse.ArgumentParser()
 parser.add_argument('datasets', type=str, nargs='+',
                     choices=config['dataset'].keys())
 parser.add_argument('--model', type=str, default='')
-parser.add_argument('--model_max_tokens', type=int, default=4096)
 parser.add_argument('--concurrency', type=int, default=5)
 parser.add_argument('--trials', type=int, default=1)
 parser.add_argument('--db_path', type=str)
@@ -74,12 +73,12 @@ conducted_queries = set([
 # %%
 
 exceed_length_message_pattern = re.compile(
-    r"This model's maximum context length is (\d+) tokens. However, you requested (\d+) tokens")
+    r"This model's maximum context length is (\d+) tokens. However, your messages resulted in (\d+) tokens. Please reduce the length of the messages."
+)
 
 
 def do_request(metadata, model, messages):
     resp = ''
-    max_new_tokens = args.model_max_tokens
     try:
         while True:
             resp = make_request(args.api_endpoint, messages, model)
@@ -89,7 +88,7 @@ def do_request(metadata, model, messages):
                 if pm:
                     model_max_length = int(pm.group(1))
                     requested_length = int(pm.group(2))
-                    max_new_tokens -= requested_length - model_max_length
+                    max_new_tokens = requested_length - model_max_length
                     if max_new_tokens <= 0:
                         return None
                 else:
@@ -101,7 +100,6 @@ def do_request(metadata, model, messages):
         content = resp['choices'][0]['message']['content']
         return (metadata, finish_reason, content)
     except Exception as e:
-        # print(messages)
         print(f'make_request err: {e}, resp: {resp}')
         return None
 

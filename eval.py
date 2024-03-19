@@ -163,48 +163,36 @@ final_results = {
     'cm': []
 }
 
-dataset_type_map = {
-    'ctf': ['ctf_ida', 'ctf_reversed'],
-    'magma': ['magma_bin', 'magma_src'],
-    'big-vul': ['big-vul'],
-    'd2a': ['d2a'],
-    'devign': ['devign']
-}
-
 os.makedirs('./debug/', exist_ok=True)
 
-for model, model_data in all_data.groupby('model'):
-    for query_type in ['binary_classification_single_function', 'multiple_classification_single_function', 'multiple_classification_all_function']:
-        for dataset_name in ['big-vul', 'ctf', 'd2a', 'devign', 'magma']:
-            for dataset_type in dataset_type_map[dataset_name]:
-                for prompt_type in ['2_shot', '5_shot']:
-                    final_results['model'].append(model)
-                    final_results['query_type'].append(query_type)
-                    if query_type == 'binary_classification_single_function':
-                        result = binary_classfication_eval(
-                            model_data, dataset_name, prompt_type, dataset_type, query_type)
-                    else:
-                        result = multi_classification_eval(model_data, dataset_name, prompt_type, dataset_type,
-                                                           query_type, filename=f"./debug/{model}-{dataset_type}-{prompt_type}-{query_type}.log")
-                        if model in ['falcon-40b-instruct', 'vicuna-33b-v1.3'] and prompt_type == '5_shot':
-                            result = {
-                                'acc': 0,
-                                'f1': 0,
-                                'precision': 0,
-                                'recall': 0,
-                                'cm': [[]]
-                            }
-                    final_results['dataset_name'].append(dataset_name)
-                    final_results['dataset_type'].append(dataset_type)
-                    final_results['prompt_type'].append(prompt_type)
-                    final_results['acc'].append(result['acc'])
-                    final_results['f1'].append(result['f1'])
-                    final_results['precision'].append(result['precision'])
-                    final_results['recall'].append(result['recall'])
-                    if query_type != 'binary_classification_single_function':
-                        final_results['cm'].append(json.dumps(result['cm']))
-                    else:
-                        final_results['cm'].append('')
+for (model, query_type, dataset_name, dataset_type, prompt_type), model_data in all_data.groupby(['model', 'query_type', 'dataset', 'dataset_type', 'prompt_type']):
+    final_results['model'].append(model)
+    final_results['query_type'].append(query_type)
+    if query_type == 'binary_classification_single_function':
+        result = binary_classfication_eval(
+            model_data, dataset_name, prompt_type, dataset_type, query_type)
+    else:
+        result = multi_classification_eval(model_data, dataset_name, prompt_type, dataset_type,
+                                           query_type, filename=f"./debug/{model}-{dataset_type}-{prompt_type}-{query_type}.log")
+        if model in ['falcon-40b-instruct', 'vicuna-33b-v1.3'] and prompt_type == '5_shot':
+            result = {
+                'acc': 0,
+                'f1': 0,
+                'precision': 0,
+                'recall': 0,
+                'cm': [[]]
+            }
+    final_results['dataset_name'].append(dataset_name)
+    final_results['dataset_type'].append(dataset_type)
+    final_results['prompt_type'].append(prompt_type)
+    final_results['acc'].append(result['acc'])
+    final_results['f1'].append(result['f1'])
+    final_results['precision'].append(result['precision'])
+    final_results['recall'].append(result['recall'])
+    if query_type != 'binary_classification_single_function':
+        final_results['cm'].append(json.dumps(result['cm']))
+    else:
+        final_results['cm'].append('')
 
 
 new_df = pd.DataFrame(final_results)
