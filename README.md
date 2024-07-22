@@ -31,7 +31,7 @@ It will generate a `all_result.csv` file, containing the different metrics for e
 
 # Extra Data
 
-The compiled binaries (including fixed and unfixed, compiled with `-g -fno-inline-functions -O2` to better represent the original individual vulnerable functions) is available at [VulBench](https://cloud.vul337.team:9443/s/fKcarsnKocQqnkx).
+The compiled binaries (including fixed and unfixed, compiled with `-g -fno-inline-functions -O2` to better represent the original individual vulnerable functions) and source code (with `MAGMA_ENABLE_FIXES` and `MAGMA_ENABLE_CANARIES` left untouched) are available at [VulBench](https://cloud.vul337.team:9443/s/fKcarsnKocQqnkx).
 
 # News
 - [2023/12/18] We release the raw datasets of VulBench.
