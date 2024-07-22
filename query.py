@@ -523,7 +523,6 @@ def prepare_suvery(dataset_name):
 
 
 # %%
-# %%
 prepare_function = {
     'ctf': prepare_ctf,
     'magma': prepare_magma,

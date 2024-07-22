@@ -29,6 +29,10 @@ python3 eval.py ./query_result.db [./query_result_1.db, ./query_result_2.db, ...
 
 It will generate a `all_result.csv` file, containing the different metrics for each dataset with different prompt type.
 
+# Extra Data
+
+The compiled binaries (including fixed and unfixed, compiled with `-g -fno-inline-functions -O2` to better represent the original individual vulnerable functions) is available at [VulBench](https://cloud.vul337.team:9443/s/fKcarsnKocQqnkx).
+
 # News
 - [2023/12/18] We release the raw datasets of VulBench.
 

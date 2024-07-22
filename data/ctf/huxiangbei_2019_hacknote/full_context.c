@@ -5,6 +5,11 @@ struct List
   __int64 size[16];
 };
 
+_BOOL8 __fastcall check_idx(unsigned int a1, char **a2)
+{
+  return a1 <= 0xF && a2[a1] != 0LL;
+}
+
 void __fastcall __noreturn main(int a1, char **a2, char **a3)
 {
   int v3;

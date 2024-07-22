@@ -1,9 +1,30 @@
-
 struct Note
 {
   int size[16];
   char *content[16];
 };
+
+_BOOL4 __cdecl check(unsigned int a1)
+{
+  return a1 < 0x10 && list.content[a1] != 0;
+}
+
+int __cdecl read_str(char *a1, int a2)
+{
+  int i; // [esp+Ch] [ebp-Ch]
+
+  for ( i = 0; i < a2; ++i )
+  {
+    if ( read(0, (int)&a1[i], 1) != 1 )
+      exit(1);
+    if ( a1[i] == 10 )
+    {
+      a1[i] = 0;
+      return i;
+    }
+  }
+  return i;
+}
 
 int readint()
 {
