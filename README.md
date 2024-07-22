@@ -1,5 +1,5 @@
 # VulBench
-This repository contains materials for the paper "How Far Have We Gone in Vulnerability Detection Using Large Language Model". (Benchmarking scripts and well-organized datasets is coming soon)
+This repository contains materials for the paper "How Far Have We Gone in Vulnerability Detection Using Large Language Model".
 
 # Usage
 
