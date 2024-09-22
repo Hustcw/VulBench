@@ -11,6 +11,7 @@ def make_request(api_endpoint, messages, model):
         'temperature': 0.6,
         'model': model,
         'stream': False,
+        'max_tokens': 4096,
     }
 
     headers = {

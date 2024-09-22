@@ -1,4 +1,5 @@
 # VulBench
+
 This repository contains materials for the paper "How Far Have We Gone in Vulnerability Detection Using Large Language Model".
 
 # Usage
@@ -35,6 +36,7 @@ The compiled binaries (including fixed and unfixed, compiled with `-g -fno-inlin
 
 # News
 - [2023/12/18] We release the raw datasets of VulBench.
+- [2024/3/19] We release the code for querying the model and evaluating the results.
 
 # Bibtex
 If this work is helpful for your research, please consider citing the following BibTeX entry.
